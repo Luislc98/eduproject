@@ -28,6 +28,54 @@
       <a href="team.php" class="navbar-item">
         Our Team
       </a>
+      
+      <a href="browse.php" class="navbar-item">
+        Browse Courses
+      </a>
+
+
+      <div class="navbar-item has-dropdown is-hoverable">
+    <a class="navbar-link">
+      Docs
+    </a>
+
+    <div class="navbar-dropdown">
+      <a class="navbar-item">
+        Overview
+      </a>
+      <a class="navbar-item">
+        Elements
+      </a>
+      <a class="navbar-item">
+        Components
+      </a>
+    </div>
+  </div>
+
+  <?php 
+  if ( is_user_logged_in() ) {
+
+  ?>
+  <div class="navbar-item has-dropdown is-hoverable  ">
+    <a class="navbar-link">
+      Students
+    </a>
+
+    <div class="navbar-dropdown is-info">
+      <a href='addcourse.php' class="navbar-item">
+        Add a Course
+      </a>
+      <a href= 'currentcourses.php' class="navbar-item">
+        Current Courses
+      </a>
+      <a class="navbar-item">
+        Account settings
+      </a>
+    </div>
+  </div>    
+  <?php
+  }
+  ?>
 
       
       
@@ -36,12 +84,26 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-          <a class="button is-info">
+        <?php if ( is_user_logged_in() ) {
+        // Add a logout query string parameter
+        $logout_url = htmlspecialchars( $_SERVER['PHP_SELF'] ) . '?' . http_build_query( array( 'logout' => '' ) );
+        echo '<a class="button is-info" href="' . $logout_url . '">Sign Out ' . htmlspecialchars($current_user['firstname']) . '</a> ';
+        //echo '<li > <a id="logout" href="' . $logout_url . '">Sign Out ' . htmlspecialchars($current_user['username']) . '</a> </li>';
+        
+        ?>
+
+        <?php 
+        }  else {
+        ?>
+          <a href="signup.php" class="button is-info">
             <strong>Sign up</strong>
           </a>
-          <a class="button is-light">
+          <a href="login.php" class="button is-light">
             Log in
           </a>
+        <?php
+          }
+        ?>
         </div>
       </div>
     </div>

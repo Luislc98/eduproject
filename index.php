@@ -76,7 +76,13 @@ include("includes/header.php");
 </p>
 
 
-
+<div class="buttons">
+          <a href="signup.php" class="button is-light">
+            <strong>
+               Sign up today ! </strong>
+          </a>
+          
+        </div>
 
 
 
