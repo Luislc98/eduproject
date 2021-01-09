@@ -77,28 +77,47 @@ $db = open_or_init_sqlite_db("secure/site.sqlite", "secure/init.sql");
 define('SESSION_COOKIE_DURATION', 60*45); //The duration of a user session will be  45minutes = 60 sec * 45min
 $session_messages = array();
 
+
+
+
+
+
 function log_in($username, $password) {
   global $db;
   global $current_user;
   global $session_messages;
   // check if user filled out username and password in form
-  if ( isset($password)  && isset($username) ) {
+  if ( (isset($password)  && isset($username))   ) {
     // use query to check if inputted username is in the users table
-    $sql = "SELECT * FROM users WHERE username = :inputted_user;";
+    $studentsql = "SELECT * FROM users WHERE username = :inputted_user;";
+    $teachersql = "SELECT * FROM teachers WHERE username = :inputted_user;";
     $params = array(
       ':inputted_user' => $username
     );
-    $records = exec_sql_query($db, $sql, $params)->fetchAll();
-    if ($records) {
+    
+    $studentrecords = exec_sql_query($db, $studentsql, $params)->fetchAll();
+    $teacherrecords = exec_sql_query($db, $teachersql, $params)->fetchAll();
+    if ($studentrecords || $teacherrecords) {
       // check if username is in database
       // Username is UNIQUE, so there should only be 1 record.
-      $account = $records[0];
+      $account=null;
+      if($studentrecords){
+        $account = $studentrecords[0];
+        
+      }
+      if($teacherrecords){
+        $account = $teacherrecords[0];
+        ;
+      }
+
+
 
       // Check to see if password is the hashed version of password
       if ( password_verify($password, $account['pword']) ) {
         // Generate session
         $session = session_create_id();
-
+        
+        
         // Store session ID in the sessions table
         $sql = "INSERT INTO sessions (user_id, session) VALUES (:user_id, :session);";
         $params = array(
@@ -108,7 +127,7 @@ function log_in($username, $password) {
         $result = exec_sql_query($db, $sql, $params);
         if ($result) {
           // session stored correctly
-
+          
           // Send to user.
           setcookie("session", $session, time() + SESSION_COOKIE_DURATION);
 
@@ -124,24 +143,40 @@ function log_in($username, $password) {
     } else {
       array_push($session_messages, "Invalid username or password.");
     }
-  } else {
+  } 
+  
+
+
+
+
+  else {
     array_push($session_messages, "No username or password given.");
   }
   $current_user = NULL;
   return NULL;
 }
 
+
+
+
+
 function find_user($user_id) {
   global $db;
   // query to see if inputted user id is in users table
-  $sql = "SELECT * FROM users WHERE id = :user_id;";
+  $usersql = "SELECT * FROM users WHERE id = :user_id;";
+  $teachersql = "SELECT * FROM teachers WHERE id = :user_id;";
   $params = array(
     ':user_id' => $user_id
   );
-  $records = exec_sql_query($db, $sql, $params)->fetchAll();
-  if ($records) {
+  $userrecords = exec_sql_query($db, $usersql, $params)->fetchAll();
+  $teacherrecords = exec_sql_query($db, $teachersql, $params)->fetchAll();
+  if ($userrecords) {
     // because the user field  in a users table is unique, records should have only one entry
-    return $records[0];
+    return $userrecords[0];
+  }
+  if ($teacherrecords) {
+    // because the user field  in a users table is unique, records should have only one entry
+    return $teacherrecords[0];
   }
   return NULL;
 }
@@ -164,11 +199,13 @@ function find_session($session) {
   return NULL;
 }
 
+
+
 function session_login() {
   global $db;
   global $current_user;
 
-  if (isset($_COOKIE["session"])) {
+  if (isset($_COOKIE["session"])) {             
     $session = $_COOKIE["session"];
 
     $session_record = find_session($session);
@@ -194,6 +231,44 @@ function is_user_logged_in() {
   return ($current_user != NULL);
 }
 
+function is_teacher_logged_in() {
+  global $current_user;
+  global $db;
+  $sql = "SELECT * FROM teachers WHERE id = :user_id;";
+  $params = array(
+    ':user_id' => $current_user['id']
+  );
+  $records = exec_sql_query($db, $sql, $params)->fetchAll();
+
+  // check if a user is a teacher
+  if($records){
+    return True;
+
+  }
+  return False;
+  
+}
+
+function is_student_logged_in() {
+  global $current_user;
+  global $db;
+  $sql = "SELECT * FROM users WHERE id = :user_id;";
+  $params = array(
+    ':user_id' => $current_user['id']
+  );
+  $records = exec_sql_query($db, $sql, $params)->fetchAll();
+  array_push($session_messages, "student function failed.");
+  // check if a user is a teacher
+  if($records){
+    return True;
+    array_push($session_messages, "student function passed.");
+  }
+  return False;
+  
+}
+
+
+
 function log_out() {
   global $current_user;
 
@@ -205,20 +280,35 @@ function log_out() {
 
 
 // Check if we should login the user
-if ( isset($_POST['login']) && isset($_POST['loginusername']) && isset($_POST['loginpassword']) ) {
-  $username = trim( $_POST['loginusername'] );
-  $password = trim( $_POST['loginpassword'] );
+if ( isset($_POST['student_login']) && isset($_POST['student_loginusername']) && isset($_POST['student_loginpassword']) ) {
+  $student_username = trim( $_POST['student_loginusername'] );
+  $student_password = trim( $_POST['student_loginpassword'] );
 
-  log_in($username, $password);
-} else {
+  log_in($student_username, $student_password);
+} 
+//else {
+  // check if logged in already via cookie
+//  session_login();
+//}
+
+elseif ( isset($_POST['teacher_login']) && isset($_POST['teacher_login_username']) && isset($_POST['teacher_login_password']) ) {
+  $teacher_username = trim( $_POST['teacher_login_username'] );
+  $teacher_password = trim( $_POST['teacher_login_password'] );
+
+  log_in($teacher_username, $teacher_password);
+}
+ else {
   // check if logged in already via cookie
   session_login();
 }
+
+
 
 // Check if logout is needed
 if ( isset($current_user) && ( isset($_GET['logout']) || isset($_POST['logout']) ) ) {
   log_out();
 }
+
 
 
 

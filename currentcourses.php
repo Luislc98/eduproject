@@ -5,7 +5,7 @@ include("includes/init.php");
 // An array to deliver messages to the user.
 $messages = array();
 
-if(!is_user_logged_in())
+if(!is_student_logged_in())
 {
    header("Location: index.php"); 
 
@@ -15,6 +15,7 @@ if(!is_user_logged_in())
 function show_courses($record) {
     ?>
      <tr>
+    <th>  <a href="student<?php echo $record["link"]; ?>.php" class="button is-light" >Access    </a>   </th>
     <form method="post" action="<?php echo htmlspecialchars( $_SERVER['PHP_SELF'] ); ?>">
     <input type='hidden' name='courseid'  value="<?php echo htmlspecialchars($record["id"]); ?>" />
     <th>
@@ -100,7 +101,8 @@ include("includes/header.php");
 echo '<p class="has-text-centered mx-5 px-5" > Hi ' . htmlspecialchars($current_user['firstname']) .  ', below are the current courses that you are taking </p> ';
 
 // get the course id 
-$sql = "SELECT coursecatalog.id, coursecatalog.coursename, coursecatalog.category , coursecatalog.description FROM users 
+$sql = "SELECT coursecatalog.id, coursecatalog.coursename, coursecatalog.category , coursecatalog.description, coursecatalog.link
+ FROM users 
 JOIN studentenrollment ON users.id = studentenrollment.studentid 
 JOIN coursecatalog ON coursecatalog.id = studentenrollment.courseid WHERE users.id = :curr_user ORDER BY coursecatalog.id ASC ";
 $params = array(
@@ -121,6 +123,7 @@ if ($result) {
     
         <table>
               <tr>
+                <th>            </th>
                 <th>            </th>
                 <th> Course ID  </th>
                 <th>Course Name </th>

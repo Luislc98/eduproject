@@ -5,7 +5,7 @@ include("includes/init.php");
 
 
 
-$login_messages = array();
+$loginmessages = array();
 
 
 
@@ -15,7 +15,7 @@ $login_messages = array();
 
 
 ?>
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 
 <head>
@@ -38,26 +38,27 @@ include("includes/header.php");
  ?>
 
 <?php
+
+
+
+
+
 foreach ($session_messages as $message) {
-  echo "<p><strong>" . htmlspecialchars($message) . "</strong></p>\n";
- }
-
-
-if ( is_student_logged_in() ) {
-
-
-
+ echo "<p><strong>" . htmlspecialchars($message) . "</strong></p>\n";
+}
+if ( is_user_logged_in() ) {
 ?>
 
 <?php
 }
 
-else
-{
+
+
+else{
 
 ?>
 
-<h1 class="subtitle has-text-centered is-size-2" > Please login to you account
+<h1 class="subtitle has-text-centered is-size-2" > Teachers: Please login to your account
 </h1>
 
 
@@ -66,14 +67,14 @@ else
           <ul>
             <li>
               <label for="username">Username:</label>
-              <input id="username" type="text" name="student_loginusername" />
+              <input id="username" type="text" name="teacher_login_username" />
             </li>
             <li>
               <label for="password">Password:</label>
-              <input id="password" type="password" name="student_loginpassword" />
+              <input id="password" type="password" name="teacher_login_password" />
             </li>
             <li>
-              <button name="student_login" type="submit">Sign In</button>
+              <button name="teacher_login" type="submit">Sign In</button>
 
             </li>
           </ul>
@@ -88,9 +89,6 @@ else
 
 
 ?>
-
-
-
 
 
 <?php include("includes/footer.php"); ?>

@@ -4,7 +4,7 @@ include("includes/init.php");
 // DO NOT REMOVE!
 $messages = array();
 
-if(!is_user_logged_in())
+if(!is_student_logged_in())
 {
    header("Location: index.php"); 
 

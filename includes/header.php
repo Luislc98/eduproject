@@ -32,28 +32,19 @@
       <a href="browse.php" class="navbar-item">
         Browse Courses
       </a>
-
-
-      <div class="navbar-item has-dropdown is-hoverable">
-    <a class="navbar-link">
-      Docs
-    </a>
-
-    <div class="navbar-dropdown">
-      <a class="navbar-item">
-        Overview
+      <?php
+      if (! is_user_logged_in()) {
+      ?>
+      <a href="teacherlogin.php" class="navbar-item">
+        Teacher Login
       </a>
-      <a class="navbar-item">
-        Elements
-      </a>
-      <a class="navbar-item">
-        Components
-      </a>
-    </div>
-  </div>
+      <?php } 
+      ?>
+
+     
 
   <?php 
-  if ( is_user_logged_in() ) {
+  if ( is_student_logged_in() ) {
 
   ?>
   <div class="navbar-item has-dropdown is-hoverable  ">
@@ -67,6 +58,28 @@
       </a>
       <a href= 'currentcourses.php' class="navbar-item">
         Current Courses
+      </a>
+      <a class="navbar-item">
+        Account settings
+      </a>
+    </div>
+  </div>    
+  <?php
+  }
+  ?>
+
+<?php 
+  if ( is_teacher_logged_in() ) {
+
+  ?>
+  <div class="navbar-item has-dropdown is-hoverable  ">
+    <a class="navbar-link">
+      Teachers
+    </a>
+
+    <div class="navbar-dropdown is-info">
+      <a href= 'teacher_manage_courses.php' class="navbar-item">
+        Manage Courses
       </a>
       <a class="navbar-item">
         Account settings
