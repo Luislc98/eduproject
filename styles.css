@@ -1,0 +1,237 @@
+/* text font */
+@import "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap";
+@media (min-width: 992px) {
+    #nav-button, #nav-icon{
+        visibility: hidden;
+        position: a
+    }
+ }
+body{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 800px;
+}
+p{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #999;
+}
+a, a:hover, a:focus{
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.navbar{
+    padding: 20px;
+    margin: 0;
+    color: white;
+    border: none;
+    border-radius: 0;
+    position:sticky;
+    top:0;
+    transition: all 0.4s;
+}
+
+.navbar-scroll{
+    background: rgba(107,97,144, 0.8);
+}
+
+.navbar a{
+    color: white !important;
+}
+.title{
+    padding: 5px;
+}
+#navbarSupportedContent{
+    padding: 5px;
+}
+.navbar-nav{
+    display:flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+#search-bar{
+    display:flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+#search-bar-input{
+    padding: 0;
+    margin: 0;
+    height: 35px;
+    width: 0px;
+    border: 0;
+    transition: width ease 0.3s;
+}
+
+#search-bar-input.show{
+    padding: 10px;
+    border: 1px;
+    height: 35px;
+    width: 150px;
+    transition: width ease 0.3s;
+}
+
+#search-icon:hover{
+    background: white;
+    color:  #271b53;
+}
+
+#search-icon.fa-arrow-left{
+    transform: rotate(180deg);
+    transition: ease 0.2s;
+}
+#search-btn{
+    height: 35px;
+    width: 35px;
+}
+
+#nav-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 50px;
+}
+#nav-button, #search-btn{
+    padding: 0;
+    margin: 0;
+}
+#nav-icon, #search-icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    transition: all 0.3s;
+    color: white;
+}
+#nav-icon:hover{
+    background: white;
+    color:  #271b53;
+    }
+
+#nav-icon.fa fa-arrow-down{
+    transform: rotate(180deg);
+    transition: all 0.3s;
+    
+}
+#nav-icon.fa-bars{
+    transform: rotate(180deg);
+    font-size: 28px;
+}
+#nav-icon.turn-arrow-up{
+    transform: rotate(-180deg);
+    transition: all 0.3s;
+}
+
+#sidebarCollapse{
+    border-radius: 0px 50px 50px 0px;
+    background: rgba(107,97,144, 0.8);
+    color: white;
+    border: none;
+    margin: 0;
+    height:40px;
+    width:40px;
+}
+
+.sidebarButton{
+    position: sticky;
+    top: 50vh;
+}
+#sidebarCollapse:hover{
+    background:white;
+    color: #271b53;
+    
+}
+.icon-default{
+    position: relative;
+    right: 10%;
+    top: 1px;
+    transition: all 0.5s;
+}
+.icon-default.active{
+    position: relative;
+    right: 35%;
+    top: -1px;
+    opacity: 1;
+    border: none;
+    transform: rotate(180deg);
+    transition: all 0.5s;
+}
+
+.wrapper{
+    display: flex;
+    height: 100%;
+    width: 100%; 
+    align-items: stretch;
+    background-color: rgb(9, 3, 34);
+    background-image: url("eureka_1.jpg");
+    background-size: 100vw;
+    background-repeat: no-repeat;
+    background-position: center top;
+
+}
+.sidebar-center{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    position:sticky;
+    top:0;
+}
+#sidebar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 200px;
+    height: 100vh;
+    background: rgba(107,97,144, 0.8);
+    color: white;
+    transition: all 0.3s;
+}
+#sidebar.active{
+    margin-left: -200px;
+}
+.sidebar-header{
+    align-self: center;
+    padding: 20px;
+}
+
+#sidebar ul li{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.components li>a {
+    height: 100%;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.components li>a:hover{
+    color: black;
+    background: #fff;
+}
+.sidebar-dropdown ul li:hover{
+    color: black;
+    background: #fff;
+}
+
+.content{
+text-align: justify;
+padding: 0 9vw;
+margin:0%;
+}
+
+/* this is to control the drop animation of navbar */
+.collapsing{
+    transition: height .2s ease;
+}
