@@ -3,14 +3,42 @@
 @media (min-width: 992px) {
     #nav-button, #nav-icon{
         visibility: hidden;
-        position: a
+        position: absolute;
     }
  }
+@media (max-width: 992px){
+    .wrapper{
+        background-size: 992px !important;
+    }
+    .navbar{
+        padding-left: 25px !important;
+        padding-right: 25px !important;
+    }
+}
+@media (max-width: 590px) { 
+    .title{
+        font-size: 1.5em !important;
+    }
+    #sidebar{
+        position: absolute;
+        z-index: 2;
+    }
+    #sidebarCollapse{
+        position:absolute;
+        z-index: 2;
+    }
+    #sidebarCollapse.move-right{
+        transform: translate(200px,0);
+        transition: all 0.3s;
+    }
+ }
+
 body{
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     min-height: 800px;
+    overflow-x: hidden;
 }
 p{
     font-family: 'Poppins', sans-serif;
@@ -23,18 +51,26 @@ a, a:hover, a:focus{
     text-decoration: none;
     transition: all 0.2s;
 }
-
+.navbar.padding{
+    padding: 6px 30px;
+}
 .navbar{
-    padding: 20px;
+    padding: 40px 30px;
     margin: 0;
     color: white;
     border: none;
     border-radius: 0;
-    position:sticky;
-    top:0;
-    transition: all 0.4s;
+    width: 100%;
+    transition: all 0.3s;
 }
-
+.navbar.move-navbar-right{
+    transform: translate(200px,0);
+    width: calc(100% - 200px);
+    transition: all 0.3s;
+}
+.navbar.display-none{
+    display: none;
+}
 .navbar-scroll{
     background: rgba(107,97,144, 0.8);
 }
@@ -43,10 +79,20 @@ a, a:hover, a:focus{
     color: white !important;
 }
 .title{
-    padding: 5px;
+    font-size: 1.6em;
+    font-family: 'Merriweather', serif;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    width: 20vw;
 }
+.nav-item{
+    font-size: 1em;
+    text-align: center;
+}
+
+/*spacing around nav elements i.e links and search bar */
 #navbarSupportedContent{
-    padding: 5px;
+    padding: 0px;
 }
 .navbar-nav{
     display:flex;
@@ -56,14 +102,13 @@ a, a:hover, a:focus{
 
 #search-bar{
     display:flex;
-    align-items: center;
     justify-content: flex-end;
 }
 
 #search-bar-input{
     padding: 0;
     margin: 0;
-    height: 35px;
+    height: 30px;
     width: 0px;
     border: 0;
     transition: width ease 0.3s;
@@ -72,31 +117,42 @@ a, a:hover, a:focus{
 #search-bar-input.show{
     padding: 10px;
     border: 1px;
-    height: 35px;
+    height: 30px;
     width: 150px;
     transition: width ease 0.3s;
 }
-
-#search-icon:hover{
+#search-icon{
+    font-size: 20px;
+    border-radius: 5px;
+}
+#search-icon.hover{
     background: white;
     color:  #271b53;
 }
-
+/* Right arrow icon on search toggle */
 #search-icon.fa-arrow-left{
     transform: rotate(180deg);
     transition: ease 0.2s;
+    padding-bottom: 2px;
 }
 #search-btn{
-    height: 35px;
-    width: 35px;
+    height: 33px;
+    width: 33px;
+}
+#search-btn:hover{
+    background: white;
+}
+#search-btn.border{
+    box-shadow: 1px 1px 0 0 white, 
+    0 0px 0 1px white;
 }
 
 #nav-button{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
 }
 #nav-button, #search-btn{
     padding: 0;
@@ -129,6 +185,10 @@ a, a:hover, a:focus{
     transform: rotate(-180deg);
     transition: all 0.3s;
 }
+/* this is to control the drop animation of navbar */
+.collapsing{
+    transition: height .2s ease;
+}
 
 #sidebarCollapse{
     border-radius: 0px 50px 50px 0px;
@@ -137,7 +197,8 @@ a, a:hover, a:focus{
     border: none;
     margin: 0;
     height:40px;
-    width:40px;
+    width: 40px;
+    transition: all 0.3s;
 }
 
 .sidebarButton{
@@ -163,19 +224,6 @@ a, a:hover, a:focus{
     border: none;
     transform: rotate(180deg);
     transition: all 0.5s;
-}
-
-.wrapper{
-    display: flex;
-    height: 100%;
-    width: 100%; 
-    align-items: stretch;
-    background-color: rgb(9, 3, 34);
-    background-image: url("eureka_1.jpg");
-    background-size: 100vw;
-    background-repeat: no-repeat;
-    background-position: center top;
-
 }
 .sidebar-center{
     display: flex;
@@ -225,13 +273,29 @@ a, a:hover, a:focus{
     background: #fff;
 }
 
-.content{
+.wrapper{
+    display: flex;
+    height: 100%;
+    width: 100%; 
+    align-items: stretch;
+    background-color: rgb(9, 3, 34);
+    background-image: url("eureka_1.jpg");
+    background-size: 100vw;
+    background-repeat: no-repeat;
+    background-position: center top;
+
+}
+
+#content{
 text-align: justify;
-padding: 0 9vw;
+padding: 0 50px;
 margin:0%;
 }
 
-/* this is to control the drop animation of navbar */
-.collapsing{
-    transition: height .2s ease;
+#dark-background.active{
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(20, 20, 20, 0.8);
+    z-index: 1;
 }
