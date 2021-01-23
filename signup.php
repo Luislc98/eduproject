@@ -11,11 +11,17 @@ $emailcheck = exec_sql_query($db, "SELECT DISTINCT email FROM users", NULL)->fet
 
 if ( isset($_POST["signup"]) ) {
   $valid_signup = TRUE;
-  $firstname = filter_input(INPUT_POST, 'firstname', FILTER_SANITIZE_STRING);
-  $lastname = filter_input(INPUT_POST, 'lastname', FILTER_SANITIZE_STRING);
+  $firstname = filter_input(INPUT_POST, 'first_name', FILTER_SANITIZE_STRING);
+  $lastname = filter_input(INPUT_POST, 'last_name', FILTER_SANITIZE_STRING);
   $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
   $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
   $pass_word = filter_input(INPUT_POST, 'pass_word', FILTER_SANITIZE_STRING);
+  $edu_level = filter_input(INPUT_POST, 'education_level', FILTER_SANITIZE_STRING);
+  $dob = filter_input(INPUT_POST, 'dob', FILTER_SANITIZE_STRING);
+  $home_address = filter_input(INPUT_POST, 'home_address', FILTER_SANITIZE_STRING);
+  $address_city = filter_input(INPUT_POST, 'address_city', FILTER_SANITIZE_STRING);
+  $address_state = filter_input(INPUT_POST, 'address_state', FILTER_SANITIZE_STRING);
+  $address_zip = filter_input(INPUT_POST, 'address_zip', FILTER_SANITIZE_STRING);
  // create a hashed version of password in order to protect security of database
   $hashed_password = password_hash($pass_word, PASSWORD_DEFAULT);
   
@@ -46,6 +52,45 @@ if ( isset($_POST["signup"]) ) {
 
 
 
+if ( isset($_POST["teacher_signup"]) ) {
+  $valid_signup = TRUE;
+  $firstname = filter_input(INPUT_POST, 'first_name', FILTER_SANITIZE_STRING);
+  $lastname = filter_input(INPUT_POST, 'last_name', FILTER_SANITIZE_STRING);
+  $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+  $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
+  $pass_word = filter_input(INPUT_POST, 'pass_word', FILTER_SANITIZE_STRING);
+  $teacher_education_level = filter_input(INPUT_POST, 'teacher_education_level', FILTER_SANITIZE_STRING);
+  $home_address = filter_input(INPUT_POST, 'home_address', FILTER_SANITIZE_STRING);
+  $address_city = filter_input(INPUT_POST, 'address_city', FILTER_SANITIZE_STRING);
+  $address_state = filter_input(INPUT_POST, 'address_state', FILTER_SANITIZE_STRING);
+  $address_zip = filter_input(INPUT_POST, 'address_zip', FILTER_SANITIZE_STRING);
+ // create a hashed version of password in order to protect security of database
+  $hashed_password = password_hash($pass_word, PASSWORD_DEFAULT);
+  
+  // check and see if email is already in database of users
+  if ( in_array($email, $emailcheck) ) {
+    $valid_signup = FALSE;
+  }
+  // 
+  if ($valid_signup) {
+    $sql = "INSERT INTO users (firstname, lastname, email, username,pword) VALUES (:firstname, :lastname, :email, :username, :pass_word)";
+    $params = array(
+      ':firstname' => $firstname,
+      ':lastname' => $lastname,
+      ':email' => $email,
+      ':username' => $username,
+      ':pass_word' => $hashed_password
+    );
+    $result = exec_sql_query($db, $sql, $params);
+    if ($result) {
+      array_push($messages, "You have been successfully signed up. Thank you!");
+    } else {
+      array_push($messages, "Failed to Sign Up.");
+    }
+  } else {
+    array_push($messages, "Failed to sign up. Invalid parameters were added.");
+  }
+}
 
 ?>
 <!DOCTYPE html>
@@ -80,11 +125,11 @@ include("includes/header.php");
           <ul>
             <li>
               <label for="firstname"> First Name :</label>
-              <input id="firstname" type="text" name="firstname" />
+              <input id="firstname" type="text" name="first_name" />
             </li>
             <li>
               <label for="lastname"> Last Name :</label>
-              <input id="lastname" type="text" name="lastname" />
+              <input id="lastname" type="text" name="last_name" />
             </li>
             <li>
               <label for="email"> Email :</label>

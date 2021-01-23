@@ -18,7 +18,14 @@ CREATE TABLE users (
 	lastname TEXT NOT NULL,
 	email TEXT NOT NULL UNIQUE,
 	username TEXT NOT NULL,
-	pword TEXT NOT NULL
+	pword TEXT NOT NULL,
+	edulevel TEXT ,
+	dob TEXT ,
+	homeaddress TEXT ,
+	addresscity TEXT ,
+	addressstate TEXT ,
+	addresszip INTEGER 
+	
 );
 
 
@@ -30,7 +37,15 @@ CREATE TABLE teachers (
 	lastname TEXT NOT NULL,
 	email TEXT NOT NULL UNIQUE,
 	username TEXT NOT NULL,
-	pword TEXT NOT NULL
+	pword TEXT NOT NULL,
+	subjectarea TEXT,
+	isteacher BOOLEAN ,
+	institutionname TEXT ,
+	teachingexp INTEGER ,
+	edulevel TEXT,
+	resume_file_name TEXT ,
+	resume_file_ext TEXT ,
+
 );
 
 -- coursecatalog table
@@ -95,7 +110,10 @@ CREATE TABLE teacherenrollment (
 );
 
 -- Users seed data
-INSERT INTO users (id,firstname,lastname,email, username, pword) VALUES (1,'Luis', 'Lopez','fjdj@cornell.edu', 'lop98', '$2y$10$QtCybkpkzh7x5VN11APHned4J8fu78.eFXlyAMmahuAaNcbwZ7FH.'); -- password: monkey
+INSERT INTO users (id,firstname,lastname,email, username, pword,edulevel,dob,homeaddress,
+addresscity,addressstate,addresszip) VALUES
+ (1,'Luis', 'Lopez','fjdj@cornell.edu', 'lop98', 
+ '$2y$10$QtCybkpkzh7x5VN11APHned4J8fu78.eFXlyAMmahuAaNcbwZ7FH.', NULL, NULL,NULL,NULL,NULL,NULL); -- password: monkey
 --INSERT INTO users (id, username, password) VALUES (2, 'sally76', '$2y$10$eFBTweRbnJyTNRDLACBMi.15heBWvyR/GyBvbjadUs6lfNWMBHLwm'); -- password: reddawn
 --INSERT INTO users (id, username, password) VALUES (3, 'bert56', '$2y$10$gxaWl8J4.Lb82ktEbrZJK.0dQr77yJaUc2a0qoVvc6TZOQVjczaC.'); -- password: donkey
 
