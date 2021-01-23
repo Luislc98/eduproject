@@ -1,0 +1,128 @@
+//Prevent double clicking
+function button(){
+      document.getElementById("nav-button").disabled = true;
+      setTimeout(function(){document.getElementById("nav-button").disabled = false;},50);
+  }
+
+//Change icon to different one on click
+$('#nav-button').on('click',function() {
+  if ($('#nav-icon').hasClass("fa-arrow-down")){
+    $('#nav-icon').addClass("fa-arrow-up");
+    $('#nav-icon').addClass("empty");
+    $('#nav-icon').removeClass("fa-arrow-down");
+  
+  } else if ($('#nav-icon').hasClass("fa-arrow-up")){
+    $('#nav-icon').removeClass("fa-arrow-up");
+    $('#nav-icon').addClass("fa-arrow-down");
+    $('#nav-icon').removeClass("empty");
+  }
+  });
+
+
+//Change icon to a different one on hover
+$('#nav-button').hover(function() {
+      if ($('#nav-icon').hasClass("fa-arrow-up")){
+      }
+      else if ( $('#nav-icon').hasClass("navbar-toggler-icon") || $('#nav-icon').hasClass("fa-arrow-down")){
+        $('#nav-icon').toggleClass("fa-arrow-down");
+        $('#nav-icon').toggleClass("navbar-toggler-icon");
+      }
+    });
+
+
+
+    var button = document.getElementById("nav-button")
+    function debounce(func, wait, immediate) {
+      var timeout;
+      return function executedFunction() {
+        var context = this, args = arguments;
+        var later = function() {
+          timeout = null;
+          if (!immediate) func.apply(context, args);
+        };
+        var callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) func.apply(context, args);
+      };
+    };
+    
+    button.addEventListener('click', debounce(function(){
+    //Used to change arrow according to being clicked
+      $('#nav-icon').toggleClass("turn-arrow-up");
+    }, 50));
+
+    else if ($('#nav-icon').hasClass("fa-bars") && $('#nav-icon').hasClass("fa-arrow-down")) {
+      $('#nav-icon').removeClass("fa-arrow-down");
+    }
+
+
+
+    $('#nav-button').on('click',function() {
+      if ($('#nav-icon').hasClass("fa-bars")) {
+        $('#nav-icon').addClass("fa-arrow-down");
+        $('#nav-icon').addClass("turn-arrow-up");
+        $('#nav-icon').removeClass("fa-bars");
+      }
+      else if ($('#nav-icon').hasClass("turn-arrow-up")){
+        $('#nav-icon').addClass("fa-bars");
+        $('#nav-icon').removeClass("turn-arrow-up");
+      }
+    
+      else {
+        empty();
+      $('#nav-icon').toggleClass("turn-arrow-up");
+      ;}
+    });
+
+    
+$(document).ready(function () {
+  $("#nav-button").click(function () {
+    var btn = $('#nav-button');
+    if($('#nav-icon').hasClass("fa-bars") || $('#nav-icon').hasClass("empty")){
+      setTimeout(function(){
+          btn.prop('disabled', true);
+      }, 200);
+      setTimeout(function(){
+          btn.prop('disabled', false);
+      }, 300);
+    } else {
+      setTimeout(function(){
+          btn.prop('disabled', true);
+      }, 10);
+      setTimeout(function(){
+          btn.prop('disabled', false);
+      }, 300);
+    }
+  });
+  });
+
+
+
+
+
+
+  if (){
+  }
+  else if($('#nav-icon').hasClass("fa-bars") && $('#nav-icon').hasClass("fa-arrow-down")){
+    $('#nav-icon').removeClass("fa-arrow-down");
+  }
+
+  else if($('#nav-icon').hasClass("fa-bars")) {
+    $('#nav-icon').addClass("fa-arrow-down");
+    empty();
+    $('#nav-icon').removeClass("fa-bars");
+  } else{
+    $('#nav-icon').removeClass("fa-arrow-down");
+    empty();
+    $('#nav-icon').addClass("fa-bars");
+  }
+});
+
+.nav-item.padding{
+  padding: 0 2.2vw;
+}
+
+#search-bar.padding{    
+  padding: 0 0 0 2.2vw;
+}

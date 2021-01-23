@@ -5,7 +5,12 @@
         visibility: hidden;
         position: absolute;
     }
+    .login-image{
+        width: 50vw;
+        height: 100%;
+    }
  }
+
 @media (max-width: 992px){
     .wrapper{
         background-size: 992px !important;
@@ -61,12 +66,12 @@ a, a:hover, a:focus{
     border: none;
     border-radius: 0;
     width: 100%;
-    transition: all 0.3s;
+    transition: all 0.25s;
 }
 .navbar.move-navbar-right{
     transform: translate(200px,0);
     width: calc(100% - 200px);
-    transition: all 0.3s;
+    transition: all 0.38s;
 }
 .navbar.display-none{
     display: none;
@@ -100,12 +105,12 @@ a, a:hover, a:focus{
     justify-content: center;
 }
 
-#search-bar{
+#search-box{
     display:flex;
     justify-content: flex-end;
 }
 
-#search-bar-input{
+#search-bar{
     padding: 0;
     margin: 0;
     height: 30px;
@@ -114,7 +119,7 @@ a, a:hover, a:focus{
     transition: width ease 0.3s;
 }
 
-#search-bar-input.show{
+#search-bar.show{
     padding: 10px;
     border: 1px;
     height: 30px;
@@ -154,10 +159,12 @@ a, a:hover, a:focus{
     height: 40px;
     width: 40px;
 }
+
 #nav-button, #search-btn{
     padding: 0;
     margin: 0;
 }
+
 #nav-icon, #search-icon{
     display: flex;
     align-items: center;
@@ -167,6 +174,7 @@ a, a:hover, a:focus{
     transition: all 0.3s;
     color: white;
 }
+
 #nav-icon:hover{
     background: white;
     color:  #271b53;
@@ -177,10 +185,12 @@ a, a:hover, a:focus{
     transition: all 0.3s;
     
 }
+
 #nav-icon.fa-bars{
     transform: rotate(180deg);
     font-size: 28px;
 }
+
 #nav-icon.turn-arrow-up{
     transform: rotate(-180deg);
     transition: all 0.3s;
@@ -204,18 +214,22 @@ a, a:hover, a:focus{
 .sidebarButton{
     position: sticky;
     top: 50vh;
+    z-index: 2;
 }
+
 #sidebarCollapse:hover{
     background:white;
     color: #271b53;
     
 }
+
 .icon-default{
     position: relative;
     right: 10%;
     top: 1px;
     transition: all 0.5s;
 }
+
 .icon-default.active{
     position: relative;
     right: 35%;
@@ -225,6 +239,7 @@ a, a:hover, a:focus{
     transform: rotate(180deg);
     transition: all 0.5s;
 }
+
 .sidebar-center{
     display: flex;
     flex-direction: column;
@@ -242,6 +257,7 @@ a, a:hover, a:focus{
     background: rgba(107,97,144, 0.8);
     color: white;
     transition: all 0.3s;
+    z-index: 2;
 }
 #sidebar.active{
     margin-left: -200px;
@@ -257,6 +273,14 @@ a, a:hover, a:focus{
     align-items: center;
 }
 
+#dark-background.active{
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(20, 20, 20, 0.8);
+    z-index: 1;
+}
+
 .components li>a {
     height: 100%;
     padding: 10px;
@@ -268,12 +292,13 @@ a, a:hover, a:focus{
     color: black;
     background: #fff;
 }
+
 .sidebar-dropdown ul li:hover{
     color: black;
     background: #fff;
 }
 
-.wrapper{
+#homepage-background{
     display: flex;
     height: 100%;
     width: 100%; 
@@ -286,16 +311,59 @@ a, a:hover, a:focus{
 
 }
 
-#content{
-text-align: justify;
-padding: 0 50px;
-margin:0%;
+.text{
+    color: white;
+    
 }
 
-#dark-background.active{
-    position: absolute;
-    height: 100vh;
-    width: 100vw;
-    background: rgba(20, 20, 20, 0.8);
-    z-index: 1;
+#content{
+    text-align: justify;
+    padding: 0 50px;
+    margin:0;
+}
+
+#content p{
+    color: white;
+}
+
+#top-spacing{
+    height: 24vw;
+}
+.login-container{
+    color: white;
+    text-align: left;
+    padding-left: 3vw;
+}
+
+.login-container h2{
+    width: 30vw;
+    font-size: 3em;
+    font-family: 'Bitter', serif;
+    font-weight: 700;
+}
+
+.login-container p{
+    font-size: 1.2em;
+    padding: 0;
+    margin: 0;
+    font-family: 'Merriweather', serif;
+    font-weight: 400;
+}
+
+.login-container button{
+    display: flex;
+    align-items: center;
+}
+
+.login-container button>span{
+    padding-left: 10px;
+    font-size: 1.3em;
+}
+
+#form-spacing{
+    height: 100%;
+}
+
+#login-form{
+    padding: 0 19vw;
 }
