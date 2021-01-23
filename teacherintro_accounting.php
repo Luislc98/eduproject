@@ -131,6 +131,7 @@ function show_assignments($record) {
 }
 
 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -289,6 +290,7 @@ if ($result) {
    
   <input type="submit" value="Upload File" name="submit_teacher_file">
 </form> 
+
 
 
 

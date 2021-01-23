@@ -53,7 +53,7 @@ if ( isset($_POST["signup"]) ) {
 
 
 if ( isset($_POST["teacher_signup"]) ) {
-  $valid_signup = TRUE;
+  $valid_teacher_signup = TRUE;
   $firstname = filter_input(INPUT_POST, 'first_name', FILTER_SANITIZE_STRING);
   $lastname = filter_input(INPUT_POST, 'last_name', FILTER_SANITIZE_STRING);
   $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
