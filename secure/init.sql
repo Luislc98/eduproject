@@ -22,6 +22,7 @@ CREATE TABLE users (
 	edulevel TEXT ,
 	dob TEXT ,
 	homeaddress TEXT ,
+	homeaddress2 TEXT ,
 	addresscity TEXT ,
 	addressstate TEXT ,
 	addresszip INTEGER 

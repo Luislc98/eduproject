@@ -1,3 +1,4 @@
+
 <?php
 // DO NOT REMOVE!
 include("includes/init.php");
@@ -9,19 +10,20 @@ $messages = array();
 $emailcheck = exec_sql_query($db, "SELECT DISTINCT email FROM users", NULL)->fetchAll(PDO::FETCH_COLUMN);
 
 
-if ( isset($_POST["signup"]) ) {
+if ( isset($_POST["student-signup"]) ) {
   $valid_signup = TRUE;
   $firstname = filter_input(INPUT_POST, 'first_name', FILTER_SANITIZE_STRING);
   $lastname = filter_input(INPUT_POST, 'last_name', FILTER_SANITIZE_STRING);
   $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
   $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
-  $pass_word = filter_input(INPUT_POST, 'pass_word', FILTER_SANITIZE_STRING);
+  $pass_word = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
   $edu_level = filter_input(INPUT_POST, 'education_level', FILTER_SANITIZE_STRING);
-  $dob = filter_input(INPUT_POST, 'dob', FILTER_SANITIZE_STRING);
-  $home_address = filter_input(INPUT_POST, 'home_address', FILTER_SANITIZE_STRING);
-  $address_city = filter_input(INPUT_POST, 'address_city', FILTER_SANITIZE_STRING);
-  $address_state = filter_input(INPUT_POST, 'address_state', FILTER_SANITIZE_STRING);
-  $address_zip = filter_input(INPUT_POST, 'address_zip', FILTER_SANITIZE_STRING);
+  $dob = filter_input(INPUT_POST, 'DOB', FILTER_SANITIZE_STRING);
+  $home_address = filter_input(INPUT_POST, 'homeaddress', FILTER_SANITIZE_STRING);
+  $home_address2 = filter_input(INPUT_POST, 'homeaddress2', FILTER_SANITIZE_STRING);
+  $address_city = filter_input(INPUT_POST, 'addresscity', FILTER_SANITIZE_STRING);
+  $address_state = filter_input(INPUT_POST, 'addressstate', FILTER_SANITIZE_STRING);
+  $address_zip = filter_input(INPUT_POST, 'addresszip', FILTER_SANITIZE_STRING);
  // create a hashed version of password in order to protect security of database
   $hashed_password = password_hash($pass_word, PASSWORD_DEFAULT);
   
@@ -31,13 +33,21 @@ if ( isset($_POST["signup"]) ) {
   }
   // 
   if ($valid_signup) {
-    $sql = "INSERT INTO users (firstname, lastname, email, username,pword) VALUES (:firstname, :lastname, :email, :username, :pass_word)";
+    $sql = "INSERT INTO users (firstname, lastname, email, username,pword,edulevel,dob,homeaddress,homeaddress2,addresscity,addressstate,addresszip)
+     VALUES (:firstname, :lastname, :email, :username, :pass_word, :edulevel, :dob , :homeaddress, :homeaddress2, :addresscity, :addressstate, :addresszip)";
     $params = array(
       ':firstname' => $firstname,
       ':lastname' => $lastname,
       ':email' => $email,
       ':username' => $username,
-      ':pass_word' => $hashed_password
+      ':pass_word' => $hashed_password,
+      ':edulevel' => $edu_level,
+      ':dob' => $dob,
+      ':homeaddress' => $home_address,
+      ':homeaddress2' => $home_address2,
+      ':addresscity' => $address_city,
+      ':addressstate' => $address_state,
+      ':addresszip' => $address_zip,
     );
     $result = exec_sql_query($db, $sql, $params);
     if ($result) {
@@ -58,7 +68,7 @@ if ( isset($_POST["teacher_signup"]) ) {
   $lastname = filter_input(INPUT_POST, 'last_name', FILTER_SANITIZE_STRING);
   $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
   $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
-  $pass_word = filter_input(INPUT_POST, 'pass_word', FILTER_SANITIZE_STRING);
+  $pass_word = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
   $teacher_education_level = filter_input(INPUT_POST, 'teacher_education_level', FILTER_SANITIZE_STRING);
   $home_address = filter_input(INPUT_POST, 'home_address', FILTER_SANITIZE_STRING);
   $address_city = filter_input(INPUT_POST, 'address_city', FILTER_SANITIZE_STRING);
@@ -93,83 +103,297 @@ if ( isset($_POST["teacher_signup"]) ) {
 }
 
 ?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <title>Educational </title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-
 <body>
+  <div class="d-flex align-items-center" id="form-spacing">
+    <div src="" id="login-image" class="login-image">
+      </div>
 
-<section class="hero is-info is-medium is-fullheight">
+    <form id="student-signup-form" class="collapse.show" action="signup.php" method="post">
+      <div class="form-col">
+        <label for="Name">Name</label>
 
-<?php
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <input type="text" class="form-control" id="education" name="first_name" placeholder="First Name" required>
+            </div>
+      
+            <div class="form-group col-md-6">
+              <input type="text" class="form-control" id="lastName" name="last_name" placeholder="Last Name" required>
+            </div>
+          </div>
 
-include("includes/header.php");
+      </div>
+      <div class="form-group">
+        <label for="inputEmail4">Email</label>
+        <input name='email' type="email" class="form-control" id="inputEmail4" required>
+      </div>
+      
+      <div class="form-row">
+      
+        <div class="form-group col-md-12">
+          <label for="inputUsername">Username</label>
+          <input name='username' type="text" class="form-control" id="inputUsername" required>
+        </div>
+            
+        <div class="form-group col-md-12">
+          <label for="inputPassword4">Password</label>
+          <input name='password' type="password" class="form-control" id="inputPassword4" required>
+        </div>
+      
+      </div>
 
- ?>
+          <div class="form-group">
+            <label for="inputAddress">Address</label>
+            <input name='homeaddress' type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" required>
+          </div>
 
+          <div class="form-group">
+            <label for="inputAddress2">Address 2</label>
+            <input name='homeaddress2' type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+          </div>
+          
+          <div class="form-row">
+            
+            <div class="form-group col-md-6">
+              <label for="DOB">Date of Birth</label>
+              <input type="date" id="DOB" name="DOB" class= "form-control" required>
+            </div>
 
+            <div class="form-group col-md-6">
+              <label for="Education">Highest Education Level</label>
+              <select name='education_level' id="education"  class= "form-control" required>
+                <option>High School</option>
+                <option>Some College </option>
+                <option> Bachelors </option>
+                <option>Masters</option>
+                <option>Doctorate</option>
+                
+              </select>
+            </div>
 
-<h1 class="subtitle has-text-centered is-size-4" > Create an Account and take your next step towards bettering your future.
-</h1>
+          </div>
 
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputCity">City</label>
+              <input type="text" name='addresscity' class="form-control" id="inputCity" required>
+            </div>
 
-<form id="signupForm" action="signup.php" method="post">
-          <ul>
-            <li>
-              <label for="firstname"> First Name :</label>
-              <input id="firstname" type="text" name="first_name" />
-            </li>
-            <li>
-              <label for="lastname"> Last Name :</label>
-              <input id="lastname" type="text" name="last_name" />
-            </li>
-            <li>
-              <label for="email"> Email :</label>
-              <input id="email" type="text" name="email" />
-            </li>
-            <li>
-              <label for="username">Username:</label>
-              <input id="username" type="text" name="username" />
-            </li>
-            <li>
-              <label for="pass_word">Password:</label>
-              <input id="password" type="password" name="pass_word" />
-            </li>
-            <li>
-              <button name="signup" type="submit">Sign Up</button>
+            <div class="form-group col-md-4">
+              <label for="inputState">State</label>
+              <select name='addressstate' id="inputState" class="form-control" required>
+                  <option selected>Choose...</option>
+                
+                  <option value="AL">Alabama (AL)</option>
+                  <option value="AK">Alaska (AK)</option>
+                  <option value="AZ">Arizona (AZ)</option>
+                  <option value="AR">Arkansas (AR)</option>
+                  <option value="CA">California (CA)</option>
+                  <option value="CO">Colorado (CO)</option>
+                  <option value="CT">Connecticut (CT)</option>
+                  <option value="DE">Delaware (DE)</option>
+                  <option value="DC">District Of Columbia (DC)</option>
+                  <option value="FL">Florida (FL)</option>
+                  <option value="GA">Georgia (GA)</option>
+                  <option value="HI">Hawaii (HI)</option>
+                  <option value="ID">Idaho (ID)</option>
+                  <option value="IL">Illinois (IL)</option>
+                  <option value="IN">Indiana (IN)</option>
+                  <option value="IA">Iowa (IA)</option>
+                  <option value="KS">Kansas (KS)</option>
+                  <option value="KY">Kentucky (KY)</option>
+                  <option value="LA">Louisiana (LA)</option>
+                  <option value="ME">Maine (ME)</option>
+                  <option value="MD">Maryland (MD)</option>
+                  <option value="MA">Massachusetts (MA)</option>
+                  <option value="MI">Michigan (MI)</option>
+                  <option value="MN">Minnesota (MN)</option>
+                  <option value="MS">Mississippi (MS)</option>
+                  <option value="MO">Missouri (MO)</option>
+                  <option value="MT">Montana (MT)</option>
+                  <option value="NE">Nebraska (NE)</option>
+                  <option value="NV">Nevada (NV)</option>
+                  <option value="NH">New Hampshire (NH)</option>
+                  <option value="NJ">New Jersey (NJ)</option>
+                  <option value="NM">New Mexico (NM)</option>
+                  <option value="NY">New York (NY)</option>
+                  <option value="NC">North Carolina (NC)</option>
+                  <option value="ND">North Dakota (ND)</option>
+                  <option value="OH">Ohio (OH)</option>
+                  <option value="OK">Oklahoma (OK)</option>
+                  <option value="OR">Oregon (OR)</option>
+                  <option value="PA">Pennsylvania (PA)</option>
+                  <option value="RI">Rhode Island (RI)</option>
+                  <option value="SC">South Carolina (SC)</option>
+                  <option value="SD">South Dakota (SD)</option>
+                  <option value="TN">Tennessee (TN)</option>
+                  <option value="TX">Texas (TX)</option>
+                  <option value="UT">Utah (UT)</option>
+                  <option value="VT">Vermont</option>
+                  <option value="VA">Virginia</option>
+                  <option value="WA">Washington</option>
+                  <option value="WV">West Virginia</option>
+                  <option value="WI">Wisconsin</option>
+                  <option value="WY">Wyoming</option>
+                  <option value="AS">American Samoa (AS)</option>
+                  <option value="GU">Guam (GU)</option>
+                  <option value="MP">Northern Mariana Islands (MP)</option>
+                  <option value="PR">Puerto Rico (PR)</option>
+                  <option value="UM">United States Minor Outlying Islands (UM)</option>
+                  <option value="VI">Virgin Islands (VI)</option>
+                  <option value="AA">Armed Forces Americas (AA)</option>
+                  <option value="AP">Armed Forces Pacific (AP)</option>
+                  <option value="AE">Armed Forces Others (AE)</option>
+                
+              </select>
+              
+            </div>
 
-            </li>
-          </ul>
-        </form>
+            <div class="form-group col-md-2">
+              <label for="inputZip">Zip</label>
+              <input name='addresszip' type="text" class="form-control" id="inputZip" required>
+            </div>
 
+          </div>
+
+          
+
+          <button type="submit" class="btn btn-primary" name="student-signup">Sign up</button>
+    
+      </form>  
+      <?php
+      // Write out any messages to the user.
+      foreach ($messages as $message) {
+        echo "<p><strong>" . htmlspecialchars($message) . "</strong></p>\n";
+      }
+      ?>
+      <form id="teacher-signup-form" class="collapse" action="signup.php" method="post">
+        <div class="form-col">
+          <label for="Name">Name</label>
+  
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <input type="text" class="form-control" id="education" name="first_name" placeholder="First Name" required>
+              </div>
+        
+              <div class="form-group col-md-6">
+                <input type="text" class="form-control" id="lastName" name="last_name" placeholder="Last Name" required>
+              </div>
+            </div>
+  
+        </div>
+        <div class="form-group">
+          <label for="inputEmail4">Email</label>
+          <input type="email" class="form-control" id="inputEmail4" required>
+        </div>
+        
+        <div class="form-row">
+        
+          <div class="form-group col-md-12">
+            <label for="inputUsername">Username</label>
+            <input type="password" class="form-control" id="inputUsername" required>
+          </div>
+              
+          <div class="form-group col-md-12">
+            <label for="inputPassword4">Password</label>
+            <input type="password" class="form-control" id="inputPassword4" required>
+          </div>
+        
+        </div>
+  
+            <div class="form-group">
+              <label for="inputAddress">Address</label>
+              <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" required>
+            </div>
+  
+            <div class="form-group">
+              <label for="inputAddress2">Address 2</label>
+              <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+            </div>
+            
+            <div class="form-row">
+              
+              <div class="form-group col-md-6">
+                <label for="DOB">Date of Birth</label>
+                <input type="date" id="DOB" name="DOB" class= "form-control" required>
+              </div>
+  
+              <div class="form-group col-md-6">
+                <label for="Education">Highest Education Level</label>
+                <select id="education" name="education_level" class= "form-control" required>
+                  <option>High School</option>
+                  <option>Some College</option>
+                  <option>Bachelors</option>
+                  <option>Masters</option>
+                  <option>Doctorate</option>
+                  
+                </select>
+              </div>
+  
+            </div>
+  
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputCity">City</label>
+                <input type="text" class="form-control" id="inputCity" required>
+              </div>
+  
+              <div class="form-group col-md-4">
+                <label for="inputState">State</label>
+                <select id="inputState" class="form-control" required>
+                  <option selected>Choose...</option>
+                  <option>...</option>
+                </select>
+              </div>
+  
+              <div class="form-group col-md-2">
+                <label for="inputZip">Zip</label>
+                <input type="text" class="form-control" id="inputZip" required>
+              </div>
+  
+            </div>
+  
+            <div class="form-group">
+              <label for="exampleFormControlFile1">Upload an Image for your profile!</label>
+              <input type="file" class="form-control-file" id="exampleFormControlFile1">
+            </div>
+  
+            <button type="submit" class="btn btn-primary" name='teacher-signup'>Sign up</button>
+      
+        </form>  
         <?php
-    // Write out any messages to the user.
-    foreach ($messages as $message) {
-      echo "<p><strong>" . htmlspecialchars($message) . "</strong></p>\n";
-    }
-    ?>
+        // Write out any messages to the user.
+        foreach ($messages as $message) {
+          echo "<p><strong>" . htmlspecialchars($message) . "</strong></p>\n";
+        }
+        ?>
+      
+  </div>
 
-
-
-
-
-
-<?php include("includes/footer.php"); ?>
-
-
-
-</section>
 </body>
-
-
-
 
 </html>
