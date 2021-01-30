@@ -364,6 +364,10 @@ a, a:hover, a:focus{
     height: 100%;
 }
 
-#login-form{
+#student-signup-form{
+    padding: 0 19vw;
+}
+
+#teacher-signup-form{
     padding: 0 19vw;
 }
