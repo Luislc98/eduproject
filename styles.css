@@ -371,3 +371,12 @@ a, a:hover, a:focus{
 #teacher-signup-form{
     padding: 0 19vw;
 }
+.signup-btns{
+    width: 350px;
+}
+.signup-btns button{
+    margin: 1%;
+}
+.form-nav-btns button{
+    margin: 1%;
+}
