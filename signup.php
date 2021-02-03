@@ -8,6 +8,7 @@ $messages = array();
 // Insert Form
 // Get the list of emails from the database.
 $emailcheck = exec_sql_query($db, "SELECT DISTINCT email FROM users", NULL)->fetchAll(PDO::FETCH_COLUMN);
+$teacher_emailcheck = exec_sql_query($db, "SELECT DISTINCT email FROM teachers", NULL)->fetchAll(PDO::FETCH_COLUMN);
 
 
 if ( isset($_POST["student-signup"]) ) {
@@ -70,30 +71,57 @@ if ( isset($_POST["teacher_signup"]) ) {
   $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
   $pass_word = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
   $teacher_education_level = filter_input(INPUT_POST, 'teacher_education_level', FILTER_SANITIZE_STRING);
-  $home_address = filter_input(INPUT_POST, 'home_address', FILTER_SANITIZE_STRING);
-  $address_city = filter_input(INPUT_POST, 'address_city', FILTER_SANITIZE_STRING);
-  $address_state = filter_input(INPUT_POST, 'address_state', FILTER_SANITIZE_STRING);
-  $address_zip = filter_input(INPUT_POST, 'address_zip', FILTER_SANITIZE_STRING);
+  $subject_area = filter_input(INPUT_POST, 'subject_area', FILTER_SANITIZE_STRING);
+  $is_teacher = filter_input(INPUT_POST, 'is_teacher', FILTER_SANITIZE_STRING);
+  $institution_name = filter_input(INPUT_POST, 'institution_name', FILTER_SANITIZE_STRING);
+  $teaching_exp = filter_input(INPUT_POST, 'teaching_exp', FILTER_SANITIZE_NUMBER_FLOAT );
+  // grab the info from the uploaded resume in the teacher form 
+  $teacher_resume_upload_info = $_FILES["assignment_file"];
+ 
  // create a hashed version of password in order to protect security of database
   $hashed_password = password_hash($pass_word, PASSWORD_DEFAULT);
   
   // check and see if email is already in database of users
-  if ( in_array($email, $emailcheck) ) {
-    $valid_signup = FALSE;
+  if ( in_array($email, $teacher_emailcheck) ) {
+    $valid_teacher_signup = FALSE;
   }
   // 
-  if ($valid_signup) {
-    $sql = "INSERT INTO users (firstname, lastname, email, username,pword) VALUES (:firstname, :lastname, :email, :username, :pass_word)";
-    $params = array(
+  if ($valid_signup && $teacher_resume_upload_info['error'] == UPLOAD_ERR_OK) {
+    // check if file uploaded correctly
+    // call file name
+    $teacher_resume_upload_name = basename($teacher_resume_upload_info["name"]);
+    // call file extension
+    $teacher_resume_upload_ext = strtolower( pathinfo($teacher_resume_upload_name, PATHINFO_EXTENSION) );
+
+    $sql = "INSERT INTO users (firstname, lastname, email, username,pword,subjectarea,isteacher
+    ,institutionname,teachingexp,edulevel,resume_file_name,resume_file_ext) VALUES
+     (:firstname, :lastname, :email, :username, :pass_word, :edulevel,:subject_area, :is_teacher, :institution_name
+     ,:teachingexp,:resume_file_name,:resume_file_ext )";
+    $teacherparams = array(
       ':firstname' => $firstname,
       ':lastname' => $lastname,
       ':email' => $email,
       ':username' => $username,
-      ':pass_word' => $hashed_password
+      ':pass_word' => $hashed_password,
+      ':edulevel' => $teacher_education_level,
+      ':subject_area' => $subject_area,
+      ':is_teacher' => $is_teacher,
+      ':institution_name' => $institution_name,
+      ':teachingexp' => $teaching_exp,
+      ':resume_file_name' => $resume_file_name,
+      ':resume_file_ext' => $resume_file_ext
+      
     );
-    $result = exec_sql_query($db, $sql, $params);
+    $result = exec_sql_query($db, $sql, $teacherparams);
     if ($result) {
-      array_push($messages, "You have been successfully signed up. Thank you!");
+      //move file to directory
+      $file_id = $db->lastInsertId("id");
+      $id_filename = 'uploads/teacher_resumes/' . $file_id . '.' . $teacher_resume_upload_ext;
+      if ( move_uploaded_file($teacher_resume_upload_info["tmp_name"], $id_filename ) ) {
+        // Successfully moved the tmp uploaded file to the uploads directory.
+        array_push($messages, "Successfully signed up.");
+        $upload_submitted = True;
+      }
     } else {
       array_push($messages, "Failed to Sign Up.");
     }
