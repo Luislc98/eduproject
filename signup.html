@@ -18,16 +18,16 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-  <div class="d-flex align-items-center justify-content-center" id="form-spacing">
-    <div src="" id="login-image" class="login-image"></div>
-    <div class="d-flex flex-column align-items-center">
+  <div class="d-flex justify-content-center align-items-center" id="form-spacing">
+    <div src="" id="signup-image" class="signup-image"></div>
+    <div class="d-flex flex-column align-items-center justify-content-center sign-up-forms">
         <h2>I am signing up as a</h2>
-        <div class="signup-btns d-flex ">
-          <button id="student-signup-btn" type="button" class="btn btn-primary flex-fill" data-bs-toggle= "collapse" aria-expanded="true">
+        <div class="signup-btns d-flex">
+          <button id="student-signup-btn" type="button" class="btn btn-primary flex-fill col-6" data-bs-toggle= "collapse" aria-expanded="true">
             <span>Student</span>
           </button>
         
-          <button id="teacher-signup-btn" type="button" class="btn btn-primary flex-fill" data-bs-toggle= "collapse" aria-expanded="true">
+          <button id="teacher-signup-btn" type="button" class="btn btn-primary flex-fill col-6" data-bs-toggle= "collapse" aria-expanded="true">
             <span>Teacher</span>
           </button>
         </div>
@@ -38,11 +38,11 @@
         <div class="form-col collapse.show firstPage">
           <label for="Name">Name</label>
           <div class="form-row">
-            <div class="form-group col-md-6">
+            <div class="form-group col-6">
               <input type="text" class="form-control" id="education" name="first_name" placeholder="First Name" required>
             </div>
         
-            <div class="form-group col-md-6">
+            <div class="form-group col-6">
               <input type="text" class="form-control" id="lastName" name="last_name" placeholder="Last Name" required>
             </div>
           </div>
@@ -54,63 +54,66 @@
         </div>
         
         <div class="form-row collapse secondPage">
-          <div class="form-group col-md-12">
+          <div class="form-group col-12">
             <label for="inputUsername">Username</label>
             <input type="password" class="form-control" id="inputUsername" required>
           </div>
               
-          <div class="form-group col-md-12">
+          <div class="form-group col-12">
             <label for="inputPassword4">Password</label>
             <input type="password" class="form-control" id="inputPassword4" required>
           </div>
         </div>
 
-        <div class="form-group collapse thirdPage">
+        <div class="form-group collapse thirdPage col-12">
           <label for="inputAddress">Address</label>
           <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" required>
         </div>
             
-        <div class="form-group collapse thirdPage">
+        <div class="form-group collapse thirdPage col-12">
           <label for="inputAddress2">Address 2</label>
           <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
         </div>
 
-        <div class="form-row collapse thirdPage">
-          <div class="form-group col-md-6">
+        <div class="form-col collapse thirdPage col-12">
+          <div class="form-group">
             <label for="inputCity">City</label>
             <input type="text" class="form-control" id="inputCity" required>
           </div>
-
-          <div class="form-group col-md-4">
-            <label for="inputState">State</label>
-            <select id="inputState" class="form-control" required>
-              <option selected>Choose...</option>
-              <option>...</option>
-            </select>
-          </div>
-
-          <div class="form-group col-md-2">
-            <label for="inputZip">Zip</label>
-            <input type="text" class="form-control" id="inputZip" required>
+      
+          <div class="form-row">
+            <div class="form-group col-6">
+              <label for="inputState">State</label>
+              <select id="inputState" class="form-control" required>
+                <option selected>Choose...</option>
+                <option>...</option>
+              </select>
+            </div>
+            <div class="form-group col-6">
+              <label for="inputZip">Zip</label>
+              <input type="number" class="form-control" id="inputZip" placeholder="11201, etc"required>
+            </div>
           </div>
         </div>
 
-        <div class="form-row collapse fourthPage">  
-          <div class="form-group col-md-6">
-            <label for="DOB">Date of Birth</label>
-            <input type="date" id="DOB" name="DOB" class= "form-control" required>
-          </div>
-          
-          <div class="form-group col-md-6">
-            <label for="Education">Highest Education Level</label>
-            <select id="education" name="education_level" class= "form-control" required>
-              <option></option>
-              <option></option>
-              <option></option>
-              <option></option>
-              <option></option>
-              <option></option>
-            </select>
+        <div class="collapse fourthPage col-12">
+          <div class="form-row">  
+            <div class="form-group col-12">
+              <label for="DOB">Date of Birth</label>
+              <input type="date" id="DOB" name="DOB" class= "form-control" required>
+            </div>
+              
+            <div class="form-group col-12">
+              <label for="Education">Highest Education Level</label>
+              <select id="education" name="education_level" class= "form-control" required>
+                  <option></option>
+                  <option></option>
+                  <option></option>
+                  <option></option>
+                  <option></option>
+                  <option></option>
+              </select>
+            </div>
           </div>
         </div>
 
@@ -151,11 +154,11 @@
         <div class="form-col collapse.show firstPage">
           <label for="Name">Name</label>
             <div class="form-row">
-              <div class="form-group col-md-6">
+              <div class="form-group col-6">
                 <input type="text" class="form-control" id="education" name="first_name" placeholder="First Name" required>
               </div>
         
-              <div class="form-group col-md-6">
+              <div class="form-group col-6">
                 <input type="text" class="form-control" id="lastName" name="last_name" placeholder="Last Name" required>
               </div>
             </div>
@@ -163,17 +166,17 @@
 
         <div class="form-group collapse.show firstPage">
           <label for="inputEmail4">Email</label>
-          <input type="email" class="form-control" id="inputEmail4" required>
+          <input type="text" class="form-control" id="inputEmail4" required>
         </div>
 
         <div class="form-row collapse secondPage">
 
-          <div class="form-group col-md-12">
+          <div class="form-group col-12">
             <label for="inputUsername">Username</label>
             <input type="text" class="form-control" id="inputUsername" required>
           </div>
               
-          <div class="form-group col-md-12">
+          <div class="form-group col-12">
             <label for="inputPassword4">Password</label>
             <input type="password" class="form-control" id="inputPassword4" required>
           </div>
@@ -195,58 +198,58 @@
           <input type="number" class="form-control" id="inputExperience" required>
         </div>
 
-        <div class="form-group collapse fourthPage">
+        <div class="form-group collapse fourthPage col-12">
           <label for="inputAddress">Address</label>
           <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" required>
         </div>
   
-        <div class="form-group collapse fourthPage">
+        <div class="form-group collapse fourthPage col-12">
           <label for="inputAddress2">Address 2</label>
           <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
         </div>
 
-        <div class="form-row collapse fourthPage">
+        <div class="form-col collapse fourthPage col-12">
         
-          <div class="form-group col-md-6">
+          <div class="form-group">
             <label for="inputCity">City</label>
             <input type="text" class="form-control" id="inputCity" required>
           </div>
-  
-          <div class="form-group col-md-4">
-            <label for="inputState">State</label>
-              <select id="inputState" class="form-control" required>
-                <option selected>Choose...</option>
-                <option>...</option>
-              </select>
-          </div>
-  
-          <div class="form-group col-md-2">
-            <label for="inputZip">Zip</label>
-            <input type="text" class="form-control" id="inputZip" required>
-          </div>
-        
-        </div>
-
-        <div class="form-row collapse fifthPage">
-          
-          <div class="form-group col-md-6">
-            <label for="DOB">Date of Birth</label>
-            <input type="date" id="DOB" name="DOB" class= "form-control" required>
-          </div>
-  
-          <div class="form-group col-md-6">
-            <label for="Education">Highest Education Level</label>
-              <select id="education" name="education_level" class= "form-control" required>
-                <option></option>
-                <option></option>
-                <option></option>
-                <option></option>
-                <option></option>
-                <option></option>
-              </select>
+          <div class="form-row">
+            <div class="form-group col-6">
+              <label for="inputState">State</label>
+                <select id="inputState" class="form-control" required>
+                  <option selected>Choose...</option>
+                  <option>...</option>
+                </select>
+            </div>
+    
+            <div class="form-group col-6">
+              <label for="inputZip">Zip</label>
+              <input type="number" class="form-control" id="inputZip" required>
+            </div>
           </div>
         </div>
 
+        <div class="collapse fifthPage col-12">
+          <div class="form-row">          
+            <div class="form-group col-12">
+              <label for="DOB">Date of Birth</label>
+              <input type="date" id="DOB" name="DOB" class= "form-control" required>
+            </div>
+    
+            <div class="form-group col-12">
+              <label for="Education">Highest Education Level</label>
+                <select id="education" name="education_level" class= "form-control" required>
+                  <option></option>
+                  <option></option>
+                  <option></option>
+                  <option></option>
+                  <option></option>
+                  <option></option>
+                </select>
+            </div>
+          </div>
+        </div>
         <div class="form-group collapse fifthPage">
           <label for="Resume">Upload an your Resume</label>
           <input type="file" class="form-control-file" id="Resume">
