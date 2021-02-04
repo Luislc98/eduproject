@@ -5,6 +5,10 @@
         visibility: hidden;
         position: absolute;
     }
+
+ }
+ @media (min-width: 768px) {
+
     .signup-image{
         width: 50vw;
         height: 100%;
@@ -369,21 +373,29 @@ a, a:hover, a:focus{
 }
 
 #student-signup-form{
-    padding: 0 10vw;
+    padding: 10% 5vw;
     width: 100%;
 }
 
 #teacher-signup-form{
-    padding: 0 10vw;
+    padding: 10% 5vw;
     width: 100%;
 }
 .signup-btns{
-    width: 350px;
+    width: 100%;
 }
 .signup-btns button{
-    margin: 1% 1% 10% 1%;
+    margin: 1% 1% 0 1%;
     padding: 10px;
 }
 .form-nav-btns button{
     margin: 1%;
 }
+
+.sign-up-forms{
+    padding: 5vw;
+}
+.sign-up-forms h2{
+    font-size: 1.7em;
+}
+
