@@ -385,8 +385,17 @@ a, a:hover, a:focus{
     width: 100%;
 }
 .signup-btns button{
-    margin: 1% 1% 0 1%;
+    margin: 0;
     padding: 10px;
+}
+#student-signup-btn{
+    margin-right: 3%;
+}
+#teacher-signup-btn{
+    margin-left: 3%;
+    background-color:rgba(39, 27, 83, 0.9);
+    outline: none;
+    border: none;
 }
 .form-nav-btns button{
     margin: 1%;
@@ -394,6 +403,7 @@ a, a:hover, a:focus{
 
 .sign-up-forms{
     padding: 5vw;
+    color: white;
 }
 .sign-up-forms h2{
     font-size: 1.7em;

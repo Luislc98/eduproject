@@ -23,6 +23,7 @@
     <div class="d-flex flex-column align-items-center justify-content-center sign-up-forms flex-fill">
       
         <h2>I am signing up as a</h2>
+<!-- These buttons toggle between the student sign-up and the teacher sign-up -->
         <div class="signup-btns d-flex">
           <button id="student-signup-btn" type="button" class="btn btn-primary flex-fill col-6" data-bs-toggle= "collapse" aria-expanded="true">
             <span>Student</span>
@@ -135,10 +136,10 @@
         </div>
 <!-- These buttons allow you to navigate the form-->
         <div class="form-nav-btns d-flex justify-content-end"> 
-          <button type="button" class="btn btn-primary back-arrow collapse" data-bs-toggle= "collapse" aria-expanded="false">
+          <button id="student-back-arrow-btn" type="button" class="btn btn-primary back-arrow collapse" data-bs-toggle= "collapse" aria-expanded="false">
             <span><i class="fa fa-angle-left" aria-hidden="true"></i></span>
           </button>
-          <button type="button" class="btn btn-primary front-arrow collapse.show" data-bs-toggle= "collapse" aria-expanded="true">
+          <button id="student-front-arrow-btn"type="button" class="btn btn-primary front-arrow collapse.show" data-bs-toggle= "collapse" aria-expanded="true">
             <span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
           </button>
         </div>
@@ -259,10 +260,10 @@
         </div>
 <!-- These buttons allow you to navigate the form-->
         <div class="form-nav-btns d-flex justify-content-end "> 
-          <button type="button" class="btn btn-primary collapse back-arrow" data-bs-toggle= "collapse" aria-expanded="true">
+          <button id="" type="button" class="btn btn-primary collapse back-arrow" data-bs-toggle= "collapse" aria-expanded="true">
             <span><i class="fa fa-angle-left" aria-hidden="true"></i></span>
           </button>
-          <button type="button" class="btn btn-primary collapse.show front-arrow" data-bs-toggle= "collapse" aria-expanded="true">
+          <button id="" type="button" class="btn btn-primary collapse.show front-arrow" data-bs-toggle= "collapse" aria-expanded="true">
             <span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
           </button>
         </div>
@@ -282,14 +283,23 @@
       $("#student-signup-form").removeClass("collapse");
       $("#teacher-signup-form").removeClass("collapse.show");
       $("#teacher-signup-form").addClass("collapse");
+    //changes the background color, to the color of the student button
+      $('#student-signup-form').css('background-color', '#007bff')
+    //changes the color of navigation arrow buttons
+    $('#student-back-arrow-btn').css('background-color', 'rgba(39, 27, 83, 0.9)');
+    $('#student-front-arrow-btn').css('background-color', 'rgba(39, 27, 83, 0.9)');
     });
-
     $('#teacher-signup-btn').on('click',function() {
       $("#teacher-signup-form").addClass("collapse.show");
       $("#teacher-signup-form").removeClass("collapse");
       $("#student-signup-form").removeClass("collapse.show");
       $("#student-signup-form").addClass("collapse");
+  //turns background color, the color of teacher button 
+    $('#teacher-signup-form').css('background-color', 'rgba(39, 27, 83, 0.9)');
     });
+  //changes the color of navigation arrow buttons
+    $('#teacher-back-arrow-btn').css('background-color', '#007bff');
+    $('#teacher-front-arrow-btn').css('background-color', '#007bff');
 // This goes through the 3 different pages of the form, in a backwards direction
     $('.back-arrow').on('click', function(){
       switch(true){
