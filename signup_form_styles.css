@@ -1,0 +1,65 @@
+@media (min-width: 768px) {
+
+    .signup-image{
+        width: 42vw;
+        height: 100%;
+    }
+    .sign-up-forms{
+        width: 50vw;
+    }
+ }
+
+body{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+#form-spacing{
+    height: 100%;
+}
+
+#student-signup-form{
+    padding: 10% 5vw;
+    width: 100%;
+}
+
+#teacher-signup-form{
+    padding: 10% 5vw;
+    width: 100%;
+}
+.signup-btns{
+    width: 100%;
+}
+.signup-btns button{
+    margin: 0;
+    padding: 10px;
+}
+#student-signup-btn{
+    margin-right: 3%;
+}
+#teacher-signup-btn{
+    margin-left: 3%;
+    background-color:rgba(39, 27, 83, 0.9);
+    outline: none;
+    border: none;
+}
+.form-nav-btns button{
+    margin: 1%;
+}
+
+.sign-up-forms{
+    padding: 5vw;
+    color: white;
+}
+.sign-up-forms p{
+    color: white;
+}
+.sign-up-forms h2{
+    font-size: 1.7em;
+}
+#form-spacing{
+    background-image:url('signUp.jpg');
+    background-size: 100vw;
+    background-repeat: no-repeat;
+}
