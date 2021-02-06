@@ -405,6 +405,10 @@ a, a:hover, a:focus{
     padding: 5vw;
     color: white;
 }
+.sign-up-forms p{
+    padding: 5vw;
+    color: white;
+}
 .sign-up-forms h2{
     font-size: 1.7em;
 }
