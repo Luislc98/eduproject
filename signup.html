@@ -35,7 +35,7 @@
         </div>
       
 <!-- Student signup form-->
-      <form id="student-signup-form" class="collapse">
+      <form id="student-signup-form" class="collapse" action="signup.php" method="post">
 
         <div class="form-col collapse.show firstPage">
           <label for="Name">Name</label>
@@ -108,12 +108,12 @@
             <div class="form-group col-12">
               <label for="Education">Highest Education Level</label>
               <select id="education" name="education_level" class= "form-control" required>
-                  <option></option>
-                  <option></option>
-                  <option></option>
-                  <option></option>
-                  <option></option>
-                  <option></option>
+                  <option>High School</option>
+                  <option>Some College</option>
+                  <option>Associates</option>
+                  <option>Bachelors</option>
+                  <option>Masters</option>
+                  <option>Doctorate</option>
               </select>
             </div>
           </div>
@@ -121,25 +121,25 @@
 
         <div class="form-group collapse fifthPage contact">
         <p>Would you like to receive updates about your progress?</p>
-          <input name ="progressUpdates" type="radio" checked>
+          <input name ="progressUpdates" value='text' type="radio" checked>
           <label>Yes, text message</label><br>
-          <input name ="progressUpdates" type="radio">
+          <input name ="progressUpdates" value='email' type="radio">
           <label>Yes, e-mail</label><br>
-          <input name ="progressUpdates" type="radio">
+          <input name ="progressUpdates" value='text and email' type="radio">
           <label>Yes, text and email</label><br>
-          <input name ="progressUpdates" type="radio">
+          <input name ="progressUpdates" value='no' type="radio">
           <label>No</label><br>
         </div>
 
         <div class="form-group collapse sixthPage contact">
         <p>Would you like to receive updates about newletters on new features or new ways of earning?</p>
-            <input name="newsletterUpdates" type="radio" checked>
+            <input name="newsletterUpdates" value='text' type="radio" checked>
             <label>Yes, text message</label><br>
-            <input name="newsletterUpdates" type="radio" >
+            <input name="newsletterUpdates" value='email' type="radio" >
             <label>Yes, e-mail</label><br>
-            <input name="newsletterUpdates" type="radio" >
+            <input name="newsletterUpdates" value='text and email' type="radio" >
             <label>Yes, text and email</label><br>
-            <input name="newsletterUpdates" type="radio" >
+            <input name="newsletterUpdates" value='no' type="radio" >
             <label>No</label><br>
         </div>
 <!-- These buttons allow you to navigate the form-->
@@ -162,7 +162,7 @@
 
 <!-- Teacher signup form-->
 
-      <form id="teacher-signup-form" class="collapse">
+      <form id="teacher-signup-form" class="collapse" action="signup.php" method="post">
         <div class="form-col collapse.show firstPage">
           <label for="Name">Name</label>
             <div class="form-row">
