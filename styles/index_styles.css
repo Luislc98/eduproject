@@ -301,11 +301,10 @@ a, a:hover, a:focus{
     width: 100%; 
     align-items: stretch;
     background-color: rgb(9, 3, 34);
-    background-image: url("eureka_1.jpg");
+    background-image: url("images/eureka_1.jpg");
     background-size: 100vw;
     background-repeat: no-repeat;
     background-position: center top;
-
 }
 
 .text{
