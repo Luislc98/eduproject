@@ -172,22 +172,22 @@ if ( isset($_POST["teacher_signup"]) ) {
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-  <div class="d-flex justify-content-center align-items-center" id="form-spacing">
-    <div src="" id="signup-image" class="signup-image"></div>
-    <div class="d-flex flex-column align-items-center justify-content-center sign-up-forms flex-fill">
-      
-        <h2>I am signing up as a</h2>
+  <div class="d-flex" id="form-spacing">
+    <div id="signup-image" class="signup-image"></div>
+    <div class="d-flex flex-column sign-up-forms justify-content-center flex-fill">
+      <div id="form-header" class="d-flex flex-column align-items-center teacher-background">
+        <h2>Sign up as a...</h2>
 <!-- These buttons toggle between the student sign-up and the teacher sign-up -->
         <div class="signup-btns d-flex">
-          <button id="student-signup-btn" type="button" class="btn btn-primary flex-fill col-6" data-bs-toggle= "collapse" aria-expanded="true">
+          <button id="student-signup-btn" type="button" class="btn flex-fill col-6 default-color" data-bs-toggle= "collapse" aria-expanded="true">
             <span>Student</span>
           </button>
         
-          <button id="teacher-signup-btn" type="button" class="btn btn-primary flex-fill col-6" data-bs-toggle= "collapse" aria-expanded="true">
+          <button id="teacher-signup-btn" type="button" class="btn flex-fill col-6 default-color" data-bs-toggle= "collapse" aria-expanded="true">
             <span>Teacher</span>
           </button>
         </div>
-      
+      </div>
 <!-- Student signup form-->
       <form id="student-signup-form" class="collapse" action="<?php echo htmlspecialchars( $_SERVER['PHP_SELF'] ); ?>" method="post">
 
@@ -357,10 +357,10 @@ if ( isset($_POST["teacher_signup"]) ) {
         </div>
 <!-- These buttons allow you to navigate the form-->
         <div class="form-nav-btns d-flex justify-content-end"> 
-          <button id="student-back-arrow-btn" type="button" class="btn btn-primary back-arrow collapse" data-bs-toggle= "collapse" aria-expanded="false">
+          <button id="student-back-arrow-btn" type="button" class="btn back-arrow collapse" data-bs-toggle= "collapse" aria-expanded="false">
             <span><i class="fa fa-angle-left" aria-hidden="true"></i></span>
           </button>
-          <button id="student-front-arrow-btn"type="button" class="btn btn-primary front-arrow collapse.show" data-bs-toggle= "collapse" aria-expanded="true">
+          <button id="student-front-arrow-btn"type="button" class="btn front-arrow collapse.show" data-bs-toggle= "collapse" aria-expanded="true">
             <span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
           </button>
         </div>
@@ -564,10 +564,10 @@ if ( isset($_POST["teacher_signup"]) ) {
           </div>
 <!-- These buttons allow you to navigate the form-->
         <div class="form-nav-btns d-flex justify-content-end "> 
-          <button id="" type="button" class="btn btn-primary collapse back-arrow" data-bs-toggle= "collapse" aria-expanded="true">
+          <button id="teacher-back-arrow-btn" type="button" class="btn collapse back-arrow" data-bs-toggle= "collapse" aria-expanded="true">
             <span><i class="fa fa-angle-left" aria-hidden="true"></i></span>
           </button>
-          <button id="" type="button" class="btn btn-primary collapse.show front-arrow" data-bs-toggle= "collapse" aria-expanded="true">
+          <button id="teacher-front-arrow-btn" type="button" class="btn collapse.show front-arrow" data-bs-toggle= "collapse" aria-expanded="true">
             <span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
           </button>
         </div>

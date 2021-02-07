@@ -26,11 +26,20 @@ $('#student-signup-btn').on('click',function() {
     $(".back-arrow").removeClass("collapse.show");
 
 //changes the background color, to the color of the student button
-    $('#student-signup-form').css('background-color', '#007bff')
+    $('#student-signup-form').css('background-color', 'rgba(2,104,237,0.9)')
+    $("#form-header").removeClass("teacher-background");
+    $("#form-header").addClass("student-background");
 //changes the color of navigation arrow buttons
-    $('#student-back-arrow-btn').css('background-color', 'rgba(39, 27, 83, 0.9)');
-    $('#student-front-arrow-btn').css('background-color', 'rgba(39, 27, 83, 0.9)');
+    $('#student-back-arrow-btn').addClass('teacher-background');
+    $('#student-front-arrow-btn').addClass('teacher-background');
+//Changes the background-color of the button
+    $("#student-signup-btn").addClass("on-student-btn-click");
+    $("#teacher-signup-btn").removeClass("on-teacher-btn-click");
+    $("#student-signup-btn").removeClass("default-color");
+    $("#teacher-signup-btn").addClass("default-color");
   });
+
+// teacher signup button actions
   $('#teacher-signup-btn').on('click',function() {
     $("#teacher-signup-form").addClass("collapse.show");
     $("#teacher-signup-form").removeClass("collapse");
@@ -58,14 +67,22 @@ $('#student-signup-btn').on('click',function() {
     $(".back-arrow").addClass("collapse");
     $(".back-arrow").removeClass("collapse.show");
   
-//turns background color, the color of teacher button 
+//turns background color purple
     $('#teacher-signup-form').css('background-color', 'rgba(39, 27, 83, 0.9)');
-    });
-//changes the color of navigation arrow buttons
-    $('#teacher-back-arrow-btn').css('background-color', '#007bff');
-    $('#teacher-front-arrow-btn').css('background-color', '#007bff');
-// This goes through the 3 different pages of the form, in a backwards direction
+    $("#form-header").removeClass("student-background");
+    $("#form-header").addClass("teacher-background");
   
+//changes the color of navigation arrow buttons
+    $('#teacher-back-arrow-btn').addClass("student-background");
+    $('#teacher-front-arrow-btn').addClass("student-background");
+
+    //Changes the background-color of the sign up button
+    $("#student-signup-btn").removeClass("on-student-btn-click");
+    $("#student-signup-btn").addClass("default-color");
+    $("#teacher-signup-btn").removeClass("default-color");
+    $("#teacher-signup-btn").addClass("on-teacher-btn-click");
+// This goes through the 3 different pages of the form, in a backwards direction
+  });
   
   $('.back-arrow').on('click', function(){
     switch(true){
