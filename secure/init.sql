@@ -25,7 +25,9 @@ CREATE TABLE users (
 	homeaddress2 TEXT ,
 	addresscity TEXT ,
 	addressstate TEXT ,
-	addresszip INTEGER 
+	addresszip INTEGER,
+	progressupdate TEXT,
+	newsletterupdate TEXT 
 	
 );
 
@@ -40,12 +42,16 @@ CREATE TABLE teachers (
 	username TEXT NOT NULL,
 	pword TEXT NOT NULL,
 	subjectarea TEXT,
-	isteacher BOOLEAN ,
 	institutionname TEXT ,
 	teachingexp INTEGER ,
 	edulevel TEXT,
+	homeaddress TEXT ,
+	homeaddress2 TEXT ,
+	addresscity TEXT ,
+	addressstate TEXT ,
+	addresszip INTEGER,
 	resume_file_name TEXT ,
-	resume_file_ext TEXT ,
+	resume_file_ext TEXT 
 
 );
 

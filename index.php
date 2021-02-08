@@ -1,101 +1,193 @@
-<?php
-// DO NOT REMOVE!
-include("includes/init.php");
-// DO NOT REMOVE!
-?>
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
-  <title>Educational </title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles/index_styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-</head>
+  </head>
+  <body>
+<div class= "wrapper" id="homepage-background">
+<!-- Code for Sidebar content/components --> 
+<div class="sidebar-center">
+  <div id="dark-background" class=""></div>  
+  <nav id = "sidebar" class = "active">
+    <div class="sidebar-header">
+      <h3> Logo <h3>
+    </div>
+    <ul class = "list-unstyled components">
+      <li class="sidebar-dropdown">
+        <a href = "#homeSubmenu" data-toggle="collapse" aria-expanded="false" class = "dropdown-toggle"> Home </a>
+          <ul class = "collapse list-unstyled" id="homeSubmenu">
+            <li> 
+              <a href = "#"> Home 1 </a>
+            </li>
+            <li> 
+              <a href = "#"> Home 2 </a>
+            </li>
+            <li> 
+              <a href = "#"> Home 3</a>
+            </li>
+            <li> 
+              <a href = "#"> Home 4 </a>
+            </li>
+            <li> 
+              <a href = "#"> Home 5 </a>
+            </li>
+          </ul>
+          <li class="sidebar-dropdown">
+            <a href = "#pageSubmenu" data-toggle="collapse" aria-expanded="false" class = "dropdown-toggle"> Courses </a>
+                <ul class = "collapse list-unstyled" id="pageSubmenu">
+                  <li> 
+                    <a href = "#"> Page 1 </a>
+                  </li>
+                  <li> 
+                    <a href = "#"> Page 2 </a>
+                  </li>
+                  <li> 
+                    <a href = "#"> Page 3 </a>
+                  </li>
+                  <li> 
+                    <a href = "#"> Page 4 </a>
+                  </li>
+                  <li> 
+                    <a href = "#"> Page 5</a>
+                  </li>
+                </ul>
+            </li>
+      <li>
+        <a href="#"> About </a>
+      </li>
+      <li>
+        <a href="#"> Scholars </a>
+      </li>
+      <li>
+        <a href="#"> Educators </a>
+      </li>
+      <li>
+        <a href="#"> Contact </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+  <div>
+    <nav class="sidebarButton">
+      <!-- Bootstrap navbar modification to have a toggle button to hide or show the navigation bar-->
+      <button type="button" id="sidebarCollapse" class = "btn shadow-none active">
+        <i class="fa fa-chevron-right icon-default" aria-hidden="false"></i>
+      </button>
+      <!-- End of Bootstrap navbar modification--> 
+    </nav>
+<!--Bootstrap navbar -->
+      <nav class="navbar navbar-expand-lg fixed-top">
+      <a href="#" class="title"> EUREKA </a>
+      <button id="nav-button" class="container-fluid navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span id="nav-icon" class="fa fa-bars"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav flex-fill">
+          <li class="nav-item flex-fill">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item flex-fill">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item flex-fill">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item flex-fill">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item flex-fill">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+        </ul>
 
-<body>
-
-<section class="hero is-info is-medium is-fullheight">
-
-<?php
-
-include("includes/header.php");
-
- ?>
-
-
-
-<h1 class="title has-text-centered is-size-2" > Welcome to the latest innovation in online education.
-</h1>
-
-<p  class="mx-5 px-5" > We are an online education platform with the goal of introducing quality education to every American's fingerpints at affordable prices.
-    We aim to empower you to improve your skills through learning and attaining proficency in a variety of subjects,
-    whether it be for professional advancement, or personal enjoyment.
-
-</p>
-
-<h2 class="subtitle has-text-centered is-size-3"> Why Us
-
-</h2>
-<p  class="mx-5 px-5">
-  One of the biggest impediments to online education is the simple fact that only a small minority of individuals who register for an
-  online course actually complete it. Whether its loss of interest, or just life's challenges preventing one from finishing, most
-  struggle to successfully complete and utilize the skills they sought from online education. In order to combat this, we decided to
-  implement a monetrary reward system for the people who use and complete courses on our platform. This innovative new approach 
-  to encouraging completion and excellence in online education is guaranteed to ensure people achieve their educational 
-  goals.
-
-
-</p>
-
-<p class= "mx-5 px-5">
-  In addition to our rewards system, we boast a diverse catalog of exciting and transformative courses from a broad range of 
-  interests and subjects. Unlike courses in most online platforms that only give lectures with nothing to show for 
-  in the end that shows employers that you know your stuff, the courses in this platform come packaged with assignments that enable 
-  you to create a portfolio and signal future employers that you truly mastered the subject area.
-</p>
-
-<p class= "mx-5 px-5">
-  If our innovative rewards system and focus on portfolio-driven courses wasn't enough to convince you to join our platform, rest assured.
-  We can confidently boast about the quality of our courses. The professors and instructors hired to create these courses are widely 
-  respected as subject matter experts in their respective fields.
-</p>
-
-<h2 class="subtitle has-text-centered is-size-3"> How it Works
-
-</h2>
-
-<p  class="mx-5 px-5">People who use our platform, like Mike here , first sign up for a course like intro to accounting, and pay a registration fee
-  (lets say 50 bucks). If Mike manages to complete the course in a specified amount of time, he gets his money back. Even better,
-  if he completes the course and time and gets an A+, Mike can even get his money back AND get an extra monetray reward. Seriously!
-  Come try it today!
-
-
-</p>
-
-
-<div class="buttons">
-          <a href="signup.php" class="button is-light">
-            <strong>
-               Sign up today ! </strong>
-          </a>
-          
+        <form id="search-box" class="form-inline">
+          <input id="search-bar" class="form-control mr-sm-2 shadow-none" type="search" placeholder="Search" aria-label="Search">
+          <button id = "search-btn" class="btn shadow-none" type="button">
+            <span id="search-icon" class= "fa fa-search"></span>
+          </button>
+        
+        </form>
+      </div>
+    </nav>
+    <div id ="content">
+        <div id="top-spacing">
         </div>
+        <div class="login-container text">
+            <h2>A world class education for anyone, anywhere.</h2>
+            <p class="text">Join Eureka to explore your educational journey</p>
+            <p class="text"> Learning never ends. </p> <br>
+            <button class="btn btn-outline-light btn-lg">  Sign Up  <span class="fa fa-caret-right"></span></button>
+        </div>
+      <br>
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+    </div>
+    <!-- Bootstrap (carousel) slide show html code-->
+    <div id="slideshow">
+      <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+          <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="styles/images/Mountain.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>First slide label</h5>
+              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="styles/images/Rock.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Second slide label</h5>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="styles/images/Fog.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Third slide label</h5>
+              <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  
+</div>
+  <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
 
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+<script src="script/index_script.js"></script>
 
-
-
-
-<?php include("includes/footer.php"); ?>
-
-
-
-</section>
-</body>
-
-
-
-
+  </body>
 </html>
