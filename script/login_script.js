@@ -13,7 +13,7 @@ $('#teacher-login-btn').on('click',function() {
 });
 
 function myFunction() {
-    var x = document.getElementById("inputPassword4");
+    var x = document.getElementById("inputPassword");
     if (x.type === "password") {
       x.type = "text";
     } else {
@@ -22,7 +22,7 @@ function myFunction() {
   }
 
   function myFunctionteacher() {
-    var x = document.getElementById("inputteacherPassword4");
+    var x = document.getElementById("inputTeacherPassword");
     if (x.type === "password") {
       x.type = "text";
     } else {

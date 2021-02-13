@@ -111,7 +111,7 @@ $login_messages = array();
             
         <div class="form-group col-md-12">
           <label for="inputPassword">Password</label>
-          <input type="password" class="form-control" id="inputPassword" name='teacher_login_password' required>
+          <input type="password" class="form-control" id="inputTeacherPassword" name='teacher_login_password' required>
         </div>
       </div>
       
