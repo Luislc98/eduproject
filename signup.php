@@ -195,7 +195,7 @@ if ( isset($_POST["teacher_signup"]) ) {
           <label for="Name">Name</label> 
           <div class="form-row">
             <div class="form-group col-6">
-              <input type="text" class="form-control" id="education" name="first_name" placeholder="First Name" required>
+              <input type="text" class="form-control" id="firstName" name="first_name" placeholder="First Name" required>
             </div>
         
             <div class="form-group col-6">
@@ -205,19 +205,19 @@ if ( isset($_POST["teacher_signup"]) ) {
         </div>
 
         <div class="form-group collapse firstPage">
-          <label for="inputEmail4">Email</label>
-          <input type="email" name='email' class="form-control" id="inputEmail4" required>
+          <label for="inputEmail">Email</label>
+          <input type="email" name='email' class="form-control" id="inputEmail" required>
         </div>
         
         <div class="form-row collapse secondPage">
           <div class="form-group col-12">
-            <label for="inputUsername">Username</label>
-            <input type="text" name='username' class="form-control" id="inputUsername" required>
+            <label for="inputUserName">Username</label>
+            <input type="text" name='username' class="form-control" id="inputUserName" required>
           </div>
               
           <div class="form-group col-12">
-            <label for="inputPassword4">Password</label>
-            <input type="password" name='password' class="form-control" id="inputPassword4" required>
+            <label for="inputPassword">Password</label>
+            <input type="password" name='password' class="form-control" id="inputPassword" required>
           </div>
         </div>
 
@@ -572,7 +572,7 @@ if ( isset($_POST["teacher_signup"]) ) {
         </div>
 <!-- This button is to submit the form to the datebase--> 
         <div class="d-flex justify-content-center">        
-          <button type="submit"  name='teacher_signup'  class="btn btn-primary collapse seventhPage">Sign up</button>
+          <button type="submit" name='teacher_signup' class="btn btn-primary collapse seventhPage">Sign up</button>
         </div>
       </form> 
     </div>   

@@ -86,8 +86,8 @@ $login_messages = array();
         </div>
             
         <div class="form-group col-md-12">
-          <label for="inputPassword4">Password</label>
-          <input type="password" class="form-control" id="inputPassword4" name='student_loginpassword' required>
+          <label for="inputPassword">Password</label>
+          <input type="password" class="form-control" id="inputPassword" name='student_loginpassword' required>
         </div>
       </div>
 
@@ -110,8 +110,8 @@ $login_messages = array();
         </div>
             
         <div class="form-group col-md-12">
-          <label for="inputPassword4">Password</label>
-          <input type="password" class="form-control" id="inputPassword4" name='teacher_login_password' required>
+          <label for="inputPassword">Password</label>
+          <input type="password" class="form-control" id="inputPassword" name='teacher_login_password' required>
         </div>
       </div>
       

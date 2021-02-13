@@ -181,3 +181,70 @@ $('#teacher-signup-btn').on('click',function() {
         break;
     }
   });
+
+//This is to ensure that the user cannot move forward in the form unless they have typed an input. 
+//This is done by disabling the front arrow button completely!
+
+function validateInputs(){
+  var disableButton = false;
+  var val1 = $("#firstName").val();
+  var val2 = $("#lastName").val();
+  var val3 = $("#inputEmail").val();
+  var val4 = $("#inputUserName").val();
+  var val5 = $("#inputPassword").val();
+  var val6 = $("#inputAddress").val();
+  var val7 = $("#inputAddress2").val();
+  var val8 = $("#inputCity").val();
+  var val9 = $("#inputState").val();
+  var val10 = $("#inputZip").val();
+  var val11 = $("#DOB").val();
+  var val12 = $("#education").val();
+  var val13 = $("#inputSubject").val();
+  var val14 = $("#inputInstitution").val();
+  var val15 = $("#inputExperience").val();
+  
+  switch(true){
+    case $('.firstPage').hasClass("show"):
+      if(val1.length == 0 || val2.length == 0|| val3.length == 0)
+      disableButton = true;
+      $('.front-arrow').attr('disabled', disableButton);
+      break; 
+    case $('.secondPage').hasClass("show"):
+      if(val4.length == 0 || val5.length == 0)
+      disableButton = true;
+      $('.front-arrow').attr('disabled', disableButton);
+      break;
+    case $('.thirdPage').hasClass("show"):
+      if(val6.length == 0 || val7.length == 0 || val8.length == 0 || val9.length == 0 || val10.length == 0)
+      disableButton = true;
+      $('.front-arrow').attr('disabled', disableButton);
+      break;
+    case $('.fourthPage').hasClass("show"):
+      if(val11.length == 0 || val12.length == 0)
+      disableButton = true;
+      $('.front-arrow').attr('disabled', disableButton);
+      break;
+      
+    case $('.thirdPage').hasClass("show"): 
+
+      break;
+    case $('.fourthPage').hasClass("show"):
+      
+      break;
+    case $('.fifthPage').hasClass("show"):
+      
+      break;
+  }
+
+
+}
+
+$("#val1").keyup(function(event){
+  validateInputs();
+});
+
+$("#val2").keyup(function(event) {
+  validateInputs();
+});
+
+
