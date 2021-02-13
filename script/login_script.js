@@ -11,3 +11,21 @@ $('#teacher-login-btn').on('click',function() {
     $("#student-login-form").removeClass("collapse.show");
     $("#student-login-form").addClass("collapse");
 });
+
+function myFunction() {
+    var x = document.getElementById("inputPassword4");
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+  }
+
+  function myFunctionteacher() {
+    var x = document.getElementById("inputteacherPassword4");
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+  }

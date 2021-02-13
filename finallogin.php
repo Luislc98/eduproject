@@ -92,8 +92,8 @@ $login_messages = array();
       </div>
 
       <div class="form-group">
-        <input type="checkbox"  id="showPassword">
-        <label for="showPassword">Show password</label>
+        
+        <input type="checkbox" onclick="myFunction()"> Show Password
       </div>
       <div class="form-group">
         <input type="checkbox"  id="rememberMe">
@@ -116,7 +116,7 @@ $login_messages = array();
       </div>
       
       <div class="form-group">
-        <input type="checkbox"  id="showPassword">
+      <input type="checkbox" onclick="myFunctionteacher()"> 
         <label for="showPassword">Show password</label>
       </div>
       <div class="form-group">
