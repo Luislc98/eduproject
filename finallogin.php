@@ -88,12 +88,14 @@ $login_messages = array();
         <div class="form-group col-md-12">
           <label for="inputPassword4">Password</label>
           <input type="password" class="form-control" id="inputPassword4" name='student_loginpassword' required>
+          <!-- An element to toggle between password visibility -->
+          
         </div>
       </div>
 
       <div class="form-group">
-        <input type="checkbox"  id="showPassword">
-        <label for="showPassword">Show password</label>
+        
+        <input type="checkbox" onclick="myFunction()"> Show Password
       </div>
       <div class="form-group">
         <input type="checkbox"  id="rememberMe">
@@ -111,12 +113,12 @@ $login_messages = array();
             
         <div class="form-group col-md-12">
           <label for="inputPassword4">Password</label>
-          <input type="password" class="form-control" id="inputPassword4" name='teacher_login_password' required>
+          <input type="password" class="form-control" id="inputteacherPassword4" name='teacher_login_password' required>
         </div>
       </div>
       
       <div class="form-group">
-        <input type="checkbox"  id="showPassword">
+      <input type="checkbox" onclick="myFunctionteacher()"> 
         <label for="showPassword">Show password</label>
       </div>
       <div class="form-group">
