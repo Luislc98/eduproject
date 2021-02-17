@@ -8,8 +8,25 @@ include("includes/init.php");
 $login_messages = array();
 
 
+if(!empty($_POST["remember_me_student"])) {
+	setcookie ("student_loginusername",$_POST["student_loginusername"],time()+ 3600);
+	setcookie ("student_loginpassword",$_POST["student_loginpassword"],time()+ 3600);
+	//echo "Cookies Set Successfuly";
+} else {
+	setcookie("student_loginusername","");
+	setcookie("student_loginpassword","");
+	//echo "Cookies Not Set";
+}
 
-
+if(!empty($_POST["remember_me_teacher"])) {
+	setcookie ("teacher_login_username",$_POST["teacher_login_username"],time()+ 3600);
+	setcookie ("teacher_login_password",$_POST["teacher_login_password"],time()+ 3600);
+	echo "Cookies Set Successfuly";
+} else {
+	setcookie("teacher_login_username","");
+	setcookie("teacher_login_password","");
+	//echo "Cookies Not Set";
+}
 
 
 
@@ -48,17 +65,17 @@ $login_messages = array();
    }
   
   
-  if ( is_student_logged_in() ) {
+  //if ( is_student_logged_in() ) {
   
   
   
   ?>
   
   <?php
-  }
+  //}
   
-  else
-  {
+ // else
+ // {
   
   ?>
 
@@ -82,12 +99,12 @@ $login_messages = array();
       <div class="form-row">
         <div class="form-group col-md-12">
           <label for="inputUsername">Username or E-mail</label>
-          <input type="text" class="form-control" id="inputUsername" placeholder="luislopezRoxs or luislopezRoxs@gmail.com" name='student_loginusername' required>
+          <input type="text" class="form-control" id="inputUsername" name='student_loginusername' value="<?php if(isset($_COOKIE["student_loginusername"])) { echo $_COOKIE["student_loginusername"]; } ?>"  required>
         </div>
             
         <div class="form-group col-md-12">
           <label for="inputPassword">Password</label>
-          <input type="password" class="form-control" id="inputPassword" name='student_loginpassword' required>
+          <input type="password" class="form-control" id="inputPassword" name='student_loginpassword' value="<?php if(isset($_COOKIE["student_loginpassword"])) { echo $_COOKIE["student_loginpassword"]; } ?>" required>
         </div>
       </div>
 
@@ -96,7 +113,7 @@ $login_messages = array();
         <input type="checkbox" onclick="myFunction()"> Show Password
       </div>
       <div class="form-group">
-        <input type="checkbox"  id="rememberMe">
+        <input type="checkbox"  id="rememberMe" name="remember_me_student">
         <label for="rememberMe">Remember me next time</label>
       </div>    
           <button type="submit" name="student_login" class="btn btn-primary">Login</button>
@@ -106,12 +123,12 @@ $login_messages = array();
       <div class="form-row">
         <div class="form-group col-md-12">
           <label for="inputUsername">Username or E-mail</label>
-          <input type="text" class="form-control" id="inputUsername" placeholder="luislopezRoxs or luislopezRoxs@gmail.com" name='teacher_login_username' required>
+          <input type="text" class="form-control" id="inputUsername"  name='teacher_login_username' value="<?php if(isset($_COOKIE["teacher_login_username"])) { echo $_COOKIE["teacher_login_username"]; } ?>" required>
         </div>
             
         <div class="form-group col-md-12">
           <label for="inputPassword">Password</label>
-          <input type="password" class="form-control" id="inputTeacherPassword" name='teacher_login_password' required>
+          <input type="password" class="form-control" id="inputTeacherPassword" name='teacher_login_password' value="<?php if(isset($_COOKIE["teacher_login_password"])) { echo $_COOKIE["teacher_login_password"]; } ?>" required>
         </div>
       </div>
       
@@ -120,7 +137,7 @@ $login_messages = array();
         <label for="showPassword">Show password</label>
       </div>
       <div class="form-group">
-        <input type="checkbox"  id="rememberMe">
+        <input type="checkbox"  id="rememberMe" name="remember_me_teacher">
         <label for="rememberMe">Remember me next time</label>
       </div>    
           <button type="submit" name="teacher_login" class="btn btn-primary">Login</button>
@@ -130,7 +147,7 @@ $login_messages = array();
 
   <?php
 
-}
+//}
 
 
 
