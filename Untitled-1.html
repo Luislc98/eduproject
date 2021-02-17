@@ -126,3 +126,94 @@ $(document).ready(function () {
 #search-bar.padding{    
   padding: 0 0 0 2.2vw;
 }
+
+
+function formVariables(){
+  if($("#teacher-signup-form").hasClass("show")){
+//teacher form variables
+    val1 = $("#teacherFirstName").val();
+    val2 = $("#teacherLastName").val();
+    val3 = $("#teacherInputEmail").val();
+    val4 = $("#teacherInputUserName").val();
+    val5 = $("#teacherInputPassword").val();
+    val6 = $("#teacherInputAddress").val();
+    val7 = $("#teacherInputAddress2").val();
+    val8 = $("#teacherInputCity").val();
+    val9 = $("#teacherInputState").val();
+    val10 = $("#teacherInputZip").val();
+    val11 = $("#teacherDOB").val();
+    val12 = $("#teacherEducation").val();
+    val13 = $("#inputSubject").val();
+    val14 = $("#inputInstitution").val();
+    val15 = $("#inputExperience").val();
+  }
+//student form variables
+  else if ($("#student-signup-form").hasClass("show")){
+    val1 = $("#studentFirstName").val();
+    val2 = $("#studentLastName").val();
+    val3 = $("#studentInputEmail").val();
+    val4 = $("#studentInputUserName").val();
+    val5 = $("#studentInputPassword").val();
+    val6 = $("#studentInputAddress").val();
+    val7 = $("#studentInputAddress2").val();
+    val8 = $("#studentInputCity").val();
+    val9 = $("#studentInputState").val();
+    val10 = $("#studentInputZip").val();
+    val11 = $("#studentDOB").val();
+    val12 = $("#studentEducation").val();
+  }
+}
+
+function pageValidation(){
+  var disableButton = true;
+  val1 = ''
+  val2 = ''
+  val3 = ''
+  val4 = ''
+  val5 = ''
+  val6 = ''
+  val7 = ''
+  val8 = ''
+  val9 = ''
+  val10 = ''
+  val11 = ''
+  val12 = ''
+  val13 = ''
+  val14 = ''
+  val15 = ''
+  formVariables();
+  switch(true){
+    case $('.firstPage').hasClass("show"):
+      if(val1.length == 0 || val2.length == 0|| val3.length == 0){
+      disableButton = true;
+      $('.front-arrow').attr('disabled', disableButton);
+      }
+      break; 
+    case $('.secondPage').hasClass("show"):
+      if(val4.length == 0 || val5.length == 0){
+      disableButton = true;
+      $('.front-arrow').attr('disabled', disableButton);
+      }
+      break;
+    case $('.thirdPage').hasClass("show"):
+      if(val6.length == 0 || val7.length == 0 || val8.length == 0 || val9.length == 0 || val10.length == 0){
+      disableButton = true;
+      $('.front-arrow').attr('disabled', disableButton);
+      }
+      break;
+    case $('.fourthPage').hasClass("show"):
+      if(val11.length == 0 || val12.length == 0){
+      disableButton = true;
+      $('.front-arrow').attr('disabled', disableButton);
+      }
+      break;
+      
+    case $('.fifthPage').hasClass("show") && $("#teacher-signup-form").hasClass("show"): 
+      if(val13.length == 0 || val14.length == 0 || val15.length == 0 ){
+      disableButton = true;
+      $('.front-arrow').attr('disabled', disableButton);
+      }
+      break;
+  }
+}
+//disables front-arrow button unless form is filled out!

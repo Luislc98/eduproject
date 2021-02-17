@@ -1,8 +1,12 @@
+
 $('#student-signup-btn').on('click',function() {
+  if($("#student-signup-form").hasClass("show")){
+
+  } else {
   setTimeout(function(){
     $("#teacher-signup-form").collapse("hide");
   }, 350);
-      $("#student-signup-form").collapse("show");
+    $("#student-signup-form").collapse("show");
 //resets the form to the first page!
     $('.firstPage').collapse("show");
     $(".secondPage").collapse("hide");
@@ -11,9 +15,9 @@ $('#student-signup-btn').on('click',function() {
     $(".fifthPage").collapse("hide");;
     $(".sixthPage").collapse("hide");
     $(".seventhPage").collapse("hide");
-  //restores the front arrow
+//restores the front arrow
     $(".front-arrow").collapse("show");
-  // backwards arrow will disappear on first page of form 
+// backwards arrow will disappear on first page of form 
     $(".back-arrow").collapse("hide");
 
 //changes the background color, to the color of the student button
@@ -28,15 +32,37 @@ $('#student-signup-btn').on('click',function() {
     $("#teacher-signup-btn").removeClass("on-teacher-btn-click");
     $("#student-signup-btn").removeClass("default-color");
     $("#teacher-signup-btn").addClass("default-color");
-  });
+/*prevents user from moving on in student form unless they have inputs 
+on the first page by disabling the front-arrow button*/
+    (function () {
+      $('#student-signup-form > .firstPage > input').keyup(function() {
+          let empty = false;
+          $('#student-signup-form > .firstPage > input').each(function() {
+              if ($(this).val() == '') {
+                  empty = true;
+              }
+          });
+
+          if (empty) {
+              $('#student-front-arrow-btn').prop('disabled', true);
+          } else {
+              $('#student-front-arrow-btn').prop('disabled', false);
+          }
+      });
+    })()
+  }
+});
 
 // teacher signup button actions
 $('#teacher-signup-btn').on('click',function() {
+  if($("#teacher-signup-form").hasClass("show")){
+
+  } else {
     setTimeout(function(){
      $("#teacher-signup-form").collapse("show");
     }, 350);
     $("#student-signup-form").collapse("hide");
-//resets the form to the first page!
+  //resets the form to the first page!
     $('.firstPage').collapse("show");
     $(".secondPage").collapse("hide");
     $(".thirdPage").collapse("hide");
@@ -50,12 +76,12 @@ $('#teacher-signup-btn').on('click',function() {
   // backwards arrow will disappear on first page of form 
     $(".back-arrow").collapse("hide");
   
-//turns background color purple
+  //turns background color purple
     $('#teacher-signup-form').css('background-color', 'rgba(39, 27, 83, 0.9)');
     $("#form-header").removeClass("student-background");
     $("#form-header").addClass("teacher-background");
   
-//changes the color of navigation arrow buttons
+  //changes the color of navigation arrow buttons
     $('#teacher-back-arrow-btn').addClass("student-background");
     $('#teacher-front-arrow-btn').addClass("student-background");
 
@@ -64,8 +90,26 @@ $('#teacher-signup-btn').on('click',function() {
     $("#student-signup-btn").addClass("default-color");
     $("#teacher-signup-btn").removeClass("default-color");
     $("#teacher-signup-btn").addClass("on-teacher-btn-click");
-// This goes through the 3 different pages of the form, in a backwards direction
-  });
+    /* This goes through the 3 different pages 
+    of the form, in a backwards direction */
+    (function () {
+      $('#teacher-signup-form > .firstPage > input').keyup(function() {
+          let empty = false;
+          $('#teacher-signup-form > .firstPage > input').each(function() {
+              if ($(this).val() == '') {
+                  empty = true;
+              }
+          });
+          
+          if (empty) {
+              $('#teacher-front-arrow-btn').attr('disabled', 'disabled');
+          } else {
+              $('#teacher-front-arrow-btn').removeAttr('disabled');
+          }
+      });
+    })()
+  }
+});
   
   $('.back-arrow').on('click', function(){
     switch(true){
@@ -122,10 +166,14 @@ $('#teacher-signup-btn').on('click',function() {
         break;
     }
   });
-
+  
   // This goes through the 3 different pages of the form, in a forwards direction
   $('.front-arrow').on('click', function(){
+//re-disables the front-arrow button to validate inputs!
+    $('#student-front-arrow-btn').prop('disabled', true);
+
     switch(true){
+
       case $('.sixthPage').hasClass("show") && $("#teacher-signup-form").hasClass("show") :
         //forwards arrow will disappear since this is the last page
         $(".front-arrow").collapse("hide");
@@ -168,9 +216,35 @@ $('#teacher-signup-btn').on('click',function() {
         setTimeout(function(){
           $(".thirdPage").collapse("show");
         }, 350);
+
+        $(document).ready(function () {
+          $('#student-signup-form > .thirdPage > .form-group > input').keyup(function() {
+              let empty = false;
+
+              $('#student-signup-form > .thirdPage > .form-group > input').each(function() {
+                if ($(this).val() == '') {
+                    empty = true;
+                }
+              });
+
+              $('#student-signup-form > #studentInputZip').each(function() {
+                if ($(this).val().length == '0') {
+                    empty = true;
+                }
+              });
+//placeholder counts as val or length. figure out why tomorrow
+
+              if (empty) {
+                $('#student-front-arrow-btn').prop('disabled', true);
+              } else {
+                  $('#student-front-arrow-btn').prop('disabled', false);
+              }
+          })
+        });
+        
         break;
   
-        
+
       case $('.firstPage').hasClass("show"):
         $(".firstPage").collapse("hide");
         setTimeout(function(){
@@ -178,73 +252,27 @@ $('#teacher-signup-btn').on('click',function() {
         }, 350)
 // backwards arrow will disappear on first page of form 
         $(".back-arrow").collapse("show");
+  
+        $(document).ready(function () {
+          $('#student-signup-form > .secondPage > .form-group > input').keyup(function() {
+              let empty = false;
+
+              $('#student-signup-form > .secondPage > .form-group > input').each(function() {
+                if ($(this).val() == '') {
+                    empty = true;
+                }
+              });
+
+              if (empty) {
+                $('#student-front-arrow-btn').prop('disabled', true);
+              } else {
+                  $('#student-front-arrow-btn').prop('disabled', false);
+              }
+          })
+        });
         break;
     }
   });
 
-//This is to ensure that the user cannot move forward in the form unless they have typed an input. 
-//This is done by disabling the front arrow button completely!
-
-function validateInputs(){
-  var disableButton = false;
-  var val1 = $("#firstName").val();
-  var val2 = $("#lastName").val();
-  var val3 = $("#inputEmail").val();
-  var val4 = $("#inputUserName").val();
-  var val5 = $("#inputPassword").val();
-  var val6 = $("#inputAddress").val();
-  var val7 = $("#inputAddress2").val();
-  var val8 = $("#inputCity").val();
-  var val9 = $("#inputState").val();
-  var val10 = $("#inputZip").val();
-  var val11 = $("#DOB").val();
-  var val12 = $("#education").val();
-  var val13 = $("#inputSubject").val();
-  var val14 = $("#inputInstitution").val();
-  var val15 = $("#inputExperience").val();
-  
-  switch(true){
-    case $('.firstPage').hasClass("show"):
-      if(val1.length == 0 || val2.length == 0|| val3.length == 0)
-      disableButton = true;
-      $('.front-arrow').attr('disabled', disableButton);
-      break; 
-    case $('.secondPage').hasClass("show"):
-      if(val4.length == 0 || val5.length == 0)
-      disableButton = true;
-      $('.front-arrow').attr('disabled', disableButton);
-      break;
-    case $('.thirdPage').hasClass("show"):
-      if(val6.length == 0 || val7.length == 0 || val8.length == 0 || val9.length == 0 || val10.length == 0)
-      disableButton = true;
-      $('.front-arrow').attr('disabled', disableButton);
-      break;
-    case $('.fourthPage').hasClass("show"):
-      if(val11.length == 0 || val12.length == 0)
-      disableButton = true;
-      $('.front-arrow').attr('disabled', disableButton);
-      break;
-      
-    case $('.thirdPage').hasClass("show"): 
-
-      break;
-    case $('.fourthPage').hasClass("show"):
-      
-      break;
-    case $('.fifthPage').hasClass("show"):
-      
-      break;
-  }
-
-
-}
-
-$("#val1").keyup(function(event){
-  validateInputs();
-});
-
-$("#val2").keyup(function(event) {
-  validateInputs();
-});
 
 

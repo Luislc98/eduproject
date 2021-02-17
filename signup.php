@@ -192,55 +192,55 @@ if ( isset($_POST["teacher_signup"]) ) {
       <form id="student-signup-form" class="collapse" action="<?php echo htmlspecialchars( $_SERVER['PHP_SELF'] ); ?>" method="post">
 
         <div class="form-col collapse firstPage">
-          <label for="Name">Name</label> 
-          <div class="form-row">
+          <label for="studentName">Name</label> 
+          <div class="form-row" id="studentName">
             <div class="form-group col-6">
-              <input type="text" class="form-control" id="firstName" name="first_name" placeholder="First Name" required>
+              <input type="text" class="form-control" id="studentFirstName" name="first_name" placeholder="First Name" required>
             </div>
         
             <div class="form-group col-6">
-              <input type="text" class="form-control" id="lastName" name="last_name" placeholder="Last Name" required>
+              <input type="text" class="form-control" id="studentLastName" name="last_name" placeholder="Last Name" required>
             </div>
           </div>
         </div>
 
         <div class="form-group collapse firstPage">
-          <label for="inputEmail">Email</label>
-          <input type="email" name='email' class="form-control" id="inputEmail" required>
+          <label for="studentInputEmail">Email</label>
+          <input type="email" name='email' class="form-control" id="studentInputEmail" required>
         </div>
         
         <div class="form-row collapse secondPage">
           <div class="form-group col-12">
-            <label for="inputUserName">Username</label>
-            <input type="text" name='username' class="form-control" id="inputUserName" required>
+            <label for="studentInputUserName">Username</label>
+            <input type="text" name='username' class="form-control" id="studentInputUserName" required>
           </div>
               
           <div class="form-group col-12">
-            <label for="inputPassword">Password</label>
-            <input type="password" name='password' class="form-control" id="inputPassword" required>
+            <label for="studentInputPassword">Password</label>
+            <input type="password" name='password' class="form-control" id="studentInputPassword" required>
           </div>
         </div>
 
         <div class="form-group collapse thirdPage">
-          <label for="inputAddress">Address</label>
-          <input type="text" name='homeaddress' class="form-control" id="inputAddress" placeholder="1234 Main St" required>
+          <label for="studentInputAddress">Address</label>
+          <input type="text" name='homeaddress' class="form-control" id="studentInputAddress" placeholder="1234 Main St" required>
         </div>
             
         <div class="form-group collapse thirdPage">
-          <label for="inputAddress2">Address 2</label>
-          <input type="text" name='homeaddress2' class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+          <label for="studentInputAddress2">Address 2</label>
+          <input type="text" name='homeaddress2' class="form-control" id="studentInputAddress2" placeholder="Apartment, studio, or floor">
         </div>
 
         <div class="form-col collapse thirdPage">
           <div class="form-group">
-            <label for="inputCity">City</label>
-            <input type="text" name='addresscity'  class="form-control" id="inputCity" required>
+            <label for="studentInputCity">City</label>
+            <input type="text" name='addresscity'  class="form-control" id="studentInputCity" required>
           </div>
       
           <div class="form-row">
             <div class="form-group col-6">
-              <label for="inputState">State</label>
-              <select id="inputState" name='addressstate' class="form-control" required>
+              <label for="studentInputState">State</label>
+              <select id="studentInputState" name='addressstate' class="form-control" required>
                 <option selected value="" >Choose...</option>
                 <option value="AL">Alabama (AL)</option>
                 <option value="AK">Alaska (AK)</option>
@@ -305,8 +305,8 @@ if ( isset($_POST["teacher_signup"]) ) {
               </select>
             </div>
             <div class="form-group col-6">
-              <label for="inputZip">Zip</label>
-              <input type="number" name='addresszip' class="form-control" id="inputZip" placeholder="11201, etc"required>
+              <label for="studentInputZip">Zip</label>
+              <input type="number" name='addresszip' class="form-control" id="studentInputZip" placeholder="11201, etc" required>
             </div>
           </div>
         </div>
@@ -314,13 +314,13 @@ if ( isset($_POST["teacher_signup"]) ) {
         <div class="collapse fourthPage">
           <div class="d-flex flex-column">  
             <div class="form-group flex-fill">
-              <label for="DOB">Date of Birth</label>
-              <input type="date" id="DOB" name="DOB" class= "form-control" required>
+              <label for="studentDOB">Date of Birth</label>
+              <input type="date" id="studentDOB" name="DOB" class= "form-control" required>
             </div>
               
             <div class="form-group flex-fill">
-              <label for="Education">Highest Education Level</label>
-              <select id="education" name="education_level" class= "form-control" required>
+              <label for="studentEducation">Highest Education Level</label>
+              <select id="studentEducation" name="education_level" class= "form-control" required>
                 <option value='highschool'> High School</option>
                 <option value='somecollege'>Some College</option>
                 <option value='associate'>Associates</option>
@@ -360,7 +360,7 @@ if ( isset($_POST["teacher_signup"]) ) {
           <button id="student-back-arrow-btn" type="button" class="btn back-arrow collapse" data-bs-toggle= "collapse" aria-expanded="false">
             <span><i class="fa fa-angle-left" aria-hidden="true"></i></span>
           </button>
-          <button id="student-front-arrow-btn"type="button" class="btn front-arrow collapse" data-bs-toggle= "collapse" aria-expanded="false">
+          <button id="student-front-arrow-btn"type="button" class="btn front-arrow collapse" data-bs-toggle= "collapse" aria-expanded="false" disabled = "disabled">
             <span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
           </button>
         </div>
@@ -377,72 +377,57 @@ if ( isset($_POST["teacher_signup"]) ) {
 
       <form id="teacher-signup-form" class="collapse" action="<?php echo htmlspecialchars( $_SERVER['PHP_SELF'] ); ?>" method="post" enctype="multipart/form-data">
         <div class="form-col collapse firstPage">
-          <label for="Name">Name</label>
-            <div class="form-row">
+          <label for="teacherName">Name</label>
+            <div class="form-row" id="teacherName">
               <div class="form-group col-6">
-                <input type="text" class="form-control" id="education" name="teacher_first_name" placeholder="First Name" required>
+                <input type="text" class="form-control" id="teacherFirstName" name="teacher_first_name" placeholder="First Name" required>
               </div>
         
               <div class="form-group col-6">
-                <input type="text" class="form-control" id="lastName" name="teacher_last_name" placeholder="Last Name" required>
+                <input type="text" class="form-control" id="teacherLastName" name="teacher_last_name" placeholder="Last Name" required>
               </div>
             </div>
         </div>
 
         <div class="form-group collapse firstPage">
-          <label for="inputEmail4">Email</label>
-          <input type="text" class="form-control" name='teacher_email' id="inputEmail4" required>
+          <label for="teacherInputEmail">Email</label>
+          <input type="text" class="form-control" name='teacher_email' id="teacherInputEmail" required>
         </div>
 
         <div class="form-row collapse secondPage">
 
           <div class="form-group col-12">
-            <label for="inputUsername">Username</label>
-            <input type="text" name='teacher_username' class="form-control" id="inputUsername" required>
+            <label for="teacherInputUsername">Username</label>
+            <input type="text" name='teacher_username' class="form-control" id="teacherInputUsername" required>
           </div>
               
           <div class="form-group col-12">
-            <label for="inputPassword4">Password</label>
-            <input type="password" name='teacher_password' class="form-control" id="inputPassword4" required>
+            <label for="teacherInputPassword">Password</label>
+            <input type="password" name='teacher_password' class="form-control" id="teacherInputPassword" required>
           </div>
         
         </div>
 
         <div class="form-group collapse thirdPage">
-          <label for="inputSubject">What subject do you primarily want to teach?</label>
-          <input type="text" name='subject_area' class="form-control" id="inputSubject" required>
-        </div>
-
-        <div class="form-group collapse thirdPage">
-          <label for="inputInstitution">What institution do you teach at?</label>
-          <input type="text" name='institution_name' class="form-control" id="inputInstitution" required>
-        </div>
-
-        <div class="form-group collapse thirdPage">
-          <label for="inputExperience">How many years of teaching experience do you have?</label>
-          <input type="number" name='teaching_exp'  class="form-control" id="inputExperience" required>
-        </div>
-
-        <div class="form-group collapse fourthPage">
-          <label for="inputAddress">Address</label>
-          <input type="text" name='teacher_homeaddress' class="form-control" id="inputAddress" placeholder="1234 Main St" required>
+          <label for="teacherInputAddress">Address</label>
+          <input type="text" name='teacher_homeaddress' class="form-control" id="teacherInputAddress" placeholder="1234 Main St" required>
         </div>
   
-        <div class="form-group collapse fourthPage">
-          <label for="inputAddress2">Address 2</label>
-          <input type="text" name='teacher_homeaddress2' class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+        <div class="form-group collapse thirdPage">
+          <label for="teacherInputAddress2">Address 2</label>
+          <input type="text" name='teacher_homeaddress2' class="form-control" id="teacherInputAddress" placeholder="Apartment, studio, or floor">
         </div>
 
-        <div class="form-col collapse fourthPage">
+        <div class="form-col collapse thirdPage">
         
           <div class="form-group">
-            <label for="inputCity">City</label>
-            <input type="text" name='teacher_addresscity' class="form-control" id="inputCity" required>
+            <label for="teacherInputCity">City</label>
+            <input type="text" name='teacher_addresscity' class="form-control" id="teacherInputCity" required>
           </div>
           <div class="form-row">
             <div class="form-group col-6">
-              <label for="inputState">State</label>
-                <select id="inputState" name='teacher_addressstate' class="form-control" required>
+              <label for="teacherInputState">State</label>
+                <select id="teacherInputState" name='teacher_addressstate' class="form-control" required>
                   <option value='' selected>Choose...</option>
                   <option value="AL">Alabama (AL)</option>
                   <option value="AK">Alaska (AK)</option>
@@ -507,22 +492,22 @@ if ( isset($_POST["teacher_signup"]) ) {
                 </select>
             </div>
             <div class="form-group col-6">
-              <label for="inputZip">Zip</label>
-              <input type="number" name='teacher_addresszip' class="form-control" id="inputZip" required>
+              <label for="teacherInputZip">Zip</label>
+              <input type="number" name='teacher_addresszip' class="form-control" id="teacherInputZip" required>
             </div>
           </div>
         </div>
-
-        <div class="collapse fifthPage">
+        
+        <div class="collapse fourthPage">
           <div class="d-flex flex-column">          
             <div class="form-group flex-fill">
-              <label for="DOB">Date of Birth</label>
+              <label for="teacherDOB">Date of Birth</label>
               <input type="date" id="DOB" name="teacher_DOB" class= "form-control" required>
             </div>
     
             <div class="form-group flex-fill">
-              <label for="Education">Highest Education Level</label>
-                <select id="education" name="teacher_education_level" class= "form-control" required>
+              <label for="teacherEducation">Highest Education Level</label>
+                <select id="teacherEducation" name="teacher_education_level" class= "form-control" required>
                   <option value='highschool'> High School</option>
                   <option value='somecollege'>Some College</option>
                   <option value='associate'>Associates</option>
@@ -533,11 +518,28 @@ if ( isset($_POST["teacher_signup"]) ) {
             </div>
           </div>
         </div>
-        <div class="form-group collapse fifthPage">
+        
+        <div class="form-group collapse fourthPage">
           <label for="Resume">Upload an your Resume</label>
           <input type="hidden" name="MAX_FILE_SIZE" value="<?php echo MAX_FILE_SIZE; ?>" />
           <input type="file" name='teacher_resume' class="form-control-file" id="Resume">
         </div>
+
+        <div class="form-group collapse fifthPage">
+          <label for="teacherInputSubject">What subject do you primarily want to teach?</label>
+          <input type="text" name='subject_area' class="form-control" id="teacherInputSubject" required>
+        </div>
+
+        <div class="form-group collapse fifthPage">
+          <label for="teacherInputInstitution">What institution do you teach at?</label>
+          <input type="text" name='institution_name' class="form-control" id="teacherInputInstitution" required>
+        </div>
+
+        <div class="form-group collapse fifthPage">
+          <label for="inputExperience">How many years of teaching experience do you have?</label>
+          <input type="number" name='teaching_exp'  class="form-control" id="inputExperience" required>
+        </div>
+
         <div class="form-group collapse sixthPage contact">
           <p>Would you like to receive updates about your progress?</p>
             <input name ="progressUpdates" type="radio" checked>
@@ -566,7 +568,7 @@ if ( isset($_POST["teacher_signup"]) ) {
           <button id="teacher-back-arrow-btn" type="button" class="btn collapse back-arrow" data-bs-toggle= "collapse" aria-expanded="false">
             <span><i class="fa fa-angle-left" aria-hidden="true"></i></span>
           </button>
-          <button id="teacher-front-arrow-btn" type="button" class="btn collapse front-arrow" data-bs-toggle= "collapse" aria-expanded="false">
+          <button id="teacher-front-arrow-btn" type="button" class="btn collapse front-arrow" data-bs-toggle= "collapse" aria-expanded="false" disabled = "disabled">
             <span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
           </button>
         </div>
