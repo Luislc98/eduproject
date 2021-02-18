@@ -35,10 +35,10 @@ $('#student-signup-btn').on('click',function() {
 /*prevents user from moving on in student form unless they have inputs 
 on the first page by disabling the front-arrow button*/
     (function () {
-      $('#student-signup-form > .firstPage > input').keyup(function() {
+      $('#student-signup-form').keyup(function() {
           let empty = false;
-          $('#student-signup-form > .firstPage > input').each(function() {
-              if ($(this).val() == '') {
+          $('#studentFirstName, #studentLastName, #studentInputEmail').each(function() {
+              if ($(this).val().length == '0') {
                   empty = true;
               }
           });
@@ -92,19 +92,21 @@ $('#teacher-signup-btn').on('click',function() {
     $("#teacher-signup-btn").addClass("on-teacher-btn-click");
     /* This goes through the 3 different pages 
     of the form, in a backwards direction */
+/*prevents user from moving on in student form unless they have inputs 
+on the first page by disabling the front-arrow button*/
     (function () {
-      $('#teacher-signup-form > .firstPage > input').keyup(function() {
+      $('#teacher-signup-form').keyup(function() {
           let empty = false;
-          $('#teacher-signup-form > .firstPage > input').each(function() {
-              if ($(this).val() == '') {
+          $('#teacherFirstName, #teacherLastName, #teacherInputEmail').each(function() {
+              if ($(this).val().length == '0') {
                   empty = true;
               }
           });
-          
+
           if (empty) {
-              $('#teacher-front-arrow-btn').attr('disabled', 'disabled');
+              $('#teacher-front-arrow-btn').prop('disabled', true);
           } else {
-              $('#teacher-front-arrow-btn').removeAttr('disabled');
+              $('#teacher-front-arrow-btn').prop('disabled', false);
           }
       });
     })()
@@ -217,29 +219,44 @@ $('#teacher-signup-btn').on('click',function() {
           $(".thirdPage").collapse("show");
         }, 350);
 
+/*disable student front button unless it meets 
+certain input requirements */
         $(document).ready(function () {
-          $('#student-signup-form > .thirdPage > .form-group > input').keyup(function() {
-              let empty = false;
-
-              $('#student-signup-form > .thirdPage > .form-group > input').each(function() {
-                if ($(this).val() == '') {
-                    empty = true;
+          let empty = true;
+          $('#student-signup-form').keyup(function() {
+              $('#studentInputAddress, #studentInputAddress2, #studentInputCity, #studentInputZip').each(function() {
+                if($(this).val().length == '0'){
+                  empty = true;
+                } else{
+                  empty = false;
                 }
               });
 
-              $('#student-signup-form > #studentInputZip').each(function() {
-                if ($(this).val().length == '0') {
-                    empty = true;
-                }
-              });
-//placeholder counts as val or length. figure out why tomorrow
-
-              if (empty) {
+              if (verifyDropdown() || empty) {
                 $('#student-front-arrow-btn').prop('disabled', true);
+              } else {
+                $('#student-front-arrow-btn').prop('disabled', false);
+              }
+          });
+
+          function verifyDropdown() {
+            if ($('#studentInputState').val() == '') { 
+              return true;
+          
+            } else {
+              return false;
+            }
+          }
+
+          $('#studentInputState').change(function() {
+              if (verifyDropdown() || empty) {
+                  $('#student-front-arrow-btn').prop('disabled', true);
               } else {
                   $('#student-front-arrow-btn').prop('disabled', false);
               }
-          })
+          });
+
+          
         });
         
         break;
@@ -252,27 +269,26 @@ $('#teacher-signup-btn').on('click',function() {
         }, 350)
 // backwards arrow will disappear on first page of form 
         $(".back-arrow").collapse("show");
-  
-        $(document).ready(function () {
-          $('#student-signup-form > .secondPage > .form-group > input').keyup(function() {
-              let empty = false;
 
-              $('#student-signup-form > .secondPage > .form-group > input').each(function() {
-                if ($(this).val() == '') {
+/*disable front button unless it meets 
+certain input requirements */
+        $(document).ready(function () {
+          $('#student-signup-form').keyup(function() {
+            let empty = false;
+            $('#studentInputUserName, #studentInputPassword').each(function() {
+                if ($(this).val().length == '0') {
                     empty = true;
                 }
-              });
-
-              if (empty) {
+            });
+  
+            if (empty) {
                 $('#student-front-arrow-btn').prop('disabled', true);
-              } else {
-                  $('#student-front-arrow-btn').prop('disabled', false);
-              }
-          })
+            } else {
+                $('#student-front-arrow-btn').prop('disabled', false);
+            }
+          });
         });
-        break;
-    }
-  });
-
-
+    break;
+  }
+})
 

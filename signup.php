@@ -193,20 +193,22 @@ if ( isset($_POST["teacher_signup"]) ) {
 
         <div class="form-col collapse firstPage">
           <label for="studentName">Name</label> 
-          <div class="form-row" id="studentName">
+          <div class="form-row firstPage" id="studentName">
             <div class="form-group col-6">
-              <input type="text" class="form-control" id="studentFirstName" name="first_name" placeholder="First Name" required>
+              <input type="text" class="form-control" id="studentFirstName" name="first_name"  required>
+              <label for="studentFirstName" style="font-size: 0.9em"> First <label>
             </div>
         
-            <div class="form-group col-6">
-              <input type="text" class="form-control" id="studentLastName" name="last_name" placeholder="Last Name" required>
+            <div class="form-group firstPage col-6">
+              <input type="text" class="form-control" id="studentLastName" name="last_name"  required>
+              <label for="studentLastName" style="font-size: 0.9em"> Last <label>
             </div>
           </div>
         </div>
 
         <div class="form-group collapse firstPage">
           <label for="studentInputEmail">Email</label>
-          <input type="email" name='email' class="form-control" id="studentInputEmail" required>
+          <input type="e-mail" name='email' class="form-control" id="studentInputEmail" placeholder="Ex: johnDoe@gmail.com, etc." required>
         </div>
         
         <div class="form-row collapse secondPage">
@@ -223,12 +225,12 @@ if ( isset($_POST["teacher_signup"]) ) {
 
         <div class="form-group collapse thirdPage">
           <label for="studentInputAddress">Address</label>
-          <input type="text" name='homeaddress' class="form-control" id="studentInputAddress" placeholder="1234 Main St" required>
+          <input type="text" name='homeaddress' class="form-control" id="studentInputAddress" required>
         </div>
             
         <div class="form-group collapse thirdPage">
           <label for="studentInputAddress2">Address 2</label>
-          <input type="text" name='homeaddress2' class="form-control" id="studentInputAddress2" placeholder="Apartment, studio, or floor">
+          <input type="text" name='homeaddress2' class="form-control" id="studentInputAddress2">
         </div>
 
         <div class="form-col collapse thirdPage">
@@ -241,7 +243,7 @@ if ( isset($_POST["teacher_signup"]) ) {
             <div class="form-group col-6">
               <label for="studentInputState">State</label>
               <select id="studentInputState" name='addressstate' class="form-control" required>
-                <option selected value="" >Choose...</option>
+                <option value="" selected="selected">Choose...</option>
                 <option value="AL">Alabama (AL)</option>
                 <option value="AK">Alaska (AK)</option>
                 <option value="AZ">Arizona (AZ)</option>
@@ -306,7 +308,7 @@ if ( isset($_POST["teacher_signup"]) ) {
             </div>
             <div class="form-group col-6">
               <label for="studentInputZip">Zip</label>
-              <input type="number" name='addresszip' class="form-control" id="studentInputZip" placeholder="11201, etc" required>
+              <input type="number" name='addresszip' class="form-control" id="studentInputZip" required>
             </div>
           </div>
         </div>
@@ -380,18 +382,20 @@ if ( isset($_POST["teacher_signup"]) ) {
           <label for="teacherName">Name</label>
             <div class="form-row" id="teacherName">
               <div class="form-group col-6">
-                <input type="text" class="form-control" id="teacherFirstName" name="teacher_first_name" placeholder="First Name" required>
+                <input type="text" class="form-control" id="teacherFirstName" name="teacher_first_name" required>
+                <label for="teacherFirstName" style="font-size: 0.9em"> First <label>
               </div>
         
               <div class="form-group col-6">
-                <input type="text" class="form-control" id="teacherLastName" name="teacher_last_name" placeholder="Last Name" required>
+                <input type="text" class="form-control" id="teacherLastName" name="teacher_last_name" required>
+                <label for="teacherLastName" style="font-size: 0.9em"> Last <label>
               </div>
             </div>
         </div>
 
         <div class="form-group collapse firstPage">
           <label for="teacherInputEmail">Email</label>
-          <input type="text" class="form-control" name='teacher_email' id="teacherInputEmail" required>
+          <input type="e-mail" class="form-control" name='teacher_email' id="teacherInputEmail" placeholder= "Ex: johnDoe@gmail.com, etc." required>
         </div>
 
         <div class="form-row collapse secondPage">
@@ -410,12 +414,12 @@ if ( isset($_POST["teacher_signup"]) ) {
 
         <div class="form-group collapse thirdPage">
           <label for="teacherInputAddress">Address</label>
-          <input type="text" name='teacher_homeaddress' class="form-control" id="teacherInputAddress" placeholder="1234 Main St" required>
+          <input type="text" name='teacher_homeaddress' class="form-control" id="teacherInputAddress" required>
         </div>
   
         <div class="form-group collapse thirdPage">
           <label for="teacherInputAddress2">Address 2</label>
-          <input type="text" name='teacher_homeaddress2' class="form-control" id="teacherInputAddress" placeholder="Apartment, studio, or floor">
+          <input type="text" name='teacher_homeaddress2' class="form-control" id="teacherInputAddress">
         </div>
 
         <div class="form-col collapse thirdPage">
@@ -428,7 +432,7 @@ if ( isset($_POST["teacher_signup"]) ) {
             <div class="form-group col-6">
               <label for="teacherInputState">State</label>
                 <select id="teacherInputState" name='teacher_addressstate' class="form-control" required>
-                  <option value='' selected>Choose...</option>
+                  <option value="" selected>Choose...</option>
                   <option value="AL">Alabama (AL)</option>
                   <option value="AK">Alaska (AK)</option>
                   <option value="AZ">Arizona (AZ)</option>
