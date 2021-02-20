@@ -355,3 +355,7 @@ a, a:hover, a:focus{
     padding-left: 10px;
     font-size: 1.3em;
 }
+
+.footer{
+    color: white;
+}

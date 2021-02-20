@@ -208,111 +208,235 @@ certain input requirements */
   }
 })
 
+/* prevents moving forward in the form if
+ user hasn't filled out inputs. Also allows
+ user to move backward with ease */
 
-    $(document).ready(function validateInputs() {
-      if($('#student-signup-form').hasClass("show")){
+$(document).ready(function validateInputs() {
+  if($('#student-signup-form').hasClass("show")){
+//Student form  function definitions for validations
+    function firstPageStudentValidate (){
+      let empty = false;
+        $('#studentFirstName, #studentLastName, #studentInputEmail').each(function (){
+            if($(this).val().length == '0') {
+              empty = true;
+            } else {
+
+            };
+
+            if (empty){
+              $('#student-front-arrow-btn').prop('disabled', true);
+            } else {
+              $('#student-front-arrow-btn').prop('disabled', false);
+            }
+          });   
+        }
+        
+      function secondPageStudentValidate (){
+        let empty = false;
+        $('#studentInputUserName, #studentInputPassword').each(function() {
+            if ($(this).val().length == '0') {
+              empty = true;
+            } else {
+              
+            }
+        });
+
+        if (empty) {
+            $('#student-front-arrow-btn').prop('disabled', true);
+        } else {
+            $('#student-front-arrow-btn').prop('disabled', false);
+        }  
+      }
+        
+      function thirdPageStudentValidate (){
+
+        function verifyDropdown() {
+          if ($('#studentInputState').val() != '') { 
+            return false;
+        
+          } else {
+            return true;
+          }
+        }
+        
+        $('#student-signup-form').keyup(function() {
+          let empty = false;
+            $('#studentInputAddress, #studentInputAddress2, #studentInputCity, #studentInputZip').each(function() {
+              if($(this).val()== ''){
+                empty = true;
+              } else{
+              }
+            });
+
+            if (verifyDropdown() || empty) {
+              $('#student-front-arrow-btn').prop('disabled', true);
+            } else {
+              $('#student-front-arrow-btn').prop('disabled', false);
+            }
+        });
+
+        $('#studentInputState').change(function() {
+          let empty = false;
+            $('#studentInputAddress, #studentInputAddress2, #studentInputCity, #studentInputZip').each(function() {
+              if($(this).val()== ''){
+                empty = true;
+              } else{
+              }
+            });
+          
+            if (verifyDropdown() || empty) {
+                $('#student-front-arrow-btn').prop('disabled', true);
+            } else {
+                $('#student-front-arrow-btn').prop('disabled', false);
+            }
+        });   
+      }     
+        
+      function fourthPageStudentValidate (){
+
+   
+        }      
+//Teacher form function defintions for validations
+        function firstPageTeacherValidate (){
+          let empty = false;
+          $('#teacherFirstName, #teacherLastName, #teacherInputEmail').each(function (){
+            if($(this).val().length == '0') {
+              empty = true;
+            } else {
+
+            };
+
+            if (empty){
+              $('#teacher-front-arrow-btn').prop('disabled', true);
+            } else {
+              $('#teacher-front-arrow-btn').prop('disabled', false);
+            }
+          });   
+        }
+        
+        function secondPageTeacherValidate (){
+          let empty = false;
+          $('#studentFirstName, #studentLastName, #studentInputEmail').each(function (){
+            if($(this).val().length == '0') {
+              empty = true;
+            } else {
+
+            };
+
+            if (empty){
+              $('#teacher-front-arrow-btn').prop('disabled', true);
+            } else {
+              $('#teacher-front-arrow-btn').prop('disabled', false);
+            }
+          });   
+        }
+        
+        function thirdPageTeacherValidate (){
+          let empty = false;
+          $('#studentFirstName, #studentLastName, #studentInputEmail').each(function (){
+            if($(this).val().length == '0') {
+              empty = true;
+            } else {
+
+            };
+
+            if (empty){
+              $('#teacher-front-arrow-btn').prop('disabled', true);
+            } else {
+              $('#teacher-front-arrow-btn').prop('disabled', false);
+            }
+          });   
+        }     
+        
+        function fourthPageTeacherValidate (){
+          let empty = false;
+          $('#studentFirstName, #studentLastName, #studentInputEmail').each(function (){
+            if($(this).val().length == '0') {
+              empty = true;
+            } else {
+
+            };
+
+            if (empty){
+              $('#teacher-front-arrow-btn').prop('disabled', true);
+            } else {
+              $('#teacher-front-arrow-btn').prop('disabled', false);
+            }
+          });   
+        }
+
+        function fifthPageTeacherValidate (){
+          let empty = false;
+          $('#teacherFirstName, #studentLastName, #studentInputEmail').each(function (){
+            if($(this).val().length == '0') {
+              empty = true;
+            } else {
+
+            };
+
+            if (empty){
+              $('#teacher-front-arrow-btn').prop('disabled', true);
+            } else {
+              $('#teacher-front-arrow-btn').prop('disabled', false);
+            }
+          });   
+        }
+        
+//
         switch (true){
           case $('.firstPage').hasClass("show"):
             if ($('#studentFirstName, #studentLastName, #studentInputEmail').val().length == '0'){
               $('#student-front-arrow-btn').prop('disabled', true);
-            } else{
-              $('#student-front-arrow-btn').prop('disabled', false);
+            } else {
+              firstPageStudentValidate(); 
             }
-            
+             
             $('#student-signup-form').keyup(function() {
-               let empty = false;
-                $('#studentFirstName, #studentLastName, #studentInputEmail').each(function (){
-                  if($(this).val().length == '0') {
-                      empty = true;
-                    } else {
-                      empty - false;
-                      
-                    }
-                  if (empty){
-                    $('#student-front-arrow-btn').prop('disabled', true);
-                  } else {
-                    $('#student-front-arrow-btn').prop('disabled', false);
-                  }
-                 })
-                
+              firstPageStudentValidate(); 
             });
           break;
     
           case $('.secondPage').hasClass("show"):
-          //re-disables the front-arrow button to validate inputs!
-            if ($('#studentInputUserName, #studentInputPassword').val().length == '0'){
-              $('#student-front-arrow-btn').prop('disabled', true);
-            } else{
-              $('#student-front-arrow-btn').prop('disabled', false);
-            }
+
+              if ($('#studentInputUserName, #studentInputPassword').val().length == '0'){
+                $('#student-front-arrow-btn').prop('disabled', true);
+              } else {
+                secondPageStudentValidate(); 
+              }
 
             $('#student-signup-form').keyup(function() {
-              let empty = false;
-              $('#studentInputUserName, #studentInputPassword').each(function() {
-                  if ($(this).val().length == '0') {
-                    empty = true;
-                  } else {
-                    
-                  }
-              });
-    
-              if (empty) {
-                  $('#student-front-arrow-btn').prop('disabled', true);
-              } else {
-                  $('#student-front-arrow-btn').prop('disabled', false);
-              }
+              secondPageStudentValidate();
             });
           break;
             
           case $('.thirdPage').hasClass("show"):
     
-            if ($('#studentInputAddress, #studentInputAddress2, #studentInputCity, #studentInputState #studentInputZip').val() == ''){
+            if ($('#studentInputAddress, #studentInputAddress2, #studentInputCity, #studentInputState, #studentInputZip').val() == ''){
               $('#student-front-arrow-btn').prop('disabled', true);
             } else{
-              $('#student-front-arrow-btn').prop('disabled', false);
+              thirdPageStudentValidate();
             }
-            function verifyDropdown() {
-              if ($('#studentInputState').val() != '') { 
-                return false;
+
+            thirdPageStudentValidate();
             
-              } else {
-                return true;
-              }
-            }
-            let empty = false;
-            $('#student-signup-form').keyup(function() {
-              
-                $('#studentInputAddress, #studentInputAddress2, #studentInputCity, #studentInputZip').each(function() {
-                  if($(this).val()== ''){
-                    empty = true;
-                  } else{
-                  }
-                });
-    
-                if (verifyDropdown() || empty) {
-                  $('#student-front-arrow-btn').prop('disabled', true);
-                } else {
-                  $('#student-front-arrow-btn').prop('disabled', false);
-                }
-            });
-    
-            $('#studentInputState').change(function() {
-                if (verifyDropdown() || empty) {
-                    $('#student-front-arrow-btn').prop('disabled', true);
-                } else {
-                    $('#student-front-arrow-btn').prop('disabled', false);
-                }
-            });
           break;
     
           case $('.fourthPage').hasClass("show"):
-    
+
+            if ($('#studentDOB, #studentEducation').val() == ''){
+              $('#student-front-arrow-btn').prop('disabled', true);
+            } else{
+              fourthPageStudentValidate();
+            }
+
+            fourthPageStudentValidate();
     
           break;
     
         } 
-    
       } 
+      
       else if ($('#teacher-signup-form').hasClass("show")){
         switch (true){
           
