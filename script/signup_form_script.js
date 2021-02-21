@@ -259,8 +259,6 @@ $(document).ready(function validateInputs() {
             return true;
           }
         }
-        
-        $('#student-signup-form').keyup(function() {
           let empty = false;
             $('#studentInputAddress, #studentInputAddress2, #studentInputCity, #studentInputZip').each(function() {
               if($(this).val()== ''){
@@ -274,12 +272,11 @@ $(document).ready(function validateInputs() {
             } else {
               $('#student-front-arrow-btn').prop('disabled', false);
             }
-        });
 
         $('#studentInputState').change(function() {
           let empty = false;
             $('#studentInputAddress, #studentInputAddress2, #studentInputCity, #studentInputZip').each(function() {
-              if($(this).val()== ''){
+              if($(this).val() == ''){
                 empty = true;
               } else{
               }
@@ -291,99 +288,27 @@ $(document).ready(function validateInputs() {
                 $('#student-front-arrow-btn').prop('disabled', false);
             }
         });   
-      }     
+      }
         
       function fourthPageStudentValidate (){
+        let empty = false;
+        if ($('#studentDOB').val() == '') {
+              empty = true;
+            } else {
+              
+            }
 
+        if (empty) {
+            $('#student-front-arrow-btn').prop('disabled', true);
+        } else {
+          checkDate();
+        }
    
         }      
 //Teacher form function defintions for validations
-        function firstPageTeacherValidate (){
-          let empty = false;
-          $('#teacherFirstName, #teacherLastName, #teacherInputEmail').each(function (){
-            if($(this).val().length == '0') {
-              empty = true;
-            } else {
 
-            };
-
-            if (empty){
-              $('#teacher-front-arrow-btn').prop('disabled', true);
-            } else {
-              $('#teacher-front-arrow-btn').prop('disabled', false);
-            }
-          });   
-        }
-        
-        function secondPageTeacherValidate (){
-          let empty = false;
-          $('#studentFirstName, #studentLastName, #studentInputEmail').each(function (){
-            if($(this).val().length == '0') {
-              empty = true;
-            } else {
-
-            };
-
-            if (empty){
-              $('#teacher-front-arrow-btn').prop('disabled', true);
-            } else {
-              $('#teacher-front-arrow-btn').prop('disabled', false);
-            }
-          });   
-        }
-        
-        function thirdPageTeacherValidate (){
-          let empty = false;
-          $('#studentFirstName, #studentLastName, #studentInputEmail').each(function (){
-            if($(this).val().length == '0') {
-              empty = true;
-            } else {
-
-            };
-
-            if (empty){
-              $('#teacher-front-arrow-btn').prop('disabled', true);
-            } else {
-              $('#teacher-front-arrow-btn').prop('disabled', false);
-            }
-          });   
-        }     
-        
-        function fourthPageTeacherValidate (){
-          let empty = false;
-          $('#studentFirstName, #studentLastName, #studentInputEmail').each(function (){
-            if($(this).val().length == '0') {
-              empty = true;
-            } else {
-
-            };
-
-            if (empty){
-              $('#teacher-front-arrow-btn').prop('disabled', true);
-            } else {
-              $('#teacher-front-arrow-btn').prop('disabled', false);
-            }
-          });   
-        }
-
-        function fifthPageTeacherValidate (){
-          let empty = false;
-          $('#teacherFirstName, #studentLastName, #studentInputEmail').each(function (){
-            if($(this).val().length == '0') {
-              empty = true;
-            } else {
-
-            };
-
-            if (empty){
-              $('#teacher-front-arrow-btn').prop('disabled', true);
-            } else {
-              $('#teacher-front-arrow-btn').prop('disabled', false);
-            }
-          });   
-        }
-        
-//
+/*These are the validation functions 
+being called given page conditions */
         switch (true){
           case $('.firstPage').hasClass("show"):
             if ($('#studentFirstName, #studentLastName, #studentInputEmail').val().length == '0'){
@@ -417,45 +342,45 @@ $(document).ready(function validateInputs() {
             } else{
               thirdPageStudentValidate();
             }
-
+            $('#student-signup-form').keyup(function(){
             thirdPageStudentValidate();
-            
+            });
           break;
     
           case $('.fourthPage').hasClass("show"):
 
-            if ($('#studentDOB, #studentEducation').val() == ''){
+            if ($('#studentDOB').val() == ''){
               $('#student-front-arrow-btn').prop('disabled', true);
             } else{
               fourthPageStudentValidate();
             }
 
+            $('#student-signup-form').keyup(function() {
             fourthPageStudentValidate();
-    
+          });
           break;
-    
         } 
       } 
-      
-      else if ($('#teacher-signup-form').hasClass("show")){
-        switch (true){
-          
-          case $('.firstPage').hasClass("show"):
-          break;
-    
-          case $('.secondPage').hasClass("show"):
-          break;
-        
-          case $('.thirdPage').hasClass("show"):
-          break;
-    
-          case $('.fourthPage').hasClass("show"):
-          break;
-    
-          case $('.fifthPage').hasClass("show"):
-          break;
-        }     
-      }
+
     setTimeout(validateInputs, 340);
   });
 
+  function checkDate() {
+    var selectedText = document.getElementById('studentDOB').value;
+    var selectedDate = new Date(selectedText);
+    var past = new Date("1900-01-01");
+    var now = new Date();
+    if (selectedDate < past) {
+     
+     $('#student-front-arrow-btn').prop('disabled', true);
+    } else if (selectedDate > now) {
+      
+      $('#student-front-arrow-btn').prop('disabled', true);
+    }
+    else if (($('#studentDOB').val() == '')){
+      $('#student-front-arrow-btn').prop('disabled', true);
+    } 
+    else if (selectedDate > past && selectedDate < now) {
+      $('#student-front-arrow-btn').prop('disabled', false);
+    }
+  }

@@ -317,7 +317,7 @@ if ( isset($_POST["teacher_signup"]) ) {
           <div class="d-flex flex-column">  
             <div class="form-group flex-fill">
               <label for="studentDOB">Date of Birth</label>
-              <input type="date" id="studentDOB" name="DOB" class= "form-control" required>
+              <input type="date" onchange="checkDate()" min="<?php echo date("1900-11-11"); ?>" max="<?php echo date("Y-m-d"); ?>" id="studentDOB" name="DOB" class= "form-control" required>
             </div>
               
             <div class="form-group flex-fill">
