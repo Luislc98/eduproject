@@ -208,7 +208,8 @@ if ( isset($_POST["teacher_signup"]) ) {
 
         <div class="form-group collapse firstPage">
           <label for="studentInputEmail">Email</label>
-          <input type="e-mail" name='email' class="form-control" id="studentInputEmail" placeholder="Ex: johnDoe@gmail.com, etc." required>
+          <input type="email" onchange="validateEmail()" name='email' class="form-control" id="studentInputEmail" placeholder="Ex: johnDoe@gmail.com, etc." pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+          <span id="student_Email_Message"></span>
         </div>
         
         <div class="form-row collapse secondPage">
@@ -318,6 +319,7 @@ if ( isset($_POST["teacher_signup"]) ) {
             <div class="form-group flex-fill">
               <label for="studentDOB">Date of Birth</label>
               <input type="date" onchange="checkDate()" min="<?php echo date("1900-11-11"); ?>" max="<?php echo date("Y-m-d"); ?>" id="studentDOB" name="DOB" class= "form-control" required>
+              <span id="student_DOB_Invalid" class="invalid_inputs"><span>
             </div>
               
             <div class="form-group flex-fill">
@@ -330,6 +332,7 @@ if ( isset($_POST["teacher_signup"]) ) {
                 <option value='masters'>Masters</option>
                 <option value='doctorate'>Doctorate</option>
               </select>
+              
             </div>
           </div>
         </div>

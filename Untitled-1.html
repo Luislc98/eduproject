@@ -217,3 +217,13 @@ function pageValidation(){
   }
 }
 //disables front-arrow button unless form is filled out!
+
+let selectedText = document.getElementById('studentInputEmail').value;
+let mailformat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+if(selectedText.value.match(mailformat)){
+return true;
+} else {
+
+alert("You have entered an invalid email address!");
+return false;
+}

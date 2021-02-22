@@ -32,9 +32,6 @@ $('#student-signup-btn').on('click',function() {
     $("#teacher-signup-btn").removeClass("on-teacher-btn-click");
     $("#student-signup-btn").removeClass("default-color");
     $("#teacher-signup-btn").addClass("default-color");
-/*prevents user from moving on in student form unless they have inputs 
-on the first page by disabling the front-arrow button*/
-    
   }
 });
 
@@ -75,18 +72,15 @@ $('#teacher-signup-btn').on('click',function() {
     $("#student-signup-btn").addClass("default-color");
     $("#teacher-signup-btn").removeClass("default-color");
     $("#teacher-signup-btn").addClass("on-teacher-btn-click");
-    /* This goes through the 3 different pages 
-    of the form, in a backwards direction */
-/*prevents user from moving on in student form unless they have inputs 
-on the first page by disabling the front-arrow button*/
-
   }
 });
-  
+
+// Collapsing animation when user click on 
+// the back arrow
   $('.back-arrow').on('click', function(){
     switch(true){
       case $('.seventhPage').hasClass("show") && $("#teacher-signup-form").hasClass("show"):
-// This restores the forwards arrow since we are going back in the form
+    // This restores the forwards arrow since we are going back in the form
         $(".front-arrow").collapse("show");
       
       case $('.seventhPage').hasClass("show"):
@@ -133,13 +127,14 @@ on the first page by disabling the front-arrow button*/
         setTimeout(function(){
           $(".firstPage").collapse("show");
         }, 350);
-// backwards arrow will disappear on first page of form 
+      // backwards arrow will disappear on first page of form 
         $(".back-arrow").collapse("hide");
         break;
     }
   });
   
-  // This goes through the 3 different pages of the form, in a forwards direction
+// Collapsing animation when user clicks on 
+// the front arrow
   $('.front-arrow').on('click', function(){
 
     switch(true){
@@ -187,9 +182,6 @@ on the first page by disabling the front-arrow button*/
           $(".thirdPage").collapse("show");
         }, 350);
 
-/*disable student front button unless it meets 
-certain input requirements */
-
         break;
   
 
@@ -198,19 +190,61 @@ certain input requirements */
         setTimeout(function(){
           $(".secondPage").collapse("show");
         }, 350)
-// backwards arrow will disappear on first page of form 
+  // backwards arrow will disappear on first page of form 
         $(".back-arrow").collapse("show");
-
-/*disable front button unless it meets 
-certain input requirements */
-       
     break;
   }
 })
 
-/* prevents moving forward in the form if
- user hasn't filled out inputs. Also allows
- user to move backward with ease */
+// This function is meant to VALIDATE birth dates
+// that are after the 1900s, but before the present day
+
+function checkDate() {
+  let selectedText = document.getElementById('studentDOB').value;
+  let selectedDate = new Date(selectedText);
+  let past = new Date("1900-01-01");
+  let now = new Date();
+  if (selectedDate < past) {
+
+   $('#student-front-arrow-btn').prop('disabled', true);
+   $('#student_DOB_Invalid').text("*Please enter a more recent date")
+  
+  } else if (selectedDate > now) {
+    
+    $('#student-front-arrow-btn').prop('disabled', true);
+    $('#student_DOB_Invalid').text("*Please enter a past date")
+  
+  }
+  else if ($('#studentDOB').val() == ''){
+    
+    $('#student-front-arrow-btn').prop('disabled', true);
+    $('#student_DOB_Invalid').text("*Please fill out this field"); 
+  
+  } 
+  else if (selectedDate > past && selectedDate < now) {
+    $('#student-front-arrow-btn').prop('disabled', false);
+    $('#student_DOB_Invalid').hide()
+  } else {
+    $('#student_DOB_Invalid').text("*Please enter a valid date")
+    $('#student-front-arrow-btn').prop('disabled', true);
+  }
+}
+
+function validateEmail(){
+  var email = $("#studentInputEmail").val();
+  var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (re.test(email)) {
+    $('#student_Email_Message').hide();
+
+  } else {
+    $('#student-front-arrow-btn').prop('disabled', true);
+    $('#student_Email_Message').text("*Please enter a valid email")
+    return true;
+  }
+}
+/* prevents user from moving forward in the form if
+ they haven't filled out inputs. Also, allows
+ users to move backward, with ease */
 
 $(document).ready(function validateInputs() {
   if($('#student-signup-form').hasClass("show")){
@@ -218,20 +252,26 @@ $(document).ready(function validateInputs() {
     function firstPageStudentValidate (){
       let empty = false;
         $('#studentFirstName, #studentLastName, #studentInputEmail').each(function (){
-            if($(this).val().length == '0') {
+            if($(this).val() == '') {
               empty = true;
-            } else {
-
-            };
+            } 
 
             if (empty){
               $('#student-front-arrow-btn').prop('disabled', true);
-            } else {
-              $('#student-front-arrow-btn').prop('disabled', false);
             }
-          });   
+        });
+
+        $('#studentInputEmail').keyup(function(){
+          validateEmail();
+        });
+
+        if(empty || validateEmail()){
+          $('#student-front-arrow-btn').prop('disabled', true)
+        } else {
+          $('#student-front-arrow-btn').prop('disabled', false)
         }
-        
+    }
+
       function secondPageStudentValidate (){
         let empty = false;
         $('#studentInputUserName, #studentInputPassword').each(function() {
@@ -287,7 +327,9 @@ $(document).ready(function validateInputs() {
             } else {
                 $('#student-front-arrow-btn').prop('disabled', false);
             }
-        });   
+        });
+
+
       }
         
       function fourthPageStudentValidate (){
@@ -303,8 +345,7 @@ $(document).ready(function validateInputs() {
         } else {
           checkDate();
         }
-   
-        }      
+      }      
 //Teacher form function defintions for validations
 
 /*These are the validation functions 
@@ -315,11 +356,13 @@ being called given page conditions */
               $('#student-front-arrow-btn').prop('disabled', true);
             } else {
               firstPageStudentValidate(); 
+              $('#studentInputEmail').keyup(function(){
+                validateEmail();
+              });
             }
-             
-            $('#student-signup-form').keyup(function() {
-              firstPageStudentValidate(); 
-            });
+            
+            firstPageStudentValidate(); 
+
           break;
     
           case $('.secondPage').hasClass("show"):
@@ -361,26 +404,7 @@ being called given page conditions */
           break;
         } 
       } 
-
     setTimeout(validateInputs, 340);
   });
 
-  function checkDate() {
-    var selectedText = document.getElementById('studentDOB').value;
-    var selectedDate = new Date(selectedText);
-    var past = new Date("1900-01-01");
-    var now = new Date();
-    if (selectedDate < past) {
-     
-     $('#student-front-arrow-btn').prop('disabled', true);
-    } else if (selectedDate > now) {
-      
-      $('#student-front-arrow-btn').prop('disabled', true);
-    }
-    else if (($('#studentDOB').val() == '')){
-      $('#student-front-arrow-btn').prop('disabled', true);
-    } 
-    else if (selectedDate > past && selectedDate < now) {
-      $('#student-front-arrow-btn').prop('disabled', false);
-    }
-  }
+  
