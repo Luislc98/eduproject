@@ -208,8 +208,8 @@ if ( isset($_POST["teacher_signup"]) ) {
 
         <div class="form-group collapse firstPage">
           <label for="studentInputEmail">Email</label>
-          <input type="email" onchange="validateEmail()" name='email' class="form-control" id="studentInputEmail" placeholder="Ex: johnDoe@gmail.com, etc." pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
-          <span id="student_Email_Message"></span>
+          <input type="email" onchange="checkStudentEmail()" name='email' class="form-control" id="studentInputEmail" placeholder="Ex: johnDoe@gmail.com, etc." pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+          <span id="student_Email_Message" class="invalid_inputs"></span>
         </div>
         
         <div class="form-row collapse secondPage">
@@ -318,7 +318,7 @@ if ( isset($_POST["teacher_signup"]) ) {
           <div class="d-flex flex-column">  
             <div class="form-group flex-fill">
               <label for="studentDOB">Date of Birth</label>
-              <input type="date" onchange="checkDate()" min="<?php echo date("1900-11-11"); ?>" max="<?php echo date("Y-m-d"); ?>" id="studentDOB" name="DOB" class= "form-control" required>
+              <input type="date" onchange="checkStudentDate()" min="<?php echo date("1900-11-11"); ?>" max="<?php echo date("Y-m-d"); ?>" id="studentDOB" name="DOB" class= "form-control" required>
               <span id="student_DOB_Invalid" class="invalid_inputs"><span>
             </div>
               
@@ -398,14 +398,15 @@ if ( isset($_POST["teacher_signup"]) ) {
 
         <div class="form-group collapse firstPage">
           <label for="teacherInputEmail">Email</label>
-          <input type="e-mail" class="form-control" name='teacher_email' id="teacherInputEmail" placeholder= "Ex: johnDoe@gmail.com, etc." required>
+          <input type="email" onchange="checkTeacherEmail()" class="form-control" name='teacher_email' id="teacherInputEmail" placeholder= "Ex: johnDoe@gmail.com, etc." required>
+          <span id="teacher_Email_Message" class="invalid_inputs"></span>
         </div>
 
         <div class="form-row collapse secondPage">
 
           <div class="form-group col-12">
-            <label for="teacherInputUsername">Username</label>
-            <input type="text" name='teacher_username' class="form-control" id="teacherInputUsername" required>
+            <label for="teacherInputUserName">Username</label>
+            <input type="text" name='teacher_username' class="form-control" id="teacherInputUserName" required>
           </div>
               
           <div class="form-group col-12">
@@ -422,7 +423,7 @@ if ( isset($_POST["teacher_signup"]) ) {
   
         <div class="form-group collapse thirdPage">
           <label for="teacherInputAddress2">Address 2</label>
-          <input type="text" name='teacher_homeaddress2' class="form-control" id="teacherInputAddress">
+          <input type="text" name='teacher_homeaddress2' class="form-control" id="teacherInputAddress2">
         </div>
 
         <div class="form-col collapse thirdPage">
@@ -509,7 +510,8 @@ if ( isset($_POST["teacher_signup"]) ) {
           <div class="d-flex flex-column">          
             <div class="form-group flex-fill">
               <label for="teacherDOB">Date of Birth</label>
-              <input type="date" id="DOB" name="teacher_DOB" class= "form-control" required>
+              <input type="date" onchange="checkTeacherDate()" id="DOB" name="teacher_DOB" class= "form-control" required>
+              <span id="teacher_DOB_Invalid" class="invalid_inputs"><span>
             </div>
     
             <div class="form-group flex-fill">

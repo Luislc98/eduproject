@@ -133,8 +133,8 @@ $('#teacher-signup-btn').on('click',function() {
     }
   });
   
-// Collapsing animation when user clicks on 
-// the front arrow
+// Collapsing animation when user 
+//clicks on  the front arrow
   $('.front-arrow').on('click', function(){
 
     switch(true){
@@ -199,7 +199,7 @@ $('#teacher-signup-btn').on('click',function() {
 // This function is meant to VALIDATE birth dates
 // that are after the 1900s, but before the present day
 
-function checkDate() {
+function checkStudentDate() {
   let selectedText = document.getElementById('studentDOB').value;
   let selectedDate = new Date(selectedText);
   let past = new Date("1900-01-01");
@@ -229,26 +229,42 @@ function checkDate() {
     $('#student-front-arrow-btn').prop('disabled', true);
   }
 }
-
-function validateEmail(){
+// This is to validate proper email format
+// since this needs to be tied to 
+// the specific page its found on
+function checkStudentEmail(){
   var email = $("#studentInputEmail").val();
   var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (re.test(email)) {
     $('#student_Email_Message').hide();
 
   } else {
+    $('#student_Email_Message').show();
     $('#student-front-arrow-btn').prop('disabled', true);
     $('#student_Email_Message').text("*Please enter a valid email")
     return true;
   }
 }
-/* prevents user from moving forward in the form if
- they haven't filled out inputs. Also, allows
- users to move backward, with ease */
+function checkTeacherEmail(){
+  var email = $("#teacherInputEmail").val();
+  var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (re.test(email)) {
+    $('#teacher_Email_Message').hide();
 
-$(document).ready(function validateInputs() {
+  } else {
+    $('#teacher_Email_Message').show();
+    $('#teacher-front-arrow-btn').prop('disabled', true);
+    $('#teacher_Email_Message').text("*Please enter a valid email")
+    return true;
+  }
+}
+/* prevents user from moving forward in the form if
+ they haven't filled out inputs on STUDENT FORM. Also, allows
+ users to move backward */
+
+$(document).ready(function validateStudentInputs() {
   if($('#student-signup-form').hasClass("show")){
-//Student form  function definitions for validations
+  //Student form  function definitions for validations
     function firstPageStudentValidate (){
       let empty = false;
         $('#studentFirstName, #studentLastName, #studentInputEmail').each(function (){
@@ -262,10 +278,10 @@ $(document).ready(function validateInputs() {
         });
 
         $('#studentInputEmail').keyup(function(){
-          validateEmail();
+          checkStudentEmail();
         });
 
-        if(empty || validateEmail()){
+        if(empty || checkStudentEmail()){
           $('#student-front-arrow-btn').prop('disabled', true)
         } else {
           $('#student-front-arrow-btn').prop('disabled', false)
@@ -343,13 +359,12 @@ $(document).ready(function validateInputs() {
         if (empty) {
             $('#student-front-arrow-btn').prop('disabled', true);
         } else {
-          checkDate();
+          checkStudentDate();
         }
       }      
-//Teacher form function defintions for validations
 
-/*These are the validation functions 
-being called given page conditions */
+    /*These are the validation functions 
+    being called given the page condition */
         switch (true){
           case $('.firstPage').hasClass("show"):
             if ($('#studentFirstName, #studentLastName, #studentInputEmail').val().length == '0'){
@@ -357,7 +372,7 @@ being called given page conditions */
             } else {
               firstPageStudentValidate(); 
               $('#studentInputEmail').keyup(function(){
-                validateEmail();
+                checkStudentEmail();
               });
             }
             
@@ -404,7 +419,171 @@ being called given page conditions */
           break;
         } 
       } 
-    setTimeout(validateInputs, 340);
+    setTimeout(validateStudentInputs, 340);
   });
 
-  
+/* prevents user from moving forward in the form, if
+ they haven't filled out inputs on the Teacher FORM. 
+ Also, allows users to move backward */
+
+ $(document).ready(function validateTeacherInputs() {
+  if($('#teacher-signup-form').hasClass("show")){
+  //teacher form  function definitions for validations
+    function firstPageTeacherValidate (){
+      let empty = false;
+        $('#teacherFirstName, #teacherLastName, #teacherInputEmail').each(function (){
+            if($(this).val() == '') {
+              empty = true;
+            } 
+
+            if (empty){
+              $('#teacher-front-arrow-btn').prop('disabled', true);
+            }
+        });
+
+        $('#teacherInputEmail').keyup(function(){
+          checkTeacherEmail();
+        });
+
+        if(empty || checkTeacherEmail()){
+          $('#teacher-front-arrow-btn').prop('disabled', true)
+        } else {
+          $('#teacher-front-arrow-btn').prop('disabled', false)
+        }
+    }
+
+      function secondPageTeacherValidate (){
+        let empty = false;
+        $('#teacherInputUserName, #teacherInputPassword').each(function() {
+            if ($(this).val().length == '0') {
+              empty = true;
+            } else {
+              
+            }
+        });
+
+        if (empty) {
+            $('#teacher-front-arrow-btn').prop('disabled', true);
+        } else {
+            $('#teacher-front-arrow-btn').prop('disabled', false);
+        }  
+      }
+        
+      function thirdPageTeacherValidate (){
+
+        function verifyDropdown() {
+          if ($('#teacherInputState').val() != '') { 
+            return false;
+        
+          } else {
+            return true;
+          }
+        }
+          let empty = false;
+            $('#teacherInputAddress, #teacherInputAddress2, #teacherInputCity, #teacherInputZip').each(function() {
+              if($(this).val()== ''){
+                empty = true;
+              } else{
+              }
+            });
+
+            if (verifyDropdown() || empty) {
+              $('#teacher-front-arrow-btn').prop('disabled', true);
+            } else {
+              $('#teacher-front-arrow-btn').prop('disabled', false);
+            }
+
+        $('#teacherInputState').change(function() {
+          let empty = false;
+            $('#teacherInputAddress, #teacherInputAddress2, #teacherInputCity, #teacherInputZip').each(function() {
+              if($(this).val() == ''){
+                empty = true;
+              } else{
+              }
+            });
+          
+            if (verifyDropdown() || empty) {
+                $('#teacher-front-arrow-btn').prop('disabled', true);
+            } else {
+                $('#teacher-front-arrow-btn').prop('disabled', false);
+            }
+        });
+
+
+      }
+        
+      function fourthPageTeacherValidate (){
+        let empty = false;
+        if ($('#teacherDOB').val() == '') {
+              empty = true;
+            } else {
+              
+            }
+
+        if (empty) {
+            $('#teacher-front-arrow-btn').prop('disabled', true);
+        } else {
+          checkTeacherDate();
+        }
+      }      
+
+    /*These are the validation functions 
+    being called given the page condition */
+        switch (true){
+          case $('.firstPage').hasClass("show"):
+            if ($('#teacherFirstName, #teacherLastName, #teacherInputEmail').val().length == '0'){
+              $('#teacher-front-arrow-btn').prop('disabled', true);
+            } else {
+              firstPageTeacherValidate(); 
+              $('#teacherInputEmail').keyup(function(){
+                checkTeacherEmail();
+              });
+            }
+            
+            firstPageTeacherValidate(); 
+
+          break;
+    
+          case $('.secondPage').hasClass("show"):
+
+              if ($('#teacherInputUserName, #teacherInputPassword').val().length == '0'){
+                $('#teacher-front-arrow-btn').prop('disabled', true);
+              } else {
+                secondPageTeacherValidate(); 
+              }
+
+            $('#teacher-signup-form').keyup(function() {
+              secondPageTeacherValidate();
+            });
+          break;
+            
+          case $('.thirdPage').hasClass("show"):
+    
+            if ($('#teacherInputAddress, #teacherInputAddress2, #teacherInputCity, #teacherInputState, #teacherInputZip').val() == ''){
+              $('#teacher-front-arrow-btn').prop('disabled', true);
+            } else{
+              thirdPageTeacherValidate();
+            }
+            $('#teacher-signup-form').keyup(function(){
+            thirdPageTeacherValidate();
+            });
+          break;
+    
+          case $('.fourthPage').hasClass("show"):
+
+            if ($('#teacherDOB').val() == ''){
+              $('#teacher-front-arrow-btn').prop('disabled', true);
+            } else{
+              fourthPageTeacherValidate();
+            }
+
+            $('#teacher-signup-form').keyup(function() {
+            fourthPageTeacherValidate();
+          });
+          break;
+        } 
+      } 
+    setTimeout(validateTeacherInputs, 340);
+  });
+
+
