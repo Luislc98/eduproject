@@ -208,31 +208,19 @@ a, a:hover, a:focus{
     transition: all 0.3s;
 }
 
-.sidebarButton{
-    position: sticky;
-    top: 50vh;
-    z-index: 2;
-}
-
 #sidebarCollapse:hover{
     background:white;
     color: #271b53;
-    
 }
 
 .icon-default{
     position: relative;
-    right: 10%;
-    top: 1px;
     transition: all 0.5s;
 }
 
 .icon-default.active{
     position: relative;
-    right: 35%;
-    top: -1px;
     opacity: 1;
-    border: none;
     transform: rotate(180deg);
     transition: all 0.5s;
 }
