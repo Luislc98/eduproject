@@ -12,7 +12,7 @@ $(document).ready(function() {
     
     $('.navbar').toggleClass('move-navbar-right');
     } else{
-      $('.navbar').toggleClass('display-none')
+      $('.navbar').toggleClass('hidden')
     };
     
     if($(window).width() <= 575.98) {
@@ -20,19 +20,19 @@ $(document).ready(function() {
       };
   });
 });
-//when dark-background is clicked on, sidebar hides.
+//when dark-background is clicked on, sidebar or form hides.
 $('#dark-background').on('click',function() {
     $('#sidebar').toggleClass('active');
     $('.icon-default').toggleClass('active');
     $('active').toggleClass('icon-default');
     $('#sidebarCollapse').toggleClass("move-right");
-    
+
     if($(window).width() > 575.98){
      
       $('.navbar').toggleClass('move-navbar-right');
 
     } else{
-      $('.navbar').toggleClass('display-none')
+      $('.navbar').toggleClass('hidden')
     };
 
     if($(window).width() <= 575.98) {
@@ -43,11 +43,11 @@ $('#dark-background').on('click',function() {
   $(window).resize(function() {
         if($(window).width() > 575.98 && $('#sidebarCollapse').hasClass('move-right')) {
           $('.navbar').addClass('move-navbar-right');
-          $('.navbar').removeClass('display-none')
+          $('.navbar').removeClass('hidden')
           $('#dark-background').removeClass("active");
         } else if ($(window).width() <= 575.98 && $('#sidebarCollapse').hasClass('move-right')){
           $('#dark-background').addClass("active");
-          $('.navbar').addClass('display-none');
+          $('.navbar').addClass('hidden');
           $('.navbar').removeClass('move-navbar-right')
          
 
@@ -128,7 +128,21 @@ $('#nav-button').hover(function() {
 $("#search-btn").on("click", function(){
   $("#search-icon").toggleClass("fa-search");
   $("#search-icon").toggleClass("fa-arrow-left");
-  $("#search-bar").toggleClass("show");
+  $("#search-bar").toggleClass("expand");
   $("#search-btn").toggleClass("border")
 });
+
+//Hide and show the signup form when user clicks the signup button 
+$("#signup-btn").on("click", function(){
+  $("#fixed-container-forms").toggleClass("hidden");
+  $("#signup-dark-background").toggleClass("active");
+});
+
+$('#signup-dark-background').on('click', function(){
+  $("#fixed-container-forms").toggleClass("hidden");
+  $("#signup-dark-background").toggleClass("active");
+});
+
+
+
 

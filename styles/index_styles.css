@@ -23,11 +23,11 @@
     }
     #sidebar{
         position: absolute;
-        z-index: 2;
+        z-index: 3;
     }
     #sidebarCollapse{
         position:absolute;
-        z-index: 2;
+        z-index: 3;
     }
     #sidebarCollapse.move-right{
         transform: translate(200px,0);
@@ -70,7 +70,7 @@ a, a:hover, a:focus{
     width: calc(100% - 200px);
     transition: all 0.38s;
 }
-.navbar.display-none{
+.navbar.hidden{
     display: none;
 }
 .navbar-scroll{
@@ -116,7 +116,7 @@ a, a:hover, a:focus{
     transition: width ease 0.3s;
 }
 
-#search-bar.show{
+#search-bar.expand{
     padding: 10px;
     border: 1px;
     height: 30px;
@@ -197,14 +197,23 @@ a, a:hover, a:focus{
     transition: height .2s ease;
 }
 
+
+.sidebarButton{
+    position: sticky;
+    top: 50vh;
+    z-index: 2;
+    padding:0;
+    margin: 0;
+}
 #sidebarCollapse{
-    border-radius: 0px 50px 50px 0px;
+    border-radius: 0px 30px 30px 0px;
     background: rgba(107,97,144, 0.8);
     color: white;
     border: none;
     margin: 0;
-    height:40px;
-    width: 40px;
+    padding:0;
+    width: 45px;
+    height: 50px;
     transition: all 0.3s;
 }
 
@@ -216,6 +225,7 @@ a, a:hover, a:focus{
 .icon-default{
     position: relative;
     transition: all 0.5s;
+    width: 100%;
 }
 
 .icon-default.active{
@@ -247,6 +257,7 @@ a, a:hover, a:focus{
 #sidebar.active{
     margin-left: -200px;
 }
+
 .sidebar-header{
     align-self: center;
     padding: 20px;
@@ -263,7 +274,7 @@ a, a:hover, a:focus{
     height: 100vh;
     width: 100vw;
     background: rgba(20, 20, 20, 0.8);
-    z-index: 1;
+    z-index: 2;
 }
 
 .components li>a {
@@ -343,7 +354,9 @@ a, a:hover, a:focus{
     padding-left: 10px;
     font-size: 1.3em;
 }
-
+.carousel-item{
+  height: 83vh !important;
+}
 .footer{
     color: white;
 }

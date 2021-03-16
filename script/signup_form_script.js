@@ -229,6 +229,7 @@ function checkStudentDate() {
     $('#student-front-arrow-btn').prop('disabled', true);
   }
 }
+
 // This is to validate proper email format
 // since this needs to be tied to 
 // the specific page its found on
@@ -245,19 +246,7 @@ function checkStudentEmail(){
     return true;
   }
 }
-function checkTeacherEmail(){
-  var email = $("#teacherInputEmail").val();
-  var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (re.test(email)) {
-    $('#teacher_Email_Message').hide();
 
-  } else {
-    $('#teacher_Email_Message').show();
-    $('#teacher-front-arrow-btn').prop('disabled', true);
-    $('#teacher_Email_Message').text("*Please enter a valid email")
-    return true;
-  }
-}
 /* prevents user from moving forward in the form if
  they haven't filled out inputs on STUDENT FORM. Also, allows
  users to move backward */
@@ -429,6 +418,54 @@ $(document).ready(function validateStudentInputs() {
  $(document).ready(function validateTeacherInputs() {
   if($('#teacher-signup-form').hasClass("show")){
   //teacher form  function definitions for validations
+  function checkTeacherEmail(){
+    var email = $("#teacherInputEmail").val();
+    var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (re.test(email)) {
+      $('#teacher_Email_Message').hide();
+  
+    } else {
+      $('#teacher_Email_Message').show();
+      
+      $('#teacher_Email_Message').text("*Please enter a valid email")
+      return true;
+    }
+  }
+
+  function checkTeacherDate() {
+    let selectedText = document.getElementById('teacherDOB').value;
+    let selectedDate = new Date(selectedText);
+    let past = new Date("1900-01-01");
+    let now = new Date();
+    if (selectedDate < past) {
+  
+     $('#teacher-front-arrow-btn').prop('disabled', true);
+     $('#teacher_DOB_Invalid').text("*Please enter a more recent date");
+      return true;
+    } else if (selectedDate > now) {
+      
+      $('#teacher-front-arrow-btn').prop('disabled', true);
+      $('#teacher_DOB_Invalid').text("*Please enter a past date");
+      return true;
+    }
+    else if ($('#teacherDOB').val() == ''){
+      
+      $('#teacher-front-arrow-btn').prop('disabled', true);
+      $('#teacher_DOB_Invalid').text("*Please fill out this field"); 
+      return true;
+    } 
+    else if (selectedDate > past && selectedDate < now) {
+      $('teacher-front-arrow-btn').prop('disabled', true);
+      $('#teacher_DOB_Invalid').hide();
+      return false;
+      
+  
+    } else {
+      $('#teacher_DOB_Invalid').text("*Please enter a valid date");
+      $('#teacher-front-arrow-btn').prop('disabled', true);
+      return true;
+    }
+  }
     function firstPageTeacherValidate (){
       let empty = false;
         $('#teacherFirstName, #teacherLastName, #teacherInputEmail').each(function (){
@@ -513,18 +550,20 @@ $(document).ready(function validateStudentInputs() {
       }
         
       function fourthPageTeacherValidate (){
-        let empty = false;
-        if ($('#teacherDOB').val() == '') {
-              empty = true;
-            } else {
-              
-            }
-
-        if (empty) {
+        function verifyEducationDropdown() {
+          if ($('#teacherEducation').val() == '' || checkTeacherDate()) { 
             $('#teacher-front-arrow-btn').prop('disabled', true);
-        } else {
-          checkTeacherDate();
+            return true;
+        
+          } else {
+    
+            return false;
+          }
         }
+        verifyEducationDropdown();
+        
+        
+
       }      
 
     /*These are the validation functions 
@@ -571,9 +610,10 @@ $(document).ready(function validateStudentInputs() {
     
           case $('.fourthPage').hasClass("show"):
 
-            if ($('#teacherDOB').val() == ''){
+            if ($('#teacherDOB, #teacherEducation').val() == ''){
               $('#teacher-front-arrow-btn').prop('disabled', true);
             } else{
+
               fourthPageTeacherValidate();
             }
 
@@ -581,6 +621,8 @@ $(document).ready(function validateStudentInputs() {
             fourthPageTeacherValidate();
           });
           break;
+          
+          
         } 
       } 
     setTimeout(validateTeacherInputs, 340);

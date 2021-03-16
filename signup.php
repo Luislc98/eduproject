@@ -325,12 +325,15 @@ if ( isset($_POST["teacher_signup"]) ) {
             <div class="form-group flex-fill">
               <label for="studentEducation">Highest Education Level</label>
               <select id="studentEducation" name="education_level" class= "form-control" required>
-                <option value='highschool'> High School</option>
-                <option value='somecollege'>Some College</option>
-                <option value='associate'>Associates</option>
-                <option value='bachelor'>Bachelors</option>
-                <option value='masters'>Masters</option>
-                <option value='doctorate'>Doctorate</option>
+                  <option value="" selected="selected" disabled="disabled">-- Select one --</option>
+                  <option value="No formal education">No formal education</option>
+                  <option value="Primary education">Primary education</option>
+                  <option value="Secondary education">Secondary education or high school</option>
+                  <option value="GED">GED</option>
+                  <option value="Vocational qualification">Vocational qualification</option>
+                  <option value="Bachelor's degree">Bachelor's degree</option>
+                  <option value="Master's degree">Master's degree</option>
+                  <option value="Doctorate or higher">Doctorate or higher</option> 
               </select>
               
             </div>
@@ -510,19 +513,22 @@ if ( isset($_POST["teacher_signup"]) ) {
           <div class="d-flex flex-column">          
             <div class="form-group flex-fill">
               <label for="teacherDOB">Date of Birth</label>
-              <input type="date" onchange="checkTeacherDate()" id="DOB" name="teacher_DOB" class= "form-control" required>
+              <input type="date"  id="teacherDOB" name="teacher_DOB" class= "form-control" required>
               <span id="teacher_DOB_Invalid" class="invalid_inputs"><span>
             </div>
     
             <div class="form-group flex-fill">
               <label for="teacherEducation">Highest Education Level</label>
                 <select id="teacherEducation" name="teacher_education_level" class= "form-control" required>
-                  <option value='highschool'> High School</option>
-                  <option value='somecollege'>Some College</option>
-                  <option value='associate'>Associates</option>
-                  <option value='bachelor'>Bachelors</option>
-                  <option value='masters'>Masters</option>
-                  <option value='doctorate'>Doctorate</option>
+                  <option value="" selected="selected" disabled="disabled">-- Select one --</option>
+                  <option value="No formal education">No formal education</option>
+                  <option value="Primary education">Primary education</option>
+                  <option value="Secondary education">Secondary education or high school</option>
+                  <option value="GED">GED</option>
+                  <option value="Vocational qualification">Vocational qualification</option>
+                  <option value="Bachelor's degree">Bachelor's degree</option>
+                  <option value="Master's degree">Master's degree</option>
+                  <option value="Doctorate or higher">Doctorate or higher</option>    
                 </select>
             </div>
           </div>
@@ -545,8 +551,8 @@ if ( isset($_POST["teacher_signup"]) ) {
         </div>
 
         <div class="form-group collapse fifthPage">
-          <label for="inputExperience">How many years of teaching experience do you have?</label>
-          <input type="number" name='teaching_exp'  class="form-control" id="inputExperience" required>
+          <label for="teacherInputExperience">How many years of teaching experience do you have?</label>
+          <input type="number" name='teaching_exp'  class="form-control" id="teacherInputExperience" required>
         </div>
 
         <div class="form-group collapse sixthPage contact">
@@ -585,8 +591,8 @@ if ( isset($_POST["teacher_signup"]) ) {
         <div class="d-flex justify-content-center">        
           <button type="submit" name='teacher_signup' class="btn btn-primary collapse seventhPage">Sign up</button>
         </div>
-      </form> 
-    </div>   
+      </form>
+    </div>
   </div>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

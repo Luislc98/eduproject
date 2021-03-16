@@ -1,0 +1,21 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh
+}
+.text-animation{
+    width: 50vw;
+}
+.motion{
+    position: absolute;
+}
+
+.el{
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: blue;
+    display: inline-block;
+}
