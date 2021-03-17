@@ -24,173 +24,173 @@
   </head>
   <body>
 <div class= "wrapper" id="homepage-background">
-<!-- Code for Sidebar content/components --> 
-<div class="sidebar-center">
-  <div id="dark-background" class="dark-background"></div>  
-  <nav id = "sidebar" class = "active">
-    <div class="sidebar-header">
-      <h3> Logo <h3>
-    </div>
-    <ul class = "list-unstyled components">
-      <li class="sidebar-dropdown">
-        <a href = "#homeSubmenu" data-toggle="collapse" aria-expanded="false" class = "dropdown-toggle"> Home </a>
-          <ul class = "collapse list-unstyled" id="homeSubmenu">
-            <li> 
-              <a href = "#"> Home 1 </a>
-            </li>
-            <li> 
-              <a href = "#"> Home 2 </a>
-            </li>
-            <li> 
-              <a href = "#"> Home 3</a>
-            </li>
-            <li> 
-              <a href = "#"> Home 4 </a>
-            </li>
-            <li> 
-              <a href = "#"> Home 5 </a>
-            </li>
-          </ul>
-          <li class="sidebar-dropdown">
-            <a href = "#pageSubmenu" data-toggle="collapse" aria-expanded="false" class = "dropdown-toggle"> Courses </a>
-                <ul class = "collapse list-unstyled" id="pageSubmenu">
-                  <li> 
-                    <a href = "#"> Page 1 </a>
-                  </li>
-                  <li> 
-                    <a href = "#"> Page 2 </a>
-                  </li>
-                  <li> 
-                    <a href = "#"> Page 3 </a>
-                  </li>
-                  <li> 
-                    <a href = "#"> Page 4 </a>
-                  </li>
-                  <li> 
-                    <a href = "#"> Page 5</a>
-                  </li>
-                </ul>
-            </li>
-      <li>
-        <a href="#"> About </a>
-      </li>
-      <li>
-        <a href="#"> Scholars </a>
-      </li>
-      <li>
-        <a href="#"> Educators </a>
-      </li>
-      <li>
-        <a href="#"> Contact </a>
-      </li>
-    </ul>
-  </nav>
-</div>
+  <div class="sidebar-center">
+    <div id="dark-background" class="dark-background">
+    </div>  
+    <nav id = "sidebar" class = "active">
+      <div class="sidebar-header">
+        <h3> Logo <h3>
+      </div>
+      <ul class = "list-unstyled components">
+        <li class="sidebar-dropdown">
+          <a href = "#homeSubmenu" data-toggle="collapse" aria-expanded="false" class = "dropdown-toggle"> Home </a>
+            <ul class = "collapse list-unstyled" id="homeSubmenu">
+              <li> 
+                <a href = "#"> Home 1 </a>
+              </li>
+              <li> 
+                <a href = "#"> Home 2 </a>
+              </li>
+              <li> 
+                <a href = "#"> Home 3</a>
+              </li>
+              <li> 
+                <a href = "#"> Home 4 </a>
+              </li>
+              <li> 
+                <a href = "#"> Home 5 </a>
+              </li>
+            </ul>
+            <li class="sidebar-dropdown">
+              <a href = "#pageSubmenu" data-toggle="collapse" aria-expanded="false" class = "dropdown-toggle"> Courses </a>
+                  <ul class = "collapse list-unstyled" id="pageSubmenu">
+                    <li> 
+                      <a href = "#"> Page 1 </a>
+                    </li>
+                    <li> 
+                      <a href = "#"> Page 2 </a>
+                    </li>
+                    <li> 
+                      <a href = "#"> Page 3 </a>
+                    </li>
+                    <li> 
+                      <a href = "#"> Page 4 </a>
+                    </li>
+                    <li> 
+                      <a href = "#"> Page 5</a>
+                    </li>
+                  </ul>
+              </li>
+        <li>
+          <a href="#"> About </a>
+        </li>
+        <li>
+          <a href="#"> Scholars </a>
+        </li>
+        <li>
+          <a href="#"> Educators </a>
+        </li>
+        <li>
+          <a href="#"> Contact </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
   <div>
     <nav class="sidebarButton">
       <!-- Bootstrap navbar modification to have a toggle button to hide or show the sidebar-->
-      <button type="button" id="sidebarCollapse" class = "btn shadow-none active">
-        <span><i class="fas fa-chevron-right icon-default"></i></span>
-      </button>
-      <!-- End of Bootstrap navbar modification--> 
+        <button type="button" id="sidebarCollapse" class = "btn shadow-none active">
+            <span><i class="fas fa-chevron-right icon-default"></i></span>
+          </button>
+          <!-- End of Bootstrap navbar modification--> 
     </nav>
-<!--Bootstrap navbar -->
-      <nav class="navbar navbar-expand-lg fixed-top">
+    <!--Bootstrap navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
       <a href="#" class="title"> visualum </a>
       <button id="nav-button" class="container-fluid navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span id="nav-icon" class="fa fa-bars"></span>
       </button>
-      
+          
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav flex-fill">
-          <li class="nav-item flex-fill">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item flex-fill">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item flex-fill">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item flex-fill">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item flex-fill">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-        </ul>
-
-        <button id="signout-btn" class="btn btn-outline-light btn-lg">
-          <span>Sign out</span>
-        </button>
-
-        <form id="search-box" class="form-inline">
-          <input id="search-bar" class="form-control mr-sm-2 shadow-none" type="search" placeholder="Search" aria-label="Search">
-          <button id = "search-btn" class="btn shadow-none" type="button">
-            <span id="search-icon" class= "fa fa-search"></span>
-          </button>
-        
-        </form>
+            <ul class="navbar-nav flex-fill">
+              <li class="nav-item flex-fill">
+                <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item flex-fill">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item flex-fill">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item flex-fill">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item flex-fill">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <div class="d-flex justify-content-end signout-btn">
+                <button id="signout-btn" class="btn btn-outline-light btn-lg justify-content-end">
+                  <span>Sign out</span>
+                </button>
+              </div>
+              <form id="search-box" class="form-inline d-flex justify-content-center">
+                <input id="search-bar" class="form-control mr-sm-2 shadow-none" type="search" placeholder="Search" aria-label="Search">
+                <button id = "search-btn" class="btn shadow-none" type="button">
+                  <span id="search-icon" class= "fa fa-search"></span>
+                </button>
+              </form>
+            </ul> 
       </div>
     </nav>
+
     <div id ="content">
-        <div id="top-spacing">
-        </div>
-        <div class="login-container text">
-            <h2>A world class education for anyone, anywhere.</h2>
-            <p class="text">Join Eureka to explore your educational journey</p>
-            <p class="text"> Learning never ends. </p> <br>
-            <button id="signup-btn" class="btn btn-outline-light btn-lg">  Sign Up  <span class="fa fa-caret-right"></span></button>
-        </div>
-      <br>
-      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            <div id="top-spacing">
+            </div>
+            <div class="login-container text">
+                <h2>A world class education for anyone, anywhere.</h2>
+                <p class="text">Join Eureka to explore your educational journey</p>
+                <p class="text"> Learning never ends. </p> <br>
+                <button id="signup-btn" class="btn btn-outline-light btn-lg">  Sign Up  <span class="fa fa-caret-right"></span></button>
+            </div>
+          <br>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
     </div>
-    <!-- Bootstrap (carousel) slide show html code-->
+      <!-- Bootstrap (carousel) slide show html code-->
     <div id="slideshow">
-      <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-          <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="styles/images/Mountain.jpg" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>First slide label</h5>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+              <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="styles/images/Mountain.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>First slide label</h5>
+                  <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="styles/images/Rock.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Second slide label</h5>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="styles/images/Fog.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Third slide label</h5>
+                  <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                </div>
+              </div>
             </div>
+            <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
           </div>
-          <div class="carousel-item">
-            <img src="styles/images/Rock.jpg" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Second slide label</h5>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="styles/images/Fog.jpg" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Third slide label</h5>
-              <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-            </div>
-          </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
     </div>
   </div>
 </div>
 <div id="fixed-container-forms" class="hidden">
   <div id="signup-dark-background"></div>  
-  <div id="signup-forms">
+  <div id="signup-forms" class="student-css">
     <h2 style="text-align: center;">Sign up as a...</h2>
     <br>
   <!-- These buttons toggle between the student sign-up and the teacher sign-up -->

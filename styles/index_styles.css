@@ -5,16 +5,39 @@
         visibility: hidden;
         position: absolute;
     }
-
+    #search-box{
+        margin-left: 1.7rem
+    }
+    #search-bar.expand{
+        height: 55px;
+        width: 150px;
+        transition: width ease 0.3s;
+    }
+    .nav-item{
+        width: 9%;
+    }
  }
 
-@media (max-width: 992px){
+@media (max-width: 991px){
     .wrapper{
         background-size: 992px !important;
     }
     .navbar{
         padding-left: 25px !important;
         padding-right: 25px !important;
+    }
+    .navbar{
+        background: rgba(107,97,144, 0.8);
+    }
+    #search-box{
+        margin-top: 0.7rem;
+    }
+    #search-bar.expand{
+        width: calc(100% - 60px);
+        transition: width ease 0.3s;
+    }
+    .nav-item{
+        width: 100%;
     }
 }
 @media (max-width: 590px) { 
@@ -32,6 +55,10 @@
     #sidebarCollapse.move-right{
         transform: translate(200px,0);
         transition: all 0.3s;
+    }
+    #search-bar.expand{
+        width: calc(100% - 60px);
+        transition: width ease 0.3s;
     }
  }
 
@@ -98,19 +125,26 @@ a, a:hover, a:focus{
 }
 .navbar-nav{
     display:flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: center;
 }
-
+.signout-btn{
+    align-self: stretch;
+}
+#signout-btn{
+    height:100%;
+    width:100%;
+    font-size: 1rem;
+}
 #search-box{
-    display:flex;
-    justify-content: flex-end;
+    padding: 0;
+    align-self: stretch;
 }
 
 #search-bar{
     padding: 0;
     margin: 0;
-    height: 30px;
+    align-self: stretch;
     width: 0px;
     border: 0;
     transition: width ease 0.3s;
@@ -119,9 +153,8 @@ a, a:hover, a:focus{
 #search-bar.expand{
     padding: 10px;
     border: 1px;
-    height: 30px;
-    width: 150px;
-    transition: width ease 0.3s;
+    height: 50px;
+
 }
 #search-icon{
     font-size: 20px;
@@ -138,8 +171,8 @@ a, a:hover, a:focus{
     padding-bottom: 2px;
 }
 #search-btn{
-    height: 33px;
-    width: 33px;
+    height: 50px;
+    width: 50px;
 }
 #search-btn:hover{
     background: white;

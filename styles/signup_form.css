@@ -100,13 +100,13 @@
 }
 #teacher-signup-btn:after{
     background-color:white;
-    color:rgba(39, 27, 83, 0.9);
-    outline-color:rgba(39, 27, 83, 0.9);
+    color: black;
+    outline-color:black;
 }
 #teacher-signup-btn:focus{
-    color:rgba(39, 27, 83, 0.9);
+    color: black;
     background-color:white;
-    outline-color: rgba(39, 27, 83, 0.9);
+    outline-color: black;
 }
 
 
