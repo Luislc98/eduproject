@@ -19,6 +19,9 @@
     .login-container h2{
         font-size: 3em;
     }
+    .carousel-item{
+        height: 55vh;
+    }
  }
 
 @media (max-width: 991px){
@@ -45,6 +48,9 @@
     .login-container h2{
         font-size: 2.5em;
     }
+    .carousel-item{
+        height: 45vh;
+    }
 }
 @media (max-width: 590px) { 
     .title{
@@ -68,6 +74,9 @@
     }
     .login-container h2{
         font-size: 2em;
+    }
+    .carousel-item{
+        height: 33vh;
     }
  }
 /* width */
@@ -420,8 +429,9 @@ a, a:hover, a:focus{
 #slideshow{
     z-index: 0 !important;
 }
-.carousel-item{
-    height: 60vh;
+
+.carousel-indicator{
+
 }
 .footer{
     color: white;

@@ -19,7 +19,8 @@
     
     <link rel="stylesheet" href="styles/index_styles.css">
     <link rel="stylesheet" href="styles/signup_form.css">
-    
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+    <script src="https://apis.google.com/js/api:client.js"></script>
 
   </head>
   <body>
@@ -201,9 +202,17 @@
             <span>Teacher</span>
           </button>
         </div>
+        <div id="signup-options" class= "d-flex justify-content-center">
+          <div id="gSignInWrapper d-flex justify-content-center">
+            <div id="customBtn" class="customGPlusSignIn">
+              <span class="icon"></span>
+              <span class="buttonText">Sign up with Google</span>
+            </div>
+          </div>
+          <div id="name"></div>
+        </div>
         <!-- Student signup form-->
         <form id="student-signup-form" class="collapse" action="<?php echo htmlspecialchars( $_SERVER['PHP_SELF'] ); ?>" method="post">
-
           <div class="form-col">
             <label for="studentName">Name</label> 
             <div class="form-row" id="studentName">
@@ -614,6 +623,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 <script src="script/index_script.js"></script>
 <script src="script/signup_form.js"></script>
-
+<script>startApp();</script>
   </body>
 </html>
