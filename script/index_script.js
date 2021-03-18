@@ -136,11 +136,14 @@ $("#search-btn").on("click", function(){
 $("#signup-btn").on("click", function(){
   $("#fixed-container-forms").toggleClass("hidden");
   $("#signup-dark-background").toggleClass("active");
+  $("body").css("overflow", "hidden")
 });
 
 $('#signup-dark-background').on('click', function(){
   $("#fixed-container-forms").toggleClass("hidden");
   $("#signup-dark-background").toggleClass("active");
+  $("body").css("overflow", "auto")
+
 });
 
 
