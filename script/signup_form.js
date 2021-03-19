@@ -4,6 +4,14 @@ $("#student-signup-btn").on('click', function(){
     $("#teacher-signup-form").removeClass("show");
   }
 
+  if($("#student-signup-form").hasClass("show")){
+    $("#student-signup-form").removeClass("show");
+  }
+
+  if($("#signup-options-Teacher").hasClass("show")){
+    $("#signup-options-Teacher").removeClass("show");
+  }
+
   //changes the background color of teacher and the color of the student button
   $("#student-signup-btn").addClass("student-btn-css");
   $("#student-signup-btn").removeClass("student-default");
@@ -16,6 +24,13 @@ $("#student-signup-btn").on('click', function(){
 $("#teacher-signup-btn").on('click', function(){
   if($("#student-signup-form").hasClass("show")){
     $("#student-signup-form").removeClass("show");
+  }
+  if($("#teacher-signup-form").hasClass("show")){
+    $("#teacher-signup-form").removeClass("show");
+  }
+
+  if($("#signup-options-Student").hasClass("show")){
+    $("#signup-options-Student").removeClass("show");
   }
   //changes the background color of teacher form and the color of the teacher button
   $("#student-signup-btn").removeClass("student-btn-css");
@@ -37,7 +52,8 @@ var startApp = function() {
       // Request scopes in addition to 'profile' and 'email'
       //scope: 'additional_scope'
     });
-    attachSignin(document.getElementById('customBtn'));
+    attachSignin(document.getElementById('customBtnStudent'));
+    attachSignin(document.getElementById('customBtnTeacher'));
   });
 };
 

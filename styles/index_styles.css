@@ -9,7 +9,7 @@
         margin-left: 1.7rem
     }
     #search-bar.expand{
-        height: 55px;
+        height: 50px;
         width: 150px;
         transition: width ease 0.3s;
     }
@@ -182,6 +182,7 @@ a, a:hover, a:focus{
     margin: 0;
     align-self: stretch;
     width: 0px;
+    height: 50px;
     border: 0;
     transition: width ease 0.3s;
 }
@@ -263,7 +264,7 @@ a, a:hover, a:focus{
 }
 /* this is to control the drop animation of navbar */
 .collapsing{
-    transition: height .2s ease;
+    transition: height .1s all;
 }
 
 
@@ -431,7 +432,7 @@ a, a:hover, a:focus{
 }
 
 .carousel-indicator{
-
+display: none;
 }
 .footer{
     color: white;

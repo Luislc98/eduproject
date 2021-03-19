@@ -194,25 +194,43 @@
         <br>
         <!-- These buttons toggle between the student sign-up and the teacher sign-up -->
         <div class="signup-btns d-flex">
-          <button id="student-signup-btn" type="button" class="btn flex-fill col-6 student-default" data-toggle= "collapse" data-target="#student-signup-form" aria-expanded="false">
+          <button id="student-signup-btn" type="button" class="btn flex-fill col-6 student-default" data-toggle= "collapse" data-target="#signup-options-Student" aria-expanded="false">
             <span>Student</span>
           </button>
 
-          <button id="teacher-signup-btn" type="button" class="btn flex-fill col-6 teacher-default" data-toggle= "collapse" data-target="#teacher-signup-form" aria-expanded="false">
+          <button id="teacher-signup-btn" type="button" class="btn flex-fill col-6 teacher-default" data-toggle= "collapse" data-target="#signup-options-Teacher" aria-expanded="false">
             <span>Teacher</span>
           </button>
         </div>
-        <div id="signup-options" class= "d-flex justify-content-center">
+        <!-- Google, Facebook, and email signup option -->
+        <div id="signup-options-Student" class= "collapse signup-options justify-content-center">
           
-          <button id="customBtn" class="customGPlusSignIn">
-            <span class="icon"></span>
-            <span class="buttonText">Sign up with Google</span>
+          <button id="customBtnStudent" class="customBtn customGPlusSignIn d-flex justify-content-center">
+            <span class="signup-google-icon"></span>
+            <span class="signup-google-text">Join using Google</span>
           </button>
  
-          <div id="name"></div>
-          <button class="fb-btn d-flex justify-content-center">
-            <span class="signup-facebook-icon"></span>
-            <span class="signup-facebook-text">Sign up with Facebook</span>
+          <button id ="fb-btn-Student" class="fb-btn d-flex justify-content-center">
+            <span class="signup-facebook-icon"><i class="fa fa-facebook" aria-hidden="true"></i></span>
+            <span class="signup-facebook-text">Join using Facebook</span>
+          </button>
+          <button id="email-btn-Student" class="email-btn d-flex justify-content-center" type="button" data-toggle= "collapse" data-target="#student-signup-form" aria-expanded="false">
+            <span class="signup-email-text">Join using email</span>
+          </button>
+        </div>
+        <div id="signup-options-Teacher" class= "signup-options collapse justify-content-center">
+          
+          <button id="customBtnTeacher" class="customBtn customGPlusSignIn d-flex justify-content-center">
+            <span class="signup-google-icon"></span>
+            <span class="signup-google-text">Join using Google</span>
+          </button>
+ 
+          <button id ="fb-btn-Teacher" class="fb-btn d-flex justify-content-center">
+            <span class="signup-facebook-icon"><i class="fa fa-facebook" aria-hidden="true"></i></span>
+            <span class="signup-facebook-text">Join using Facebook</span>
+          </button>
+          <button id="email-btn-Teacher" class="email-btn d-flex justify-content-center" type="button" data-toggle= "collapse" data-target="#teacher-signup-form" aria-expanded="false">
+            <span class="signup-email-text">Join using email</span>
           </button>
         </div>
         <!-- Student signup form-->
