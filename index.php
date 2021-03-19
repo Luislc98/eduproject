@@ -32,7 +32,7 @@
       <div class="sidebar-header">
         <h3> Logo <h3>
       </div>
-      <ul class = "list-unstyled components">
+      <ul class = "list-unstyled sidebar-components">
         <li class="sidebar-dropdown">
           <a href = "#homeSubmenu" data-toggle="collapse" aria-expanded="false" class = "dropdown-toggle"> Home </a>
             <ul class = "collapse list-unstyled" id="homeSubmenu">
@@ -105,7 +105,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav flex-fill">
               <li class="nav-item flex-fill">
-                <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="#">Home</a>
               </li>
               <li class="nav-item flex-fill">
                 <a class="nav-link" href="#">Link</a>
@@ -638,7 +638,6 @@
     </div>
   </div>
 </div>
-
 
 <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
