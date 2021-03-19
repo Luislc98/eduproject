@@ -55,7 +55,7 @@
         height: 45vh;
     }
 }
-@media (max-width: 590px) { 
+@media (max-width: 575px) { 
     .title{
         font-size: 1.5em !important;
     }
@@ -445,13 +445,15 @@ a, a:hover, a:focus{
     font-size: 1.3em;
 }
 
-#slideshow{
-    z-index: 0 !important;
+.carousel-indicators{
+    z-index: 1;
+    
 }
 
-.carousel-indicator{
-display: none;
-}
 .footer{
     color: white;
+}
+
+.carousel-item{
+    z-index: 0 !important;
 }
