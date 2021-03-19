@@ -203,13 +203,17 @@
           </button>
         </div>
         <div id="signup-options" class= "d-flex justify-content-center">
-          <div id="gSignInWrapper d-flex justify-content-center">
-            <div id="customBtn" class="customGPlusSignIn">
-              <span class="icon"></span>
-              <span class="buttonText">Sign up with Google</span>
-            </div>
-          </div>
+          
+          <button id="customBtn" class="customGPlusSignIn">
+            <span class="icon"></span>
+            <span class="buttonText">Sign up with Google</span>
+          </button>
+ 
           <div id="name"></div>
+          <button class="fb-btn d-flex justify-content-center">
+            <span class="signup-facebook-icon"></span>
+            <span class="signup-facebook-text">Sign up with Facebook</span>
+          </button>
         </div>
         <!-- Student signup form-->
         <form id="student-signup-form" class="collapse" action="<?php echo htmlspecialchars( $_SERVER['PHP_SELF'] ); ?>" method="post">
