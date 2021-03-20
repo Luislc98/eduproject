@@ -1,3 +1,4 @@
+<?php include("includes/userbackend.php"); ?>
 <nav class="sidebarButton">
       <!-- Bootstrap navbar modification to have a toggle button to hide or show the sidebar-->
         <button type="button" id="sidebarCollapse" class = "btn shadow-none active">
@@ -31,7 +32,17 @@
               </li>
               <div class="d-flex justify-content-end signout-btn">
                 <button id="signout-btn" class="btn btn-outline-light btn-lg justify-content-end">
+
+                  <?php if(is_user_logged_in()) { ?>
+
                   <span>Sign out</span>
+                  <?php } else { ?>
+
+            
+
+                  <span>Sign In</span>
+                  <?php } ?>
+
                 </button>
               </div>
               <form id="search-box" class="form-inline d-flex justify-content-center">
