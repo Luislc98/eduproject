@@ -4,17 +4,19 @@
         width: 50%;
     }
     .signup-options>button{
-      width: 60%;
+      width: 70%;
+      font-size: 0.8rem;
     }
 
  }
 
-@media (max-width: 991px){
+@media (max-width: 992px){
     #signup-forms{
         width: 80%;
     }
     .signup-options>button{
-      width: 70%;
+      width: 80%;
+      font-size: 0.7rem;
     }
 
 }
@@ -23,7 +25,7 @@
         width: 95%;
     }
     .signup-options>button{
-      width: 90%;
+      width: 95%;
     }
  }
 /* width */
@@ -172,16 +174,10 @@
 }
 /*controls the collapsing animation intervals*/
   .collapsing {
-    -webkit-transition-duration: 0.35s;
-    transition-duration: 0.35s;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
     -webkit-transition-timing-function: ease;
     transition-timing-function: ease-out;
-  }
-  .collapsing.width {
-    -webkit-transition-property: width, visibility;
-    transition-property: width, visibility;
-    width: 0;
-    height: auto;
   }
 /* these are the button colors and the background form colors*/
   .teacher-default{
@@ -247,7 +243,6 @@
     .signup-google-text {
       vertical-align: middle;
       font-family: 'Roboto', sans-serif;
-      font-size: 0.9rem;
       text-align: center;
       padding-left: 40px;
       padding-right: 40px;
@@ -277,7 +272,7 @@
     color: white;
     vertical-align: middle;
     font-family: 'Roboto', sans-serif;
-    font-size: 0.9rem;
+   
     text-align: center;
     padding-left: 40px;
     padding-right: 40px;
@@ -294,7 +289,6 @@
 .signup-email-text {
   vertical-align: middle;
   font-family: 'Roboto', sans-serif;
-  font-size: 0.9rem;
   text-align: center;
   padding-left: 40px;
   padding-right: 40px;
