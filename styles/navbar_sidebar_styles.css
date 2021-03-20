@@ -1,0 +1,377 @@
+
+    /* text font */
+@import "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap";
+@media (min-width: 992px) {
+    #nav-button, #nav-icon{
+        visibility: hidden;
+        position: absolute;
+    }
+    #search-box{
+        margin-left: 1.7rem
+    }
+    #search-bar.expand{
+        height: 50px;
+        width: 150px;
+        transition: width ease 0.3s;
+    }
+    .nav-item{
+        width: 9%;
+    }
+ }
+
+@media (max-width: 991px){
+    .wrapper{
+        background-size: 992px !important;
+    }
+    .navbar{
+        padding-left: 25px !important;
+        padding-right: 25px !important;
+        background: rgba(107,97,144, 0.8);
+    }
+    #search-box{
+        margin-top: 0.7rem;
+    }
+    #search-bar.expand{
+        width: calc(100% - 60px);
+        transition: width ease 0.3s;
+    }
+    .nav-item{
+        width: 100%;
+    }
+    .nav-link:hover{
+        background: white;
+        color: black;
+        border-radius: 5px;
+    }
+}
+@media (max-width: 575px) { 
+    .title{
+        font-size: 1.5em !important;
+    }
+    #sidebar{
+        position: absolute;
+        z-index: 3;
+    }
+    #sidebarCollapse{
+        position:absolute;
+        z-index: 3;
+    }
+    #sidebarCollapse.move-right{
+        transform: translate(200px,0);
+        transition: all 0.3s;
+    }
+    #search-bar.expand{
+        width: calc(100% - 60px);
+        transition: width ease 0.3s;
+    }
+ }
+/* width */
+#sidebar ul::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+#sidebar ul::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgba(39, 27, 83, 0);
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+#sidebar ul::-webkit-scrollbar-thumb {
+    background: white; 
+    border-radius: 10px;
+  }
+body{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 800px;
+    overflow-x: hidden!important;
+}
+p{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #999;
+}
+a, a:hover, a:focus{
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+.navbar.padding{
+    padding: 6px 30px;
+
+}
+.navbar{
+    
+    padding: 40px 30px;
+    margin: 0;
+    color: white;
+    border: none;
+    border-radius: 0;
+    width: 100%;
+    transition: all 0.25s;
+    z-index:3;
+}
+.navbar.move-navbar-right{
+    transform: translate(200px,0);
+    width: calc(100% - 200px);
+    transition: all 0.38s;
+}
+.navbar.hidden{
+    display: none;
+}
+.navbar-scroll{
+    background: rgba(107,97,144, 0.8);
+}
+
+.navbar a{
+    color: white;
+}
+.title{
+    font-size: 1.6em;
+    font-family: 'Merriweather', serif;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    width: 20vw;
+}
+.nav-item{ 
+    font-size: 1rem;    
+    display: flex;
+    align-self: stretch;
+}
+.nav-link{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+}
+.nav-link:hover{
+    background: white;
+    color: black;
+    
+}
+
+/*spacing around nav elements i.e links and search bar */
+#navbarSupportedContent{
+    padding: 0px;
+}
+.navbar-nav{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.signout-btn{
+    align-self: stretch;
+}
+#signout-btn{
+    height:100%;
+    width:100%;
+    font-size: 1rem;
+}
+#search-box{
+    padding: 0;
+    align-self: stretch;
+}
+
+#search-bar{
+    padding: 0;
+    margin: 0;
+    align-self: stretch;
+    width: 0px;
+    height: 50px;
+    border: 0;
+    transition: width ease 0.3s;
+}
+
+#search-bar.expand{
+    padding: 10px;
+    border: 1px;
+    height: 50px;
+
+}
+#search-icon{
+    font-size: 20px;
+    border-radius: 5px;
+}
+#search-icon.hover{
+    background: white;
+    color:  #271b53;
+}
+/* Right arrow icon on search toggle */
+#search-icon.fa-arrow-left{
+    transform: rotate(180deg);
+    transition: ease 0.2s;
+    padding-bottom: 2px;
+}
+#search-btn{
+    height: 50px;
+    width: 50px;
+}
+#search-btn:hover{
+    background: white;
+}
+#search-btn.border{
+    box-shadow: 1px 1px 0 0 white, 
+    0 0px 0 1px white;
+}
+
+#nav-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+}
+
+#nav-button, #search-btn{
+    padding: 0;
+    margin: 0;
+}
+
+#nav-icon, #search-icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    transition: all 0.3s;
+    color: white;
+}
+
+#nav-icon:hover{
+    background: white;
+    color:  #271b53;
+    }
+
+#nav-icon.fa fa-arrow-down{
+    transform: rotate(180deg);
+    transition: all 0.3s;
+    
+}
+
+#nav-icon.fa-bars{
+    transform: rotate(180deg);
+    font-size: 28px;
+}
+
+#nav-icon.turn-arrow-up{
+    transform: rotate(-180deg);
+    transition: all 0.3s;
+}
+/* this is to control the drop animation of navbar */
+.collapsing{
+    transition: height .1s all;
+}
+
+
+.sidebarButton{
+    position: sticky;
+    top: 50vh;
+    z-index: 2;
+    padding:0;
+    margin: 0;
+}
+#sidebarCollapse{
+    border-radius: 0px 30px 30px 0px;
+    background: rgba(107,97,144, 0.8);
+    color: white;
+    border: none;
+    margin: 0;
+    padding:0;
+    width: 45px;
+    height: 50px;
+    transition: all 0.3s;
+}
+
+#sidebarCollapse:hover{
+    background:white;
+    color: #271b53;
+}
+
+.icon-default{
+    position: relative;
+    transition: all 0.5s;
+    width: 100%;
+}
+
+.icon-default.active{
+    position: relative;
+    opacity: 1;
+    transform: rotate(180deg);
+    transition: all 0.5s;
+}
+
+.sidebar-center{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    position:sticky;
+    top:0;
+    z-index: 2;
+}
+#sidebar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 200px;
+    height: 100vh;
+    background: rgba(107,97,144, 0.8);
+    color: white;
+    transition: all 0.3s;
+    z-index: 3;
+}
+#sidebar.active{
+    margin-left: -200px;
+}
+
+.sidebar-header{
+    align-self: center;
+    padding: 20px;
+}
+.sidebar-components{
+    overflow: auto;
+}
+#sidebar ul li{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#dark-background.active{
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(20, 20, 20, 0.8);
+    z-index: 2;
+}
+
+.sidebar-components li>a {
+    height: 100%;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.sidebar-components li>a:hover{
+    color: black;
+    background: #fff;
+}
+
+.sidebar-dropdown ul li:hover{
+    color: black;
+    background: #fff;
+}
+
+#homepage-background{
+    display: flex;
+    height: 100%;
+    width: 100%; 
+    align-items: stretch;
+    background-color: rgb(9, 3, 34);
+}
