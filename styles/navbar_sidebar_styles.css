@@ -17,6 +17,13 @@
     .nav-item{
         width: 9%;
     }
+    .signout-btn{
+        margin-left: 1.7rem;
+    }
+    #sidebarCollapse{
+        width: 45px;
+        height: 50px;
+    }
  }
 
 @media (max-width: 991px){
@@ -43,6 +50,10 @@
         color: black;
         border-radius: 5px;
     }
+    #sidebarCollapse{
+        width: 40px;
+        height: 45px;
+    }
 }
 @media (max-width: 575px) { 
     .title{
@@ -63,6 +74,10 @@
     #search-bar.expand{
         width: calc(100% - 60px);
         transition: width ease 0.3s;
+    }
+    #sidebarCollapse{
+        width: 30px;
+        height: 35px;
     }
  }
 /* width */
@@ -283,8 +298,6 @@ a, a:hover, a:focus{
     border: none;
     margin: 0;
     padding:0;
-    width: 45px;
-    height: 50px;
     transition: all 0.3s;
 }
 
