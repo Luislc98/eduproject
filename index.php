@@ -122,7 +122,22 @@
               </li>
               <div class="d-flex justify-content-end signout-btn">
                 <button id="signout-btn" class="btn btn-outline-light btn-lg justify-content-end">
+
+                  <?php  
+                  if ( is_student_logged_in() ) {
+                  ?>
                   <span>Sign out</span>
+                  <?php
+                   }
+                   ?>
+
+                  <?php  
+                  if (! is_student_logged_in() ) {
+                  ?>
+                  <span>Sign in</span>
+                  <?php
+                   }
+                   ?>
                 </button>
               </div>
               <form id="search-box" class="form-inline d-flex justify-content-center">
