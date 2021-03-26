@@ -6,7 +6,7 @@
         include("includes/init.php");
         ?>
     <!--Homepage stylesheet -->
-        <link rel="stylesheet" href="styles/educator_home.css">
+        <link rel="stylesheet" href="styles/student_home.css">
         
     <!-- Sign up form stylesheet and google api-->
         <script src="https://apis.google.com/js/api:client.js"></script>
