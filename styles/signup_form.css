@@ -5,9 +5,8 @@
     }
     .signup-options>button{
       width: 70%;
-      font-size: 0.9rem;
+      font-size: 1rem;
     }
-
  }
 
 @media (max-width: 992px){
@@ -16,14 +15,14 @@
     }
     .signup-options>button{
       width: 80%;
-      font-size: 0.8rem;
+      font-size: 0.9rem;
     }
 
 }
 @media (max-width: 590px) { 
     #signup-forms{
         width: 95%;
-        font-size: 0.7rem;
+        font-size: 0.8rem;
     }
     .signup-options>button{
       width: 95%;
@@ -272,7 +271,6 @@
     color: white;
     vertical-align: middle;
     font-family: 'Roboto', sans-serif;
-   
     text-align: center;
     padding-left: 40px;
     padding-right: 40px;

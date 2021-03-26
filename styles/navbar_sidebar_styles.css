@@ -22,7 +22,8 @@
     }
     #sidebarCollapse{
         width: 45px;
-        height: 50px;
+        height: 45px;
+     
     }
  }
 
@@ -52,7 +53,7 @@
     }
     #sidebarCollapse{
         width: 40px;
-        height: 45px;
+        height: 40px;
     }
 }
 @media (max-width: 575px) { 
@@ -299,6 +300,9 @@ a, a:hover, a:focus{
     margin: 0;
     padding:0;
     transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #sidebarCollapse:hover{
@@ -307,16 +311,17 @@ a, a:hover, a:focus{
 }
 
 .icon-default{
-    position: relative;
     transition: all 0.5s;
-    width: 100%;
+    padding: 0;
+    margin: 0;
 }
 
 .icon-default.active{
-    position: relative;
-    opacity: 1;
+    padding: 0;
+    margin: 0;
     transform: rotate(180deg);
     transition: all 0.5s;
+
 }
 
 .sidebar-center{

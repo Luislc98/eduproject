@@ -2,8 +2,8 @@
 <nav class="sidebarButton">
       <!-- Bootstrap navbar modification to have a toggle button to hide or show the sidebar-->
         <button type="button" id="sidebarCollapse" class = "btn shadow-none active">
-            <span><i class="fas fa-chevron-right icon-default"></i></span>
-          </button>
+          <span class="d-flex align-items-center justify-content-center"><i class="fa fa-chevron-right icon-default"></i></span>
+        </button>
           <!-- End of Bootstrap navbar modification--> 
 </nav>
     <!--Bootstrap navbar -->

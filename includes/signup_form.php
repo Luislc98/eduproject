@@ -23,7 +23,7 @@
           </button>
  
           <button id ="fb-btn-Student" class="fb-btn d-flex justify-content-center">
-            <span class="signup-facebook-icon"><i class="fa fa-facebook" aria-hidden="true"></i></span>
+            <span class="signup-facebook-icon" style="font-size: 1.1rem"><i class="fa fa-facebook" aria-hidden="true"></i></span>
             <span class="signup-facebook-text">Join using Facebook</span>
           </button>
 

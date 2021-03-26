@@ -16,13 +16,13 @@
   </head>
 <body>
 <div class= "wrapper" id="homepage-background">
-<?php  
-    include("includes/sidebar.php");
-    ?>
-  <div>
   <?php  
-    include("includes/navbar.php");
-    ?>
+      include("includes/sidebar.php");
+      ?>
+  <div>
+    <?php  
+      include("includes/navbar.php");
+      ?>
 
     <div id ="content">
             <div id="top-spacing">
