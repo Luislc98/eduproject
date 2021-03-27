@@ -14,9 +14,6 @@
         width: 150px;
         transition: width ease 0.3s;
     }
-    .nav-item{
-        width: 9%;
-    }
     .signout-btn{
         margin-left: 1.7rem;
     }
@@ -25,12 +22,12 @@
         height: 45px;
      
     }
+    .nav-item{
+        width:8%;
+    }
  }
 
 @media (max-width: 991px){
-    .wrapper{
-        background-size: 992px !important;
-    }
     .navbar{
         padding-left: 25px !important;
         padding-right: 25px !important;
@@ -120,7 +117,6 @@ a, a:hover, a:focus{
 
 }
 .navbar{
-    
     padding: 40px 30px;
     margin: 0;
     color: white;
@@ -196,7 +192,7 @@ a, a:hover, a:focus{
 
 #search-bar{
     padding: 0;
-    margin: 0;
+    margin: 0 0.5rem 0 0;
     align-self: stretch;
     width: 0px;
     height: 50px;
@@ -307,7 +303,7 @@ a, a:hover, a:focus{
 
 #sidebarCollapse:hover{
     background:white;
-    color: #271b53;
+    background: rgba(107,97,144, 0.8);
 }
 
 .icon-default{
@@ -386,7 +382,7 @@ a, a:hover, a:focus{
     background: #fff;
 }
 
-#homepage-background{
+#page-background{
     display: flex;
     height: 100%;
     width: 100%; 

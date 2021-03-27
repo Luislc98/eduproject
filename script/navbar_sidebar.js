@@ -7,6 +7,12 @@ $(document).ready(function() {
     $('active').toggleClass('icon-default');;
     $('#sidebarCollapse').toggleClass("move-right");
 
+    if($("#search-bar").hasClass("expand")){
+      $("#search-icon").toggleClass("fa-search");
+      $("#search-icon").toggleClass("fa-arrow-left");
+      $("#search-bar").toggleClass("expand");
+      $("#search-btn").toggleClass("border");
+    }
 //dark background appears when sidebar button is pressed, and navbar hides
     if($(window).width() > 575.98){
     
@@ -129,5 +135,14 @@ $("#search-btn").on("click", function(){
   $("#search-icon").toggleClass("fa-search");
   $("#search-icon").toggleClass("fa-arrow-left");
   $("#search-bar").toggleClass("expand");
-  $("#search-btn").toggleClass("border")
+  $("#search-btn").toggleClass("border");
+
+  if ($('.navbar').hasClass('move-navbar-right')){
+    $('.navbar').toggleClass('move-navbar-right')
+    $('#sidebar').toggleClass('active');
+    $('.icon-default').toggleClass('active');
+    $('active').toggleClass('icon-default');;
+    $('#sidebarCollapse').toggleClass("move-right");
+  }
 });
+

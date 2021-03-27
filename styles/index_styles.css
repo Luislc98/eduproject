@@ -5,7 +5,7 @@
     .login-container h2{
         font-size: 3em;
     }
-    .carousel-item{
+    .course-item{
         height: 70vh;
     }
  }
@@ -15,7 +15,7 @@
     .login-container h2{
         font-size: 2.5em;
     }
-    .carousel-item{
+    .course-item{
         height: 60vh;
     }
 }
@@ -23,12 +23,12 @@
     .login-container h2{
         font-size: 2em;
     }
-    .carousel-item{
+    .course-item{
         height: 33vh;
     }
  }
 
-#homepage-background{
+#page-background{
     display: flex;
     height: 100%;
     width: 100%; 
@@ -93,10 +93,11 @@
     
 }
 
+.course-item{
+    z-index: 0 !important;
+}
+
 .footer{
     color: white;
 }
 
-.carousel-item{
-    z-index: 0 !important;
-}
