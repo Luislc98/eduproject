@@ -5,11 +5,11 @@
         <br>
         <!-- These buttons toggle between the student sign-up and the teacher sign-up -->
         <div class="signup-btns d-flex">
-          <button id="student-signup-btn" type="button" class="btn flex-fill col-6 student-default" data-toggle= "collapse" data-target="#signup-options-Student" aria-expanded="false">
+          <button id="student-signup-btn" type="button" class="btn flex-fill col-6 student-default" data-bs-toggle= "collapse" data-bs-target="#signup-options-Student" aria-expanded="false">
             <span>Student</span>
           </button>
 
-          <button id="teacher-signup-btn" type="button" class="btn flex-fill col-6 teacher-default" data-toggle= "collapse" data-target="#signup-options-Teacher" aria-expanded="false">
+          <button id="teacher-signup-btn" type="button" class="btn flex-fill col-6 teacher-default" data-bs-toggle= "collapse" data-bs-target="#signup-options-Teacher" aria-expanded="false">
             <span>Teacher</span>
           </button>
           
@@ -27,7 +27,7 @@
             <span class="signup-facebook-text">Join using Facebook</span>
           </button>
 
-          <button id="email-btn-Student" class="email-btn d-flex justify-content-center" type="button" data-toggle= "collapse" data-target="#student-signup-form" aria-expanded="false">
+          <button id="email-btn-Student" class="email-btn d-flex justify-content-center" type="button" data-bs-toggle= "collapse" data-bs-target="#student-signup-form" aria-expanded="false">
             <span class="signup-email-text">Join using email</span>
           </button>
         </div>
@@ -43,7 +43,7 @@
             <span class="signup-facebook-icon"><i class="fa fa-facebook" aria-hidden="true"></i></span>
             <span class="signup-facebook-text">Join using Facebook</span>
           </button>
-          <button id="email-btn-Teacher" class="email-btn d-flex justify-content-center" type="button" data-toggle= "collapse" data-target="#teacher-signup-form" aria-expanded="false">
+          <button id="email-btn-Teacher" class="email-btn d-flex justify-content-center" type="button" data-bs-toggle= "collapse" data-bs-target="#teacher-signup-form" aria-expanded="false">
             <span class="signup-email-text">Join using email</span>
           </button>
         </div>
@@ -51,7 +51,7 @@
         <form id="student-signup-form" class="collapse" action="<?php echo htmlspecialchars( $_SERVER['PHP_SELF'] ); ?>" method="post">
           <div class="form-col">
             <label for="studentName">Name</label> 
-            <div class="form-row" id="studentName">
+            <div class="row" id="studentName">
               <div class="form-group col-6">
                 <input type="text" class="form-control" id="studentFirstName" name="first_name"  required>
                 <label for="studentFirstName" style="font-size: 0.9em"> First <label>
@@ -70,7 +70,7 @@
             <span id="student_Email_Message" class="invalid_inputs"></span>
           </div>
           
-          <div class="form-row">
+          <div class="row">
             <div class="form-group col-12">
               <label for="studentInputUserName">Username</label>
               <input type="text" name='username' class="form-control" id="studentInputUserName" required>
@@ -98,7 +98,7 @@
               <input type="text" name='addresscity'  class="form-control" id="studentInputCity" required>
             </div>
 
-            <div class="form-row">
+            <div class="row">
               <div class="form-group col-6">
                 <label for="studentInputState">State</label>
                 <select id="studentInputState" name='addressstate' class="form-control" required>
@@ -242,7 +242,7 @@
         <form id="teacher-signup-form" class="collapse" action="<?php echo htmlspecialchars( $_SERVER['PHP_SELF'] ); ?>" method="post" enctype="multipart/form-data">
           <div class="form-col">
             <label for="teacherName">Name</label>
-              <div class="form-row" id="teacherName">
+              <div class="row" id="teacherName">
                 <div class="form-group col-6">
                   <input type="text" class="form-control" id="teacherFirstName" name="teacher_first_name" required>
                   <label for="teacherFirstName" style="font-size: 0.9em"> First <label>
@@ -261,7 +261,7 @@
             <span id="teacher_Email_Message" class="invalid_inputs"></span>
           </div>
 
-          <div class="form-row">
+          <div class="row">
 
             <div class="form-group col-12">
               <label for="teacherInputUserName">Username</label>
@@ -291,7 +291,7 @@
               <label for="teacherInputCity">City</label>
               <input type="text" name='teacher_addresscity' class="form-control" id="teacherInputCity" required>
             </div>
-            <div class="form-row">
+            <div class="row">
               <div class="form-group col-6">
                 <label for="teacherInputState">State</label>
                   <select id="teacherInputState" name='teacher_addressstate' class="form-control" required>

@@ -7,7 +7,7 @@
       </div>
       <ul class = "list-unstyled sidebar-components">
         <li class="sidebar-dropdown">
-          <a href = "#homeSubmenu" data-toggle="collapse" aria-expanded="false" class = "dropdown-toggle"> Home </a>
+          <a href = "#homeSubmenu" data-bs-toggle="collapse" aria-expanded="false" class = "dropdown-toggle"> Home </a>
             <ul class = "collapse list-unstyled" id="homeSubmenu">
               <li> 
                 <a href = "#"> Home 1 </a>
@@ -26,7 +26,7 @@
               </li>
             </ul>
             <li class="sidebar-dropdown">
-              <a href = "#pageSubmenu" data-toggle="collapse" aria-expanded="false" class = "dropdown-toggle"> Courses </a>
+              <a href = "#pageSubmenu" data-bs-toggle="collapse" aria-expanded="false" class = "dropdown-toggle"> Courses </a>
                   <ul class = "collapse list-unstyled" id="pageSubmenu">
                     <li> 
                       <a href = "#"> Page 1 </a>

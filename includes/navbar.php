@@ -7,12 +7,12 @@
           <!-- End of Bootstrap navbar modification--> 
 </nav>
 
-<div style="width: 100%; display: flex; flex-direction:column;" class="navbar-expand-lg fixed-top">
+<div id="filter-navbar-container" class="navbar-expand-lg fixed-top">
     <!--Bootstrap navbar -->
   <nav class="navbar navbar-expand-lg">
       
         <a href="#" class="title"> visualum </a>
-        <button id="nav-button" class="container-fluid navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button id="nav-button" class="container-fluid navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span id="nav-icon" class="fa fa-bars"></span>
         </button>
             
@@ -57,27 +57,8 @@
               </ul> 
         </div>
   </nav>
-
-  <!-- Carousel code for filtering -->
-  <div id="filter-search" id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <button src="..." class="d-block w-100" ></button>
-            </div>
-            <div class="carousel-item">
-              <button src="..." class="d-block w-100"></button>
-            </div>
-            <div class="carousel-item">
-              <button src="..." class="d-block w-100"></button>
-            </div>
-          </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
+  <div id="filter-container">
+    <!-- Carousel code for filtering -->
+    <?php include("includes/filter-carousel.php"); ?>
   </div>
 </div>

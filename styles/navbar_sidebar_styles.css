@@ -1,7 +1,7 @@
 
     /* text font */
 @import "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap";
-@media (min-width: 992px) {
+@media (min-width: 993px) {
     #nav-button, #nav-icon{
         visibility: hidden;
         position: absolute;
@@ -27,11 +27,12 @@
     }
  }
 
-@media (max-width: 991px){
+@media (max-width: 992px){
     .navbar{
         padding-left: 25px !important;
         padding-right: 25px !important;
         background: rgba(107,97,144, 0.8);
+
     }
     #search-box{
         margin-top: 0.7rem;
@@ -113,11 +114,11 @@ a, a:hover, a:focus{
     transition: all 0.2s;
 }
 .navbar.padding{
-    padding: 6px 30px;
+    padding: 6px 30px 6px 30px;
 
 }
 .navbar{
-    padding: 40px 30px;
+    padding: 40px 30px 30px 30px;
     margin: 0;
     color: white;
     border: none;
@@ -132,6 +133,9 @@ a, a:hover, a:focus{
     transition: all 0.38s;
 }
 .navbar.hidden{
+    display: none;
+}
+#filter-search.hidden{
     display: none;
 }
 .navbar-scroll{
@@ -389,3 +393,7 @@ a, a:hover, a:focus{
     align-items: stretch;
     background-color: rgb(9, 3, 34);
 }
+#filter-search>.carousel-inner>.carousel-item{
+    width: 10%;
+}
+
