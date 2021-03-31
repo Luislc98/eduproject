@@ -1,9 +1,28 @@
-footer .footer{
-    height: 20vh;
+@media (min-width: 576px) { 
+    footer>.footer{
+        height: 25vh;
+    }
+ }
+
+@media (max-width: 575px) { 
+    footer>.footer{
+        height: 85vh;
+    }
+ }
+
+footer>.footer{
+    margin: 0;
+    padding: 0;
 }
-footer .col{
+.footer>.col-12{
     height: 5vh;
+    padding: 0;
+    margin: 0;
 }
-#copyright{
-    height: 5vh;
+
+footer{
+    padding-top: 5vh!important;
+    flex-direction: column;
+    padding:0;
+    margin: 0;
 }

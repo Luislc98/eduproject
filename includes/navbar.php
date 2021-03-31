@@ -57,7 +57,7 @@
               </ul> 
         </div>
   </nav>
-  <div id="filter-container">
+  <div id="filter-container" class="flex-fill">
     <!-- Carousel code for filtering -->
     <?php include("includes/filter-carousel.php"); ?>
   </div>
