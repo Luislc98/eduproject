@@ -51,6 +51,10 @@ $("#signout-btn").on("click", function(){
     if($("#student-login-form").hasClass("show")){
       $("#student-login-form").removeClass("show");
     }
+    $("#student-login-btn").addClass("student-btn-css");
+    $("#student-login-btn").removeClass("student-default");
+    $("#teacher-login-btn").addClass("teacher-default");
+    $("#teacher-login-btn").removeClass("teacher-btn-css");
   });
   
   $("#teacher-login-btn").on('click', function(){
@@ -73,6 +77,10 @@ $("#signout-btn").on("click", function(){
     if($("#teacher-login-form").hasClass("show")){
       $("#student-login-form").removeClass("show");
     }
+  $("#student-login-btn").removeClass("student-btn-css");
+  $("#student-login-btn").addClass("student-default");
+  $("#teacher-login-btn").removeClass("teacher-default");
+  $("#teacher-login-btn").addClass("teacher-btn-css");
   });
 
   function myFunction() {
