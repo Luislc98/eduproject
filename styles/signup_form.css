@@ -133,7 +133,6 @@
     outline: none;
     border: none;
     margin-left: 1%;
-    
     border:white 1px solid;
 }
 #teacher-signup-btn:hover{
@@ -226,68 +225,3 @@
   }
 
 /*Sign up custom Google Button*/
-  .customBtn{
-    background-color: white;
-  }
-    .signup-google-icon {
-      background-image: url("Google.png");
-      background-size: 35px;
-      background-position: center;
-      background-repeat: no-repeat;
-      vertical-align: middle;
-      width: 42px;
-      height: 41px;
-      padding: 0;
-      margin: 0;
-    }
-    .signup-google-text {
-      vertical-align: middle;
-      font-family: 'Roboto', sans-serif;
-      text-align: center;
-      padding-left: 40px;
-      padding-right: 40px;
-    }
-/* Sign up with facebook button */
-  .fb-btn{
-    background-color:#3b5998;
-  }
-  .fb-btn:hover{
-    background-color:rgba(59, 89, 152,0.8);
-  }
-  .signup-facebook-icon {
-    background-color:white;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 30px;
-    width: 30px;
-    border-radius: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #3b5998;
-  }
-
-  .signup-facebook-text {
-    color: white;
-    vertical-align: middle;
-    font-family: 'Roboto', sans-serif;
-    text-align: center;
-    padding-left: 40px;
-    padding-right: 40px;
-  }
-
-/* Sign up with e-mail button */
-.email-btn{
-  background: lightgray;
-}
-.email-btn:hover{
-  background: 	rgba(211,211,211,0.8);
-  color: black;
-}
-.signup-email-text {
-  vertical-align: middle;
-  font-family: 'Roboto', sans-serif;
-  text-align: center;
-  padding-left: 40px;
-  padding-right: 40px;
-}

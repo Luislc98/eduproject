@@ -24,4 +24,7 @@
 
     <!-- Navbar-sidebar stylesheets -->
     <link rel="stylesheet" href="styles/navbar_sidebar_styles.css"> 
+
+    <!-- login-form stylesheets -->
+    <link rel="stylesheet" href="styles/login_form.css"> 
 <!-- Everything above this line must be in head on every page -->

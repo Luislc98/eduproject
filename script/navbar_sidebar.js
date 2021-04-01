@@ -146,3 +146,11 @@ $("#search-btn").on("click", function(){
   }
 });
 
+if (window.pageYOffset >= 50) {
+  //console.log('a');
+  $('#navbarSupportedContent').removeClass("show");
+  $('#nav-icon').addClass("fa-bars");
+  $('#nav-icon').removeClass("turn-arrow-up");
+  $('.navbar').addClass("padding");
+  $('.navbar').addClass("navbar-scroll");
+}

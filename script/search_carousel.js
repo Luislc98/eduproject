@@ -68,3 +68,11 @@ $('#dark-background').on('click',function() {
       $('#filter-container').removeClass('move-search-carousel-right')
 
   });
+
+if (window.pageYOffset >= 50) { 
+    $('#filter-container').addClass('hidden');
+} else if ($('#dark-background').hasClass("active")){
+  $('#filter-container').addClass('hidden');
+} else {
+  $("#filter-container").removeClass('hidden');
+}

@@ -15,36 +15,36 @@
           
         </div>
         <!-- Google, Facebook, and email signup option -->
-        <div id="signup-options-Student" class= "collapse signup-options ">
+        <div id="signup-options-Student" class= "collapse signup-options">
           
           <button id="customBtnStudent" class="customBtn customGPlusSignIn d-flex justify-content-center">
-            <span class="signup-google-icon"></span>
-            <span class="signup-google-text">Join using Google</span>
+            <span class="google-icon"></span>
+            <span class="google-text">Join using Google</span>
           </button>
  
           <button id ="fb-btn-Student" class="fb-btn d-flex justify-content-center">
-            <span class="signup-facebook-icon" style="font-size: 1.1rem"><i class="fa fa-facebook" aria-hidden="true"></i></span>
-            <span class="signup-facebook-text">Join using Facebook</span>
+            <span class="facebook-icon" style="font-size: 1.1rem"><i class="fa fa-facebook" aria-hidden="true"></i></span>
+            <span class="facebook-text">Join using Facebook</span>
           </button>
 
           <button id="email-btn-Student" class="email-btn d-flex justify-content-center" type="button" data-bs-toggle= "collapse" data-bs-target="#student-signup-form" aria-expanded="false">
-            <span class="signup-email-text">Join using email</span>
+            <span class="email-text">Join using email</span>
           </button>
         </div>
 
         <div id="signup-options-Teacher" class= "collapse signup-options ">
           
           <button id="customBtnTeacher" class="customBtn customGPlusSignIn d-flex justify-content-center">
-            <span class="signup-google-icon"></span>
-            <span class="signup-google-text">Join using Google</span>
+            <span class="google-icon"></span>
+            <span class="google-text">Join using Google</span>
           </button>
  
           <button id ="fb-btn-Teacher" class="fb-btn d-flex justify-content-center">
-            <span class="signup-facebook-icon"><i class="fa fa-facebook" aria-hidden="true"></i></span>
-            <span class="signup-facebook-text">Join using Facebook</span>
+            <span class="facebook-icon"><i class="fa fa-facebook" aria-hidden="true"></i></span>
+            <span class="facebook-text">Join using Facebook</span>
           </button>
           <button id="email-btn-Teacher" class="email-btn d-flex justify-content-center" type="button" data-bs-toggle= "collapse" data-bs-target="#teacher-signup-form" aria-expanded="false">
-            <span class="signup-email-text">Join using email</span>
+            <span class="email-text">Join using email</span>
           </button>
         </div>
         <!-- Student signup form-->

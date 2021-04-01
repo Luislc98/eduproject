@@ -32,32 +32,6 @@ if(!empty($_POST["remember_me_teacher"])) {
 
 
 ?>
-
-
-
-<html>
-<head>
-<!-- Required meta tags -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-<!-- Bootstrap CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="styles/login_styles.css">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-
-<body>
-
-  
   
   <?php
   foreach ($session_messages as $message) {
@@ -79,12 +53,11 @@ if(!empty($_POST["remember_me_teacher"])) {
   
   ?>
 
-
-
-
+<div id="fixed-container-signin" class="hidden">
+      <div id="signin-dark-background"></div> 
   <div class="d-flex flex-column align-items-center justify-content-center" id="form-spacing">
     <h2>I am logging in as a</h2>
-<!-- These buttons toggle between the student sign-up and the teacher sign-up -->
+      <!-- These buttons toggle between the student sign-up and the teacher sign-up -->
     <div class="login-btns d-flex">
       <button id="student-login-btn" type="button" class="btn btn-primary flex-fill col-6" data-bs-toggle= "collapse" aria-expanded="true">
         <span>Student</span>
@@ -94,7 +67,7 @@ if(!empty($_POST["remember_me_teacher"])) {
         <span>Teacher</span>
       </button>
     </div>
-<!--This is the studentlogin form-->
+      <!--This is the studentlogin form-->
     <form id="student-login-form" class="collapse" action="<?php echo htmlspecialchars( $_SERVER['PHP_SELF'] ); ?>" method="post">
       <div class="form-row">
         <div class="form-group col-md-12">
@@ -118,7 +91,7 @@ if(!empty($_POST["remember_me_teacher"])) {
       </div>    
           <button type="submit" name="student_login" class="btn btn-primary">Login</button>
     </form>
-<!--This is the teacher login form-->
+        <!--This is the teacher login form-->
     <form id="teacher-login-form" class="collapse">
       <div class="form-row">
         <div class="form-group col-md-12">
@@ -144,7 +117,7 @@ if(!empty($_POST["remember_me_teacher"])) {
     </form>
 
   </div>
-
+</div>
   <?php
 
 //}
@@ -154,9 +127,3 @@ if(!empty($_POST["remember_me_teacher"])) {
 
 
 ?>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-  <script src ="script/login_script.js"></script>
-</body>
-
-</html>

@@ -2,7 +2,7 @@
 @import "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap";
 @media (min-width: 992px) {
 
-    .login-container h2{
+    .signup-container h2{
         font-size: 3em;
     }
     .course-item{
@@ -12,7 +12,7 @@
 
 @media (max-width: 991px){
    
-    .login-container h2{
+    .signup-container h2{
         font-size: 2.5em;
     }
     .course-item{
@@ -20,7 +20,7 @@
     }
 }
 @media (max-width: 575px) { 
-    .login-container h2{
+    .signup-container h2{
         font-size: 2em;
     }
     .course-item{
@@ -58,19 +58,19 @@
 #top-spacing{
     height: 24vw;
 }
-.login-container{
+.signup-container{
     color: white;
     text-align: left;
     padding-left: 3vw;
 }
 
-.login-container h2{
+.signup-container h2{
     width: 30vw;
     font-family: 'Bitter', serif;
     font-weight: 700;
 }
 
-.login-container p{
+.signup-container p{
     font-size: 1.2em;
     padding: 0;
     margin: 0;
@@ -78,12 +78,12 @@
     font-weight: 400;
 }
 
-.login-container button{
+.signup-container button{
     display: flex;
     align-items: center;
 }
 
-.login-container button>span{
+.signup-container button>span{
     padding-left: 10px;
     font-size: 1.3em;
 }

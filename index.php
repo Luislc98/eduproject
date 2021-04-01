@@ -27,7 +27,7 @@
     <div id ="content">
             <div id="top-spacing">
             </div>
-            <div class="login-container text">
+            <div class="signup-container text">
                 <h2>A world class education for anyone, anywhere.</h2>
                 <p class="text">Join Eureka to explore your educational journey</p>
                 <p class="text"> Learning never ends. </p> <br>
@@ -81,6 +81,7 @@
     <?php
     include("includes/footer.php");
     include("includes/signup_form.php");
+    include("includes/finallogin.php")
     ?>
 
   </div>
@@ -99,8 +100,11 @@
 
 <!-- Signup javascript -->
 <script src="script/signup_form.js"></script>
+<!-- Login page Javascript -->
 
+<script src="script/login_script.js"> </script>
 <!-- mutliple carousel items, as well as moving carousel items 1 by 1-->
 <script src="script/search_carousel.js"></script>
+
 </body>
 </html>
