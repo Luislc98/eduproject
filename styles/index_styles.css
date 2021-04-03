@@ -88,16 +88,10 @@
     font-size: 1.3em;
 }
 
-.carousel-indicators{
-    z-index: 1;
-    
-}
-
 .course-item{
-    z-index: 0 !important;
+    padding: 0 13vw;
 }
 
 .footer{
     color: white;
 }
-

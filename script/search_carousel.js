@@ -20,16 +20,18 @@ $('#searchCarousel.carousel .filter-inner>.carousel-item').each(function(){
 // with the sidebar and navbar
 $(document).ready(function() {
   $('#sidebarCollapse').on('click',function() {
-//dark background appears when sidebar button is pressed, and navbar hides
-if($(window).width() > 575.98){
-    
-  $('#filter-container').toggleClass('move-search-carousel-right');
-  } else{
-    $('#filter-container').toggleClass('hidden')
-  };
+      //dark background appears when sidebar button is pressed, and navbar hides
+    if($(window).width() > 575.98){
+        $('#filter-container').toggleClass('move-search-carousel-right');
+    } else if($("#dark-background").hasClass("active")){
+        $('#filter-container').addClass('hidden');
+    } else{
+        $('#filter-container').removeClass('hidden');
+    };
+
+  });
 });
-});
-//when dark-background is clicked on, sidebar or form hides.
+    //when dark-background is clicked on, sidebar or form hides.
 $('#dark-background').on('click',function() {
 
   if($(window).width() > 575.98){

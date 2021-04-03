@@ -48,6 +48,12 @@ $("#signup-btn").on("click", function(){
   $("#signup-dark-background").toggleClass("active");
   $("body").css("overflow", "hidden")
 
+  if($("#signup-dark-background").hasClass("active")){
+    $('#navbarSupportedContent').removeClass("show");
+    $('#nav-icon').addClass("fa-bars");
+    $('#nav-icon').removeClass("turn-arrow-up");
+}
+
   //Collapses sidebar since signing up is the main focus
   $('#sidebar').addClass('active');
   $('.icon-default').removeClass('active');

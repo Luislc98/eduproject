@@ -1,17 +1,15 @@
 $("#signout-btn").on("click", function(){
-    $("#fixed-container-signin").toggleClass("hidden");
-    $("#signin-dark-background").toggleClass("active");
+    $("#fixed-container-signin").removeClass("hidden");
+    $("#signin-dark-background").addClass("active");
+    $("body").css("overflow", "hidden")
     if($("#signin-dark-background").hasClass("active")){
-        $("body").css("overflow", "hidden");
-        $('#navbarSupportedContent').removeClass("show");
-        $('#nav-icon').addClass("fa-bars");
-        $('#nav-icon').removeClass("turn-arrow-up");
-    }else{
-        $("body").css("overflow", "auto");
-    }
+      $('#navbarSupportedContent').removeClass("show");
+      $('#nav-icon').addClass("fa-bars");
+      $('#nav-icon').removeClass("turn-arrow-up");
+  }
 
   
-    //Collapses sidebar since signing up is the main focus
+    //Collapses sidebar since signing in is the main focus
     $('#sidebar').addClass('active');
     $('.icon-default').removeClass('active');
     $('#sidebarCollapse').removeClass("move-right");

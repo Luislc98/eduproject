@@ -93,7 +93,7 @@
             <span><i class="fas fa-chevron-right icon-default"></i></span>
           </button>
           <!-- End of Bootstrap navbar modification--> 
-    </nav>
+</nav>
     <!--Bootstrap navbar -->
     <nav class="navbar navbar-expand-lg fixed-top">
       <a href="#" class="title"> visualum </a>
