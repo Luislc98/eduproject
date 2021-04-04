@@ -1,37 +1,106 @@
 /* text font */
 @import "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap";
-@media (min-width: 992px) {
+@media (min-width: 993px) {
 
     .signup-container h2{
         font-size: 3em;
     }
-    .course-item{
-        height: 70vh;
+    #course-carousel, .course-item{
+        height: 300px;
+    }
+    .course-inner>.carousel-item-right.active,
+    .course-inner>.carousel-item-next,
+    .course-inner>.carousel-item-next:not(.carousel-item-start) {
+      transform: translateX(33.33%) !important;
+      
+    }
+  
+    .course-inner>.carousel-item-left.active,
+    .course-inner>.carousel-item-prev:not(.carousel-item-end),
+    .course-inner>.active.carousel-item-start,
+    .course-inner>.carousel-item-prev:not(.carousel-item-end) {
+      transform: translateX(-33.33%) !important;
+    }
+  
+    .course-inner>.carousel-item-next.carousel-item-start, 
+    .course-inner>.active.carousel-item-end {
+      transform: translateX(0) !important;
+    }
+  
+    .course-inner>.carousel-item-prev,
+    .course-inner>.carousel-item-prev:not(.carousel-item-end) {
+      transform: translateX(-33.33%) !important;
     }
  }
 
-@media (max-width: 991px){
-   
+@media (max-width: 992px){
+    .course-inner>.carousel-item-right.active,
+    .course-inner>.carousel-item-next,
+    .course-inner>.carousel-item-next:not(.carousel-item-start) {
+      transform: translateX(33.33%) !important;
+      
+    }
+  
+    .course-inner>.carousel-item-left.active,
+    .course-inner>.carousel-item-prev:not(.carousel-item-end),
+    .course-inner>.active.carousel-item-start,
+    .course-inner>.carousel-item-prev:not(.carousel-item-end) {
+      transform: translateX(-33.33%) !important;
+    }
+  
+    .course-inner>.carousel-item-next.carousel-item-start, 
+    .course-inner>.active.carousel-item-end {
+      transform: translateX(0) !important;
+    }
+  
+    .course-inner>.carousel-item-prev,
+    .course-inner>.carousel-item-prev:not(.carousel-item-end) {
+      transform: translateX(-33.33%) !important;
+    }
+
     .signup-container h2{
         font-size: 2.5em;
     }
-    .course-item{
-        height: 60vh;
+    #course-carousel, .course-item{
+        height: 250px;
     }
 }
 @media (max-width: 575px) { 
     .signup-container h2{
         font-size: 2em;
     }
-    .course-item{
-        height: 33vh;
+    #course-carousel, .course-item{
+        height: 250px;
+    }
+    .course-inner>.carousel-item-right.active,
+    .course-inner>.carousel-item-next,
+    .course-inner>.carousel-item-next:not(.carousel-item-start) {
+      transform: translateX(100%) !important;
+      
+    }
+  
+    .course-inner>.carousel-item-left.active,
+    .course-inner>.carousel-item-prev:not(.carousel-item-end),
+    .course-inner>.active.carousel-item-start,
+    .course-inner>.carousel-item-prev:not(.carousel-item-end) {
+      transform: translateX(-100%) !important;
+    }
+  
+    .course-inner>.carousel-item-next.carousel-item-start, 
+    .course-inner>.active.carousel-item-end {
+      transform: translateX(0) !important;
+    }
+  
+    .course-inner>.carousel-item-prev,
+    .course-inner>.carousel-item-prev:not(.carousel-item-end) {
+      transform: translateX(-100%) !important;
     }
  }
 
 #page-background{
     display: flex;
     height: 100%;
-    width: 100%; 
+    width: 100%;
     align-items: stretch;
     background-color: rgb(9, 3, 34);
     background-image: url("images/eureka_1.jpg");
@@ -87,11 +156,58 @@
     padding-left: 10px;
     font-size: 1.3em;
 }
-
-.course-item{
-    padding: 0 13vw;
-}
-
 .footer{
     color: white;
 }
+
+  /* End of media queries */
+  .course-inner>.carousel-item.active,
+  .course-inner>.carousel-item-start,
+  .course-inner>.carousel-item-next,
+  .course-inner>.carousel-item-prev {
+    display: flex;
+    transition-duration: 0.2s !important;
+  }
+  .course-inner {
+    height: 100%;
+  }
+
+
+  .course-item{
+    padding: 0 !important;
+    margin: 0 !important;
+}
+.course-item>.col-sm-4{
+    padding: 0 1vw;
+  }
+.course-item>.col-sm-4>.card{
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    border: none;
+    width: 100%;
+  }
+
+  .course-item>.col-sm-4>.card>img{
+    width: 100%;
+    height: 60%;
+  }
+  .card-body{
+    width: 100%;
+    text-align: center;
+
+  }
+  #course-carousel{
+    width: 100%;
+    margin: 0;
+    padding: 0 12vw;
+    transition: all 0.38s;
+  }
+  #webpage-resize{
+    width:100vw;
+    transition: all 0.38s;
+  }
+  #webpage-resize.wrapping-resize{
+    width: calc(100vw - 200px);
+    transition: all 0.38s;
+  }

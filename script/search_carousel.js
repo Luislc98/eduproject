@@ -1,12 +1,12 @@
 $('#searchCarousel.carousel .filter-inner>.carousel-item').each(function(){
-    var minPerSlide = 6;
-    var next = $(this).next();
+    let minPerSlide = 6;
+    let next = $(this).next();
     if (!next.length) {
     next = $(this).siblings(':first');
     }
     next.children(':first-child').clone().appendTo($(this));
     
-    for (var i=0;i<minPerSlide;i++) {
+    for (let i=0;i<minPerSlide;i++) {
         next=next.next();
         if (!next.length) {
         	next = $(this).siblings(':first');
