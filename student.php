@@ -11,7 +11,7 @@
     <!-- Sign up form stylesheet and google api-->
         <script src="https://apis.google.com/js/api:client.js"></script>
     </head>
-    <body>
+    <body style="width: 100%; height: 100%;">
         <div class="wrapper" id="page-background">
             <?php  
             include("includes/sidebar.php");
