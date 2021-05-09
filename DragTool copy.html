@@ -73,18 +73,19 @@
         top: 20%;
         left: 20%;
         
-        position: absolute;
+        position: relative;
         margin: 0;
         padding: 0;
         z-index: 98;
-
-
+  
       }
       #resize .indicators{
         width: 100%;
         height: 100%;
         border: 3.5px solid #4286f4;
         box-sizing: border-box;
+        position: absolute;
+        z-index: -1;
       }
 
       #resize .indicators .square-resizer{
@@ -94,52 +95,61 @@
         border: 3px solid #4286f4;
         position: absolute;
       }
-  /* resizing indicator positions */
+      
+/* resizing indicator positions */
       #resize .indicators .square-resizer.top-left {
-        left: -3px;
-        top: -3px;
+        left: -7px;
+        top: -7px;
         cursor: nwse-resize; /*resizer cursor*/
       }
       #resize .indicators .square-resizer.top-right {
-        right: -3px;
-        top: -3px;
+        right: -7px;
+        top: -7px;
         cursor: nesw-resize;
       }
       #resize .indicators .square-resizer.bottom-left {
-        left: -3px;
-        bottom: -3px;
+        left: -7px;
+        bottom: -7px;
         cursor: nesw-resize;
       }
       #resize .indicators .square-resizer.bottom-right {
-        right: -3px;
-        bottom: -3px;
+        right: -7px;
+        bottom: -7px;
         cursor: nwse-resize;
       }
 
       #resize .indicators .square-resizer.middle-right {
-        right: -3px;
-        top:calc(50% - 5px);
+        right: -7px;
+        top:calc(50% - 7px);
         cursor: ew-resize;
       }
 
       #resize .indicators .square-resizer.middle-left {
-        left: -3px;
-        top: calc(50% - 5px);
+        left: -7px;
+        top: calc(50% - 7px);
         cursor: ew-resize;
       }
 
       #resize .indicators .square-resizer.middle-bottom {
-        left: calc(50% - 5px);
-        bottom: -3px;
+        left: calc(50% - 7px);
+        bottom: -7px;
         cursor: ns-resize;
       }
 
       #resize .indicators .square-resizer.middle-top {
-        left: calc(50% - 5px);
-        top: -3px;
+        left: calc(50% - 7px);
+        top: -7px;
         cursor: ns-resize;
       }
 
+      #image{
+        margin: 5px;
+        width: calc(100%-5px);
+        height: -moz-calc(100% - 10px);
+        height: -webkit-calc(100% - 10px);
+        height: calc(100% - 10px);
+        background-color: pink;
+      }
 
     </style>
   </head>
@@ -156,13 +166,13 @@
         <div class="square-resizer middle-top"></div>
         <div class="square-resizer middle-bottom"></div> 
      </div>
+     <div id="image"></div>
    </div>
 </div>
   <!-- Required jQuery and Bootstrap Bundle (includes Popper) -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
-
   <script src="DragTool copy.js"></script>
       <?php
           include("includes/required_scripts.php");
