@@ -2,7 +2,7 @@
 Requirements:
 -	Install node.js version 16
 -	Install python 3.9.5
-      o	Install pipenv
+      o     Install pipenv
       o	Do the following once to install django
               	In Visualum virtual environment directory, using the command prompt/terminal, run the following:
               •	pipenv install django djangorestframework django-rest-knox
